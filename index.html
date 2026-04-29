@@ -2,39 +2,503 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upcoming Webinars | Thriving Dentist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #0c1829;
+      --navy-2:      #0f2140;
+      --navy-3:      #162a4e;
+      --teal:        #2dd4bf;
+      --teal-dark:   #14b8a6;
+      --teal-bg:     #f0fdf9;
+      --amber:       #f59e0b;
+      --amber-light: #fef3c7;
+      --amber-2:     #fbbf24;
+      --red:         #ef4444;
+      --white:       #ffffff;
+      --text-dark:   #0f172a;
+      --text-mid:    #334155;
+      --text-muted:  #94a3b8;
+      --border:      #e2e8f0;
+      --bg-light:    #f8fafc;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #f9f9f9;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      color: #333;
+      gap: 22px;
     }
-    .container {
-      text-align: center;
-      padding: 2rem;
+    .logo-wrap img { height: 44px; width: auto; }
+    .header-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
     }
-    h1 {
-      font-size: 2rem;
+    .header-label {
+      color: var(--text-mid);
+      font-size: 14.5px;
       font-weight: 600;
-      margin-bottom: 0.75rem;
-      color: #111;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
     }
-    p {
-      font-size: 1rem;
-      color: #666;
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(150deg, var(--navy) 0%, var(--navy-2) 55%, var(--navy-3) 100%);
+      padding: 72px 48px 84px;
+      color: var(--white);
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 2px;
+      background: var(--teal);
+    }
+    .hero h1 {
+      font-size: clamp(28px, 3.4vw, 44px);
+      font-weight: 800;
+      line-height: 1.18;
+      max-width: 820px;
+      margin: 0 auto 18px;
+    }
+    .hero h1 em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 800;
+      color: var(--amber);
+    }
+    .hero p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ── EVENTS ── */
+    .events-section {
+      padding: 64px 48px 80px;
+      flex: 1;
+    }
+    .events-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: -132px;
+    }
+
+    .event-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 30px 32px 28px;
+      box-shadow: 0 16px 40px rgba(15,33,64,0.10), 0 2px 8px rgba(15,33,64,0.06);
+      border: 1.5px solid transparent;
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .event-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal) 0%, var(--amber-2) 60%, var(--amber) 100%);
+    }
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 56px rgba(45,212,191,0.18);
+      border-color: var(--teal);
+    }
+    .event-card.upcoming::before {
+      background: linear-gradient(90deg, var(--text-muted) 0%, var(--text-muted) 100%);
+    }
+    .event-card.upcoming:hover {
+      transform: none;
+      box-shadow: 0 16px 40px rgba(15,33,64,0.10), 0 2px 8px rgba(15,33,64,0.06);
+      border-color: transparent;
+    }
+
+    .event-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .date-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--navy-2), var(--navy-3));
+      color: var(--white);
+      border-radius: 12px;
+      padding: 10px 16px;
+      min-width: 78px;
+      flex-shrink: 0;
+    }
+    .date-badge .month {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .date-badge .day {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-top: 1px;
+    }
+    .date-badge .year {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.55);
+      margin-top: 2px;
+    }
+    .event-time-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .event-day {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 0.01em;
+    }
+    .event-time {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .event-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--teal-bg);
+      color: var(--teal-dark);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-left: auto;
+    }
+    .event-tag.tbd {
+      background: #f1f5f9;
+      color: var(--text-muted);
+    }
+
+    .event-card h3 {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .event-card h3 em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      color: var(--amber);
+      display: block;
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    .event-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.65;
+      margin-bottom: 22px;
+      flex: 1;
+    }
+
+    .event-foot {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .speaker-count {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-event {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-event:hover {
+      opacity: 0.94;
+      transform: translateX(2px);
+      box-shadow: 0 6px 18px rgba(45,212,191,0.28);
+    }
+    .btn-event-disabled {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #f1f5f9;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: not-allowed;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-light);
+      border-top: 1px solid var(--border);
+      padding: 36px 48px;
+      text-align: center;
+    }
+    .footer-logo img {
+      height: 36px;
+      width: auto;
+      margin-bottom: 12px;
+    }
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    footer a { color: var(--teal-dark); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero { padding: 56px 24px 72px; }
+      .events-section { padding: 48px 24px 64px; }
+      .events-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-top: -120px;
+      }
+      .site-header { padding: 18px 24px; gap: 14px; }
+    }
+    @media (max-width: 480px) {
+      .site-header { padding: 14px 16px; gap: 10px; }
+      .logo-wrap img { height: 32px; }
+      .header-label { font-size: 12px; }
+      .header-divider { height: 24px; }
+
+      .hero { padding: 44px 16px 60px; }
+      .hero h1 { font-size: clamp(22px, 6.5vw, 30px); }
+      .hero p { font-size: 14px; }
+
+      .events-section { padding: 40px 16px 56px; }
+      .events-grid { margin-top: -100px; gap: 18px; }
+      .event-card { padding: 24px 22px 22px; }
+      .event-card h3 { font-size: 19px; }
+      .event-card h3 em { font-size: 16px; }
+      .event-desc { font-size: 13.5px; }
+      .date-badge { padding: 8px 14px; min-width: 70px; }
+      .date-badge .day { font-size: 22px; }
+      footer { padding: 28px 16px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Events Coming Soon</h1>
-    <p>Registration pages will be available here shortly.</p>
-  </div>
+
+  <!-- ── HEADER ── -->
+  <header class="site-header">
+    <div class="logo-wrap">
+      <img src="images/logo.png" alt="Thriving Dentist" />
+    </div>
+    <div class="header-divider"></div>
+    <span class="header-label">Webinar Registrations</span>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-eyebrow">Upcoming Webinars</div>
+    <h1>Live Expert Panels for <em>Dental Professionals</em></h1>
+    <p>Reserve your complimentary spot for any of our upcoming live panel discussions — practical, no-fluff conversations with leading voices in dentistry.</p>
+  </section>
+
+  <!-- ── EVENTS ── -->
+  <section class="events-section">
+    <div class="events-inner">
+      <div class="events-grid">
+
+        <!-- May 18 -->
+        <div class="event-card">
+          <div class="event-meta-row">
+            <div class="date-badge">
+              <div class="month">May</div>
+              <div class="day">18</div>
+              <div class="year">2026</div>
+            </div>
+            <div class="event-time-block">
+              <div class="event-day">Monday</div>
+              <div class="event-time">8:00 – 9:00 PM EST</div>
+            </div>
+            <span class="event-tag">Live Panel</span>
+          </div>
+          <h3>
+            AI in Your Dental Practice Right Now
+            <em>What's Actually Working, What's Hype, and What to Do Next</em>
+          </h3>
+          <p class="event-desc">Three dental AI and practice growth experts cut through the noise — covering what's making a real difference in practices today, where the risks are, and how to build a smart AI roadmap.</p>
+          <div class="event-foot">
+            <span class="speaker-count">🎤 3 Speakers</span>
+            <a href="https://thriving-dentist-registrations.netlify.app/" target="_blank" rel="noopener" class="btn-event">Register →</a>
+          </div>
+        </div>
+
+        <!-- May 25 -->
+        <div class="event-card">
+          <div class="event-meta-row">
+            <div class="date-badge">
+              <div class="month">May</div>
+              <div class="day">25</div>
+              <div class="year">2026</div>
+            </div>
+            <div class="event-time-block">
+              <div class="event-day">Monday</div>
+              <div class="event-time">8:00 – 9:00 PM EST</div>
+            </div>
+            <span class="event-tag">Live Panel</span>
+          </div>
+          <h3>
+            Trust-Based Case Acceptance
+            <em>Turning Treatment Plans Into Shared Decisions</em>
+          </h3>
+          <p class="event-desc">A practical conversation on why traditional case presentation is falling short, how patients actually make treatment decisions, and what trust-based communication looks like across the whole team.</p>
+          <div class="event-foot">
+            <span class="speaker-count">🎤 2 Speakers</span>
+            <a href="https://thriving-dentist-registrations-may25.netlify.app/" target="_blank" rel="noopener" class="btn-event">Register →</a>
+          </div>
+        </div>
+
+        <!-- June 15 -->
+        <div class="event-card">
+          <div class="event-meta-row">
+            <div class="date-badge">
+              <div class="month">Jun</div>
+              <div class="day">15</div>
+              <div class="year">2026</div>
+            </div>
+            <div class="event-time-block">
+              <div class="event-day">Monday</div>
+              <div class="event-time">8:00 – 9:00 PM EST</div>
+            </div>
+            <span class="event-tag">Live Panel</span>
+          </div>
+          <h3>
+            The Profitable Ethical Dental Practice
+            <em>Why the Highest-Margin Clinics Are Also the Most Patient-Centered</em>
+          </h3>
+          <p class="event-desc">Four leading voices in dental business, law, and patient care unpack why sustainable growth and strong values aren't competing forces — and how the most profitable practices are quietly the most patient-centered ones.</p>
+          <div class="event-foot">
+            <span class="speaker-count">🎤 4 Speakers</span>
+            <a href="June-15/" class="btn-event">Register →</a>
+          </div>
+        </div>
+
+        <!-- June 22 -->
+        <div class="event-card upcoming">
+          <div class="event-meta-row">
+            <div class="date-badge">
+              <div class="month">Jun</div>
+              <div class="day">22</div>
+              <div class="year">2026</div>
+            </div>
+            <div class="event-time-block">
+              <div class="event-day">Monday</div>
+              <div class="event-time">8:00 – 9:00 PM EST</div>
+            </div>
+            <span class="event-tag tbd">Coming Soon</span>
+          </div>
+          <h3>
+            Details Coming Soon
+            <em>Topic, speakers, and registration to be announced</em>
+          </h3>
+          <p class="event-desc">A new live panel discussion is on the way. Full details and the registration page will be added here as soon as they're announced — check back shortly.</p>
+          <div class="event-foot">
+            <span class="speaker-count">📅 Save the Date</span>
+            <span class="btn-event-disabled">Coming Soon</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-logo">
+      <img src="images/logo.png" alt="Thriving Dentist" />
+    </div>
+    <p>
+      © 2026 Thriving Dentist. All rights reserved.<br>
+      <a href="https://www.thrivingdentist.com/privacy-policy/">Privacy Policy</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.thrivingdentist.com/contact/">Contact</a>
+    </p>
+  </footer>
+
 </body>
 </html>
