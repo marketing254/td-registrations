@@ -124,43 +124,75 @@
     }
 
     .event-card {
-      background: var(--white);
-      border-radius: 18px;
+      background: linear-gradient(165deg, #0f2140 0%, #0c1829 55%, #162a4e 100%);
+      color: var(--white);
+      border-radius: 20px;
       padding: 30px 32px 28px;
-      box-shadow: 0 16px 40px rgba(15,33,64,0.10), 0 2px 8px rgba(15,33,64,0.06);
-      border: 1.5px solid transparent;
-      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+      box-shadow:
+        0 30px 60px -16px rgba(0,0,0,0.45),
+        0 8px 20px -4px rgba(15,33,64,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+      border: 1px solid rgba(45,212,191,0.14);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
       display: flex;
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      isolation: isolate;
     }
     .event-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 4px;
+      height: 3px;
       background: linear-gradient(90deg, var(--teal) 0%, var(--amber-2) 60%, var(--amber) 100%);
+      z-index: 3;
     }
+    .event-card::after {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 320px;
+      height: 320px;
+      background:
+        radial-gradient(circle, rgba(45,212,191,0.18) 0%, transparent 65%),
+        radial-gradient(circle at 60% 60%, rgba(245,158,11,0.10) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .event-card > * { position: relative; z-index: 1; }
     .event-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 56px rgba(45,212,191,0.18);
-      border-color: var(--teal);
+      transform: translateY(-5px);
+      box-shadow:
+        0 36px 72px -16px rgba(0,0,0,0.5),
+        0 12px 28px -4px rgba(45,212,191,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+      border-color: rgba(45,212,191,0.32);
+    }
+    .event-card.upcoming {
+      background: linear-gradient(165deg, #1e293b 0%, #0f172a 60%, #1e293b 100%);
+      border-color: rgba(148,163,184,0.18);
     }
     .event-card.upcoming::before {
-      background: linear-gradient(90deg, var(--text-muted) 0%, var(--text-muted) 100%);
+      background: linear-gradient(90deg, #475569 0%, #64748b 100%);
+    }
+    .event-card.upcoming::after {
+      background: radial-gradient(circle, rgba(148,163,184,0.10) 0%, transparent 65%);
     }
     .event-card.upcoming:hover {
       transform: none;
-      box-shadow: 0 16px 40px rgba(15,33,64,0.10), 0 2px 8px rgba(15,33,64,0.06);
-      border-color: transparent;
+      box-shadow:
+        0 30px 60px -16px rgba(0,0,0,0.45),
+        0 8px 20px -4px rgba(15,33,64,0.25);
+      border-color: rgba(148,163,184,0.18);
     }
 
     .event-meta-row {
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       flex-wrap: wrap;
     }
     .date-badge {
@@ -168,12 +200,16 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, var(--navy-2), var(--navy-3));
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.16);
       color: var(--white);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 10px 16px;
       min-width: 78px;
       flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
     }
     .date-badge .month {
       font-size: 11px;
@@ -183,16 +219,17 @@
       color: var(--teal);
     }
     .date-badge .day {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 800;
       line-height: 1.1;
       margin-top: 1px;
+      color: var(--white);
     }
     .date-badge .year {
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.5);
       margin-top: 2px;
     }
     .event-time-block {
@@ -203,12 +240,12 @@
     .event-day {
       font-size: 13px;
       font-weight: 700;
-      color: var(--text-dark);
+      color: var(--white);
       letter-spacing: 0.01em;
     }
     .event-time {
       font-size: 12.5px;
-      color: var(--text-muted);
+      color: rgba(255,255,255,0.55);
       font-weight: 500;
     }
 
@@ -216,25 +253,27 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--teal-bg);
-      color: var(--teal-dark);
+      background: rgba(45,212,191,0.14);
+      color: var(--teal);
+      border: 1px solid rgba(45,212,191,0.28);
       font-size: 10.5px;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 4px 10px;
+      padding: 5px 11px;
       border-radius: 999px;
       margin-left: auto;
     }
     .event-tag.tbd {
-      background: #f1f5f9;
-      color: var(--text-muted);
+      background: rgba(148,163,184,0.12);
+      color: rgba(255,255,255,0.55);
+      border-color: rgba(148,163,184,0.22);
     }
 
     .event-card h3 {
       font-size: 21px;
       font-weight: 800;
-      color: var(--text-dark);
+      color: var(--white);
       line-height: 1.25;
       margin-bottom: 8px;
     }
@@ -250,23 +289,137 @@
     }
     .event-desc {
       font-size: 14px;
-      color: var(--text-mid);
+      color: rgba(255,255,255,0.68);
       line-height: 1.65;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
       flex: 1;
+    }
+
+    /* Glassy speaker showcase */
+    .speaker-showcase {
+      position: relative;
+      background: linear-gradient(135deg, rgba(20,184,166,0.18) 0%, rgba(15,33,64,0.45) 50%, rgba(99,102,241,0.18) 100%);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px;
+      padding: 22px 16px 18px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      isolation: isolate;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .speaker-showcase::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(245,158,11,0.32) 0%, transparent 50%),
+        radial-gradient(circle at 82% 75%, rgba(45,212,191,0.40) 0%, transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(99,102,241,0.18) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .speaker-showcase-label {
+      position: relative;
+      z-index: 2;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .speaker-showcase-label::before {
+      content: '';
+      width: 18px;
+      height: 1.5px;
+      background: var(--teal);
+    }
+    .speaker-tiles {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 10px;
+    }
+    .speaker-tiles[data-cols="2"] { grid-template-columns: repeat(2, 1fr); }
+    .speaker-tiles[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
+    .speaker-tiles[data-cols="4"] { grid-template-columns: repeat(4, 1fr); }
+    .speaker-tile {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 12px;
+      padding: 12px 8px 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.25s, background 0.25s, border-color 0.25s;
+    }
+    .speaker-tile:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.32);
+    }
+    .speaker-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid rgba(255,255,255,0.85);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.32);
+      background: var(--navy-2);
+    }
+    .speaker-tile-name {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+    }
+    .speaker-tile-role {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.62);
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+    }
+    /* Placeholder tiles (TBA) */
+    .speaker-thumb-placeholder {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.4);
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: rgba(255,255,255,0.55);
+    }
+    .speaker-showcase.tba {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    }
+    .speaker-showcase.tba::before {
+      background: radial-gradient(circle at 50% 50%, rgba(148,163,184,0.18) 0%, transparent 60%);
     }
 
     .event-foot {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
-    .speaker-count {
-      font-size: 12.5px;
+    .event-tag-foot {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
       font-weight: 600;
-      color: var(--text-muted);
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -297,8 +450,9 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: #f1f5f9;
-      color: var(--text-muted);
+      background: rgba(148,163,184,0.10);
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(148,163,184,0.20);
       font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.04em;
@@ -337,6 +491,17 @@
         margin-top: -120px;
       }
       .site-header { padding: 18px 24px; gap: 14px; }
+    }
+    @media (max-width: 540px) {
+      .speaker-tiles[data-cols="3"],
+      .speaker-tiles[data-cols="4"] {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .speaker-tile { padding: 10px 6px; }
+      .speaker-thumb,
+      .speaker-thumb-placeholder { width: 56px; height: 56px; }
+      .speaker-tile-name { font-size: 11px; }
+      .speaker-tile-role { font-size: 9px; }
     }
     @media (max-width: 480px) {
       .site-header { padding: 14px 16px; gap: 10px; }
@@ -402,8 +567,34 @@
             <em>What's Actually Working, What's Hype, and What to Do Next</em>
           </h3>
           <p class="event-desc">Three dental AI and practice growth experts cut through the noise — covering what's making a real difference in practices today, where the risks are, and how to build a smart AI roadmap.</p>
+          <div class="speaker-showcase">
+            <div class="speaker-showcase-label">Featured Panelists</div>
+            <div class="speaker-tiles" data-cols="3">
+              <div class="speaker-tile">
+                <img class="speaker-thumb" src="images/Richard may.png" alt="Richard May" />
+                <div>
+                  <div class="speaker-tile-name">Richard May</div>
+                  <div class="speaker-tile-role">Mango Voice</div>
+                </div>
+              </div>
+              <div class="speaker-tile">
+                <img class="speaker-thumb" src="images/David Bolden.png" alt="David Bolden" />
+                <div>
+                  <div class="speaker-tile-name">David Bolden</div>
+                  <div class="speaker-tile-role">Arise Solutions</div>
+                </div>
+              </div>
+              <div class="speaker-tile">
+                <img class="speaker-thumb" src="images/Rushan Dissanayake.jpg" alt="Rushan Dissanayake" />
+                <div>
+                  <div class="speaker-tile-name">Rushan Dissanayake</div>
+                  <div class="speaker-tile-role">Rinse AI</div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="event-foot">
-            <span class="speaker-count">🎤 3 Speakers</span>
+            <span class="event-tag-foot">🎤 Live Expert Panel</span>
             <a href="https://thriving-dentist-registrations.netlify.app/" target="_blank" rel="noopener" class="btn-event">Register →</a>
           </div>
         </div>
@@ -427,8 +618,27 @@
             <em>Turning Treatment Plans Into Shared Decisions</em>
           </h3>
           <p class="event-desc">A practical conversation on why traditional case presentation is falling short, how patients actually make treatment decisions, and what trust-based communication looks like across the whole team.</p>
+          <div class="speaker-showcase">
+            <div class="speaker-showcase-label">Featured Panelists</div>
+            <div class="speaker-tiles" data-cols="2">
+              <div class="speaker-tile">
+                <img class="speaker-thumb" src="images/Janet (1).jpg" alt="Janet Hagerman" />
+                <div>
+                  <div class="speaker-tile-name">Janet Hagerman</div>
+                  <div class="speaker-tile-role">Case Acceptance Coach</div>
+                </div>
+              </div>
+              <div class="speaker-tile">
+                <img class="speaker-thumb" src="images/Rika Markel Headshot.png" alt="Rika Markel" />
+                <div>
+                  <div class="speaker-tile-name">Rika Markel</div>
+                  <div class="speaker-tile-role">Mindful Dentistry</div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="event-foot">
-            <span class="speaker-count">🎤 2 Speakers</span>
+            <span class="event-tag-foot">🎤 Live Expert Panel</span>
             <a href="https://thriving-dentist-registrations-may25.netlify.app/" target="_blank" rel="noopener" class="btn-event">Register →</a>
           </div>
         </div>
@@ -452,8 +662,41 @@
             <em>Why the Highest-Margin Clinics Are Also the Most Patient-Centered</em>
           </h3>
           <p class="event-desc">Four leading voices in dental business, law, and patient care unpack why sustainable growth and strong values aren't competing forces — and how the most profitable practices are quietly the most patient-centered ones.</p>
+          <div class="speaker-showcase">
+            <div class="speaker-showcase-label">Featured Panelists</div>
+            <div class="speaker-tiles" data-cols="4">
+              <div class="speaker-tile">
+                <img class="speaker-thumb" src="June-15/levi_barlavi_headshot.jpg" alt="Levi Barlavi" />
+                <div>
+                  <div class="speaker-tile-name">Levi Barlavi</div>
+                  <div class="speaker-tile-role">Polished Legal</div>
+                </div>
+              </div>
+              <div class="speaker-tile">
+                <img class="speaker-thumb" src="June-15/Angela Golden.jpeg" alt="Angela Golden" />
+                <div>
+                  <div class="speaker-tile-name">Angela Golden</div>
+                  <div class="speaker-tile-role">Dental Advisor</div>
+                </div>
+              </div>
+              <div class="speaker-tile">
+                <img class="speaker-thumb" src="June-15/Ben Atkinson.jpg" alt="Benjamin Atkins" />
+                <div>
+                  <div class="speaker-tile-name">Ben Atkins</div>
+                  <div class="speaker-tile-role">Oral Health Foundation</div>
+                </div>
+              </div>
+              <div class="speaker-tile">
+                <img class="speaker-thumb" src="June-15/Lora Banicevic (1).jpg" alt="Lora Banicevic" />
+                <div>
+                  <div class="speaker-tile-name">Lora Banicevic</div>
+                  <div class="speaker-tile-role">Corner 32 Dental</div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="event-foot">
-            <span class="speaker-count">🎤 4 Speakers</span>
+            <span class="event-tag-foot">🎤 Live Expert Panel</span>
             <a href="June-15/" class="btn-event">Register →</a>
           </div>
         </div>
@@ -477,8 +720,34 @@
             <em>Topic, speakers, and registration to be announced</em>
           </h3>
           <p class="event-desc">A new live panel discussion is on the way. Full details and the registration page will be added here as soon as they're announced — check back shortly.</p>
+          <div class="speaker-showcase tba">
+            <div class="speaker-showcase-label">Panelists</div>
+            <div class="speaker-tiles" data-cols="3">
+              <div class="speaker-tile">
+                <div class="speaker-thumb-placeholder">?</div>
+                <div>
+                  <div class="speaker-tile-name">TBA</div>
+                  <div class="speaker-tile-role">Coming Soon</div>
+                </div>
+              </div>
+              <div class="speaker-tile">
+                <div class="speaker-thumb-placeholder">?</div>
+                <div>
+                  <div class="speaker-tile-name">TBA</div>
+                  <div class="speaker-tile-role">Coming Soon</div>
+                </div>
+              </div>
+              <div class="speaker-tile">
+                <div class="speaker-thumb-placeholder">?</div>
+                <div>
+                  <div class="speaker-tile-name">TBA</div>
+                  <div class="speaker-tile-role">Coming Soon</div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="event-foot">
-            <span class="speaker-count">📅 Save the Date</span>
+            <span class="event-tag-foot">📅 Save the Date</span>
             <span class="btn-event-disabled">Coming Soon</span>
           </div>
         </div>
