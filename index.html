@@ -361,9 +361,22 @@
       display: grid;
       gap: 10px;
     }
+    .speaker-tiles[data-cols="1"] { grid-template-columns: 1fr; }
     .speaker-tiles[data-cols="2"] { grid-template-columns: repeat(2, 1fr); }
     .speaker-tiles[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
     .speaker-tiles[data-cols="4"] { grid-template-columns: repeat(4, 1fr); }
+    /* Single-speaker tile: horizontal layout, image on the left */
+    .speaker-tiles[data-cols="1"] .speaker-tile {
+      flex-direction: row;
+      text-align: left;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 18px;
+    }
+    .speaker-tiles[data-cols="1"] .speaker-thumb {
+      width: 70px;
+      height: 70px;
+    }
     .speaker-tile {
       background: rgba(255,255,255,0.12);
       backdrop-filter: blur(14px) saturate(160%);
@@ -665,6 +678,80 @@
           <div class="event-foot">
             <span class="event-tag-foot">🎤 Live Expert Panel</span>
             <a href="https://thriving-dentist-registrations-may25.netlify.app/" target="_blank" rel="noopener" class="btn-event">Register →</a>
+          </div>
+        </div>
+
+        <!-- June 03 -->
+        <div class="event-card">
+          <div class="event-meta-row">
+            <div class="date-badge">
+              <div class="month">Jun</div>
+              <div class="day">03</div>
+              <div class="year">2026</div>
+            </div>
+            <div class="event-time-block">
+              <div class="event-day">Wednesday</div>
+              <div class="event-time">7:00 – 8:00 PM EST</div>
+            </div>
+            <span class="event-tag">Live Webinar</span>
+          </div>
+          <h3>
+            Keeping Dental Insurance In-House
+            <em>How to Stop Outsourcing and Start Thriving</em>
+          </h3>
+          <p class="event-desc">A practical session on bringing your dental insurance work in-house — what your team can really do, the simple system that makes it work, and the real results practices see when they stop outsourcing.</p>
+          <div class="speaker-showcase">
+            <div class="speaker-showcase-label">Featured Speaker</div>
+            <div class="speaker-tiles" data-cols="1">
+              <div class="speaker-tile">
+                <img class="speaker-thumb" src="June-03/Bri Richardson Elevate My Practice Headshot 2.jpg" alt="Bri Richardson" />
+                <div>
+                  <div class="speaker-tile-name">Bri Richardson, CDA</div>
+                  <div class="speaker-tile-role">Founder, Elevate My Practice</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="event-foot">
+            <span class="event-tag-foot">🎤 Live Webinar</span>
+            <a href="June-03/" class="btn-event">Register →</a>
+          </div>
+        </div>
+
+        <!-- June 10 -->
+        <div class="event-card">
+          <div class="event-meta-row">
+            <div class="date-badge">
+              <div class="month">Jun</div>
+              <div class="day">10</div>
+              <div class="year">2026</div>
+            </div>
+            <div class="event-time-block">
+              <div class="event-day">Wednesday</div>
+              <div class="event-time">7:00 – 8:00 PM EST</div>
+            </div>
+            <span class="event-tag">Live Webinar</span>
+          </div>
+          <h3>
+            Drop a PPO Without Losing a Patient
+            <em>How three independent practices reduced PPO dependence in 2026</em>
+          </h3>
+          <p class="event-desc">A practical session on the math, timing, and patient communication behind going PPO-light — what worked, what they'd do differently, and the six-month reality check on how it actually played out.</p>
+          <div class="speaker-showcase">
+            <div class="speaker-showcase-label">Featured Speaker</div>
+            <div class="speaker-tiles" data-cols="1">
+              <div class="speaker-tile">
+                <img class="speaker-thumb" src="June-10/eric-sq.png" alt="Eric Dawe" />
+                <div>
+                  <div class="speaker-tile-name">Eric Dawe</div>
+                  <div class="speaker-tile-role">VP, DentalHQ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="event-foot">
+            <span class="event-tag-foot">🎤 Live Webinar</span>
+            <a href="June-10/" class="btn-event">Register →</a>
           </div>
         </div>
 

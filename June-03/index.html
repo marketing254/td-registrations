@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keeping Dental Insurance In-House | Thriving Dentist Webinar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet" />
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wj5ouho8fy");
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0M26KGT8V2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0M26KGT8V2');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #0c1829;
+      --navy-2:      #0f2140;
+      --navy-3:      #162a4e;
+      --teal:        #2dd4bf;
+      --teal-dark:   #14b8a6;
+      --teal-bg:     #f0fdf9;
+      --amber:       #f59e0b;
+      --amber-light: #fef3c7;
+      --amber-2:     #fbbf24;
+      --red:         #ef4444;
+      --white:       #ffffff;
+      --text-dark:   #0f172a;
+      --text-mid:    #334155;
+      --text-muted:  #94a3b8;
+      --border:      #e2e8f0;
+      --bg-light:    #f8fafc;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+    }
+    .logo-wrap { display: flex; align-items: center; }
+    .logo-wrap img { height: 44px; width: auto; }
+    .header-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+    .header-label {
+      color: var(--text-mid);
+      font-size: 14.5px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    /* ── ALERT BAR ── */
+    .alert-bar {
+      background: var(--navy-2);
+      border-bottom: 1px solid rgba(45,212,191,0.18);
+      padding: 12px 48px;
+      text-align: center;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+    }
+    .alert-bar .teal-link {
+      color: var(--teal);
+      font-weight: 600;
+      text-decoration: none;
+      margin-left: 4px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(150deg, var(--navy) 0%, var(--navy-2) 55%, var(--navy-3) 100%);
+      padding: 64px 48px 72px;
+    }
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 430px;
+      gap: 52px;
+      align-items: start;
+    }
+
+    .hero-left { color: var(--white); }
+
+    .badges {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.88);
+    }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    .hero-heading {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 800;
+      line-height: 1.18;
+      margin-bottom: 22px;
+      color: var(--white);
+    }
+    .hero-heading em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 800;
+      color: var(--amber);
+      display: block;
+      line-height: 1.25;
+    }
+    .hero-desc {
+      font-size: 15.5px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 540px;
+      margin-bottom: 36px;
+    }
+
+    .event-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 38px;
+    }
+    .meta-chip { display: flex; align-items: center; gap: 11px; }
+    .meta-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: rgba(45,212,191,0.15);
+      border: 1px solid rgba(45,212,191,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+    .meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 2px;
+    }
+    .meta-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .countdown { display: flex; gap: 10px; }
+    .cd-box {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 10px;
+      padding: 14px 16px 12px;
+      text-align: center;
+      min-width: 74px;
+    }
+    .cd-num {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--amber);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .cd-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      margin-top: 5px;
+    }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 30px 28px 26px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.45), 0 4px 20px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal) 0%, var(--amber-2) 60%, var(--amber) 100%);
+    }
+    .seats-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--amber-light);
+      color: #92400e;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 13px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .form-card h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-dark);
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    .form-subtext {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .info-box {
+      background: var(--teal-bg);
+      border: 1px solid rgba(45,212,191,0.25);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: #0f766e;
+      line-height: 1.5;
+    }
+    .info-box strong { color: #0d6b62; }
+    .info-box .info-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-group { margin-bottom: 13px; }
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-mid);
+      margin-bottom: 5px;
+    }
+    .form-group label .req { color: var(--red); }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 13px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #cbd5e1; }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal-dark);
+      box-shadow: 0 0 0 3px rgba(45,212,191,0.15);
+    }
+    .btn-register {
+      width: 100%;
+      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 14px;
+      border: none;
+      border-radius: 9px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.18s, transform 0.15s;
+      margin-top: 4px;
+    }
+    .btn-register:hover { opacity: 0.92; transform: translateY(-1px); }
+    .privacy-note {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 72px 48px; }
+    .section-inner { max-width: 1180px; margin: 0 auto; }
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--teal-dark);
+    }
+    .section h2 {
+      font-size: clamp(24px, 2.8vw, 34px);
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .section h2 em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      color: var(--amber);
+    }
+    .section-lead {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      max-width: 560px;
+    }
+
+    /* Featured single-speaker card */
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .speaker-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 36px 36px;
+      transition: box-shadow 0.22s, border-color 0.22s, transform 0.22s;
+      display: flex;
+      flex-direction: column;
+    }
+    .speaker-card:hover {
+      box-shadow: 0 16px 44px rgba(45,212,191,0.14);
+      border-color: var(--teal);
+      transform: translateY(-3px);
+    }
+    .speaker-top {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 22px;
+    }
+    .speaker-img-wrap {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--teal);
+      background: var(--navy-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--teal);
+      flex-shrink: 0;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .speaker-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .speaker-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .speaker-title {
+      font-size: 13px;
+      color: var(--teal-dark);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+    .sp-divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--amber));
+      border-radius: 2px;
+      margin-bottom: 18px;
+    }
+    .speaker-bio {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ── TOPICS ── */
+    .section-dark { background: var(--navy); color: var(--white); }
+    .section-dark .section-eyebrow { color: var(--teal); }
+    .section-dark .section-eyebrow::before { background: var(--teal); }
+    .section-dark h2 { color: var(--white); }
+    .section-dark .section-lead { color: rgba(255,255,255,0.55); }
+
+    .topics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .topic-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 22px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .topic-card:hover {
+      background: rgba(45,212,191,0.07);
+      border-color: rgba(45,212,191,0.3);
+    }
+    .topic-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .topic-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(45,212,191,0.15);
+      border: 1px solid rgba(45,212,191,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+    .topic-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 5px;
+      line-height: 1.35;
+    }
+    .topic-card p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.55;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+      padding: 64px 48px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .cta-section p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 28px;
+    }
+    .btn-cta {
+      display: inline-block;
+      background: var(--white);
+      color: var(--teal-dark);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 14px 38px;
+      border-radius: 9px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-cta:hover { opacity: 0.92; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-light);
+      border-top: 1px solid var(--border);
+      padding: 36px 48px;
+      text-align: center;
+    }
+    .footer-logo { display: inline-flex; align-items: center; margin-bottom: 14px; }
+    .footer-logo img { height: 36px; width: auto; }
+    footer p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+    footer a { color: var(--teal-dark); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr 400px; gap: 36px; }
+    }
+    @media (max-width: 960px) {
+      .hero { padding: 48px 32px 56px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-card { max-width: 560px; margin: 0 auto; width: 100%; }
+      .hero-desc { max-width: 100%; }
+    }
+    @media (max-width: 720px) {
+      .site-header  { padding: 16px 20px; gap: 14px; }
+      .logo-wrap img { height: 36px; }
+      .header-label { font-size: 13px; }
+
+      .alert-bar { padding: 10px 20px; font-size: 13px; }
+      .hero { padding: 40px 20px 48px; }
+      .section { padding: 52px 20px; }
+      .cta-section { padding: 48px 20px; }
+      footer { padding: 32px 20px; }
+
+      .hero-heading { font-size: clamp(22px, 6vw, 32px); }
+      .hero-desc { font-size: 15px; margin-bottom: 28px; }
+
+      .event-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 24px 20px 20px; }
+
+      .speaker-card { padding: 26px 22px; }
+      .speaker-top { gap: 16px; flex-direction: column; align-items: flex-start; }
+
+      .topics-grid { grid-template-columns: 1fr; }
+      .topic-card:last-child:nth-child(odd) { grid-column: auto; }
+      .topic-card { padding: 18px 18px; }
+
+      .section h2 { font-size: clamp(22px, 5vw, 30px); }
+      .section-lead { font-size: 15px; margin-bottom: 32px; }
+    }
+    @media (max-width: 480px) {
+      .site-header { padding: 14px 16px; gap: 10px; }
+      .logo-wrap img { height: 30px; }
+      .header-label { font-size: 12px; letter-spacing: 0.01em; }
+      .header-divider { height: 24px; }
+
+      .hero { padding: 32px 16px 40px; }
+      .section { padding: 44px 16px; }
+      .cta-section { padding: 40px 16px; }
+      footer { padding: 28px 16px; }
+
+      .badges { gap: 8px; margin-bottom: 20px; }
+      .badge { font-size: 10px; padding: 5px 12px; }
+
+      .hero-heading { font-size: clamp(20px, 6.5vw, 26px); margin-bottom: 16px; }
+      .hero-desc { font-size: 14px; margin-bottom: 24px; }
+
+      .countdown { gap: 8px; }
+      .cd-box { flex: 1; min-width: 0; padding: 12px 8px 10px; }
+      .cd-num { font-size: 22px; }
+      .cd-label { font-size: 8px; }
+
+      .event-meta { gap: 10px; }
+      .meta-icon { width: 32px; height: 32px; font-size: 15px; }
+      .meta-value { font-size: 13px; }
+
+      .form-card { padding: 20px 16px 18px; border-radius: 14px; }
+      .form-card h2 { font-size: 19px; }
+      .seats-badge { font-size: 11px; }
+
+      .speaker-img-wrap { width: 88px; height: 88px; }
+      .speaker-name { font-size: 19px; }
+      .speaker-bio { font-size: 14px; }
+
+      .btn-register { font-size: 14px; padding: 13px; }
+      .btn-cta { font-size: 14px; padding: 13px 28px; }
+
+      .cta-section h2 { font-size: clamp(20px, 5.5vw, 26px); }
+      .cta-section p { font-size: 14px; }
+    }
+    @media (max-width: 360px) {
+      .header-label { display: none; }
+      .header-divider { display: none; }
+      .event-meta { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo-wrap">
+      <img src="../images/logo.png" alt="Thriving Dentist" />
+    </div>
+    <div class="header-divider"></div>
+    <span class="header-label">Live Webinar 2026</span>
+  </header>
+
+  <div class="alert-bar">
+    Stop outsourcing your insurance work — and start thriving.
+    <a class="teal-link" href="#">Live Webinar — Free to Attend</a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div class="hero-left">
+        <div class="badges">
+          <span class="badge"><span class="badge-dot"></span> Live Webinar</span>
+          <span class="badge">🎤 Featured Speaker</span>
+        </div>
+
+        <h1 class="hero-heading">
+          Keeping Dental Insurance In-House:
+          <em>How to Stop Outsourcing and Start Thriving</em>
+        </h1>
+
+        <p class="hero-desc">
+          A practical, no-fluff session on bringing your dental insurance work in-house — what your team is actually capable of, the simple system that makes it work, and the real results practices see when they stop outsourcing.
+        </p>
+
+        <div class="event-meta">
+          <div class="meta-chip">
+            <div class="meta-icon">🗓</div>
+            <div>
+              <div class="meta-label">Date</div>
+              <div class="meta-value">Wednesday, June 3, 2026</div>
+            </div>
+          </div>
+          <div class="meta-chip">
+            <div class="meta-icon">🕗</div>
+            <div>
+              <div class="meta-label">Time</div>
+              <div class="meta-value">7:00 – 8:00 PM EST</div>
+            </div>
+          </div>
+          <div class="meta-chip">
+            <div class="meta-icon">💻</div>
+            <div>
+              <div class="meta-label">Format</div>
+              <div class="meta-value">Live Zoom + Q&amp;A</div>
+            </div>
+          </div>
+          <div class="meta-chip">
+            <div class="meta-icon">🎟</div>
+            <div>
+              <div class="meta-label">Cost</div>
+              <div class="meta-value">Complimentary</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="countdown" id="countdown">
+          <div class="cd-box"><div class="cd-num" id="cd-days">30</div><div class="cd-label">Days</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Hours</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">Mins</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Secs</div></div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div style="text-align:center;">
+          <span class="seats-badge">⏰ Limited Seats Available</span>
+        </div>
+        <h2>Reserve Your Spot</h2>
+        <p class="form-subtext">Complimentary to attend — replay sent to all registrants</p>
+
+        <div class="info-box">
+          <span class="info-icon">📋</span>
+          <span>Join a live, no-fluff session on building <strong>an in-house insurance system</strong> that gets you paid faster — without burning out your team.</span>
+        </div>
+
+        <form id="reg-form" novalidate>
+          <input type="hidden" name="event_key" value="event_2026_06_03" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name <span class="req">*</span></label>
+              <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name <span class="req">*</span></label>
+              <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="you@yourpractice.com" autocomplete="email" required />
+          </div>
+          <div class="form-group">
+            <label>Mobile Number <span class="req">*</span></label>
+            <input type="tel" name="phone" placeholder="+1 (555) 123-4567" autocomplete="tel" required />
+          </div>
+          <div class="form-group">
+            <label>What questions do you have? <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
+            <textarea name="questions" placeholder="Share any questions you'd like Bri to address…"></textarea>
+          </div>
+          <button type="submit" class="btn-register" id="reg-btn">Register for Free →</button>
+          <p class="privacy-note">🔒 We respect your privacy. No spam, ever.</p>
+          <div id="reg-msg" style="display:none;margin-top:12px;padding:12px 16px;border-radius:10px;font-size:14px;font-weight:600;text-align:center;"></div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-light);">
+    <div class="section-inner">
+      <div class="section-eyebrow">Your Featured Speaker</div>
+      <h2>Meet <em>Bri Richardson</em></h2>
+      <p class="section-lead">A dental insurance specialist on a mission to help dental teams get paid in 30 days — through systems, training, and contagious energy.</p>
+
+      <div class="speakers-grid">
+
+        <div class="speaker-card">
+          <div class="speaker-top">
+            <div class="speaker-img-wrap">
+              <img src="Bri Richardson Elevate My Practice Headshot 2.jpg" alt="Bri Richardson"
+                   onerror="this.style.display='none';this.parentNode.innerHTML='BR'" />
+            </div>
+            <div>
+              <div class="speaker-name">Bri Richardson, CDA</div>
+              <div class="speaker-title">Founder, Elevate My Practice<br>Dental Insurance Specialist</div>
+            </div>
+          </div>
+          <div class="sp-divider"></div>
+          <p class="speaker-bio">Bri Richardson, CDA is a dental insurance specialist, trainer, and speaker on a mission to help dental teams get Paid in 30 Days. As founder of Elevate My Practice, she trains front office teams to master insurance verifications, submit clean claims, overturn denials, and collect from patients — so practices can slash their A/R and get paid faster. She brings real-world expertise, a proven system, and the kind of contagious energy that makes even dental insurance feel exciting. When dental teams work with Bri, getting paid stops being the hard part.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="section-inner">
+      <div class="section-eyebrow">Key Discussion Topics</div>
+      <h2>What We'll <em>Cover</em></h2>
+      <p class="section-lead">A focused, practical session on bringing your insurance work in-house — and what changes when you do.</p>
+
+      <div class="topics-grid">
+
+        <div class="topic-card">
+          <div class="topic-num">1</div>
+          <div>
+            <h4>Why Outsourcing Is Costing You More Than You Think</h4>
+            <p>The hidden costs and risks practices don't see when handing insurance work to outsourced services.</p>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-num">2</div>
+          <div>
+            <h4>What Your In-House Team Is Actually Capable Of</h4>
+            <p>How your existing team can handle insurance verification, claims, and follow-up at a higher level than you'd expect.</p>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-num">3</div>
+          <div>
+            <h4>Building a Simple Insurance System That Just Works</h4>
+            <p>A clear, repeatable workflow your team can follow without getting overwhelmed.</p>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-num">4</div>
+          <div>
+            <h4>Training Your Team to Own It With Confidence</h4>
+            <p>How to build accountability and ownership so your team can run insurance with confidence.</p>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-num">5</div>
+          <div>
+            <h4>Real Results When You Take Insurance In-House</h4>
+            <p>What practices actually see — faster collections, lower A/R, and stronger team performance.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Don't Miss This Session</h2>
+    <p>Reserve your complimentary spot now — and learn how to get paid in 30 days without outsourcing.</p>
+    <a href="#" class="btn-cta" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+      Reserve My Free Spot →
+    </a>
+  </section>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="../images/logo.png" alt="Thriving Dentist" />
+    </div>
+    <p>
+      © 2026 Thriving Dentist. All rights reserved.<br>
+      <a href="https://www.thrivingdentist.com/privacy-policy/">Privacy Policy</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.thrivingdentist.com/contact/">Contact</a>
+    </p>
+  </footer>
+
+  <script>
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzyxlgV8_VFXqKgINipNuurNgGNPgdwPxgPECnBvvFKUUvXCbdN-WIgW1o_lTaFoLVp/exec';
+    const EVENT_KEY = 'event_2026_06_03';
+    const LOCAL_TEST_MODE = APPS_SCRIPT_URL.startsWith('REPLACE_ME');
+
+    document.getElementById('reg-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn  = document.getElementById('reg-btn');
+      const msg  = document.getElementById('reg-msg');
+
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const source_id = new URLSearchParams(window.location.search).get('s') || '';
+
+      const data = {
+        event_key:   form.event_key.value.trim() || EVENT_KEY,
+        first_name:  form.first_name.value.trim(),
+        last_name:   form.last_name.value.trim(),
+        email:       form.email.value.trim(),
+        phone:       form.phone.value.trim(),
+        questions:   form.questions.value.trim(),
+        source_id:   source_id,
+        source_name: '',
+      };
+
+      btn.disabled    = true;
+      btn.textContent = 'Registering…';
+      msg.style.display = 'none';
+
+      if (LOCAL_TEST_MODE) {
+        console.log('%c[LOCAL TEST] Payload:', 'color:#2dd4bf;font-weight:bold;', data);
+        setTimeout(() => {
+          msg.style.cssText = 'display:block;margin-top:12px;padding:12px 16px;border-radius:10px;font-size:14px;font-weight:600;text-align:center;background:#d4edda;color:#155724;border:1px solid #c3e6cb;';
+          msg.textContent = '✓ [TEST] Payload captured — check browser console.';
+          btn.disabled    = false;
+          btn.textContent = 'Register for Free →';
+          form.reset();
+        }, 800);
+        return;
+      }
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method:  'POST',
+          mode:    'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body:    JSON.stringify(data),
+        });
+        form.querySelectorAll('input, textarea').forEach(i => i.disabled = true);
+        btn.disabled    = true;
+        btn.textContent = '✓ You\'re Registered!';
+        btn.style.background = 'linear-gradient(135deg, #28a745, #1e7e34)';
+        btn.style.boxShadow  = '0 8px 24px rgba(40,167,69,0.35)';
+        msg.style.cssText = 'display:block;margin-top:12px;padding:12px 16px;border-radius:10px;font-size:14px;font-weight:600;text-align:center;background:#d4edda;color:#155724;border:1px solid #c3e6cb;';
+        msg.textContent = 'You\'re all set! Check your email for the Zoom confirmation link.';
+      } catch (err) {
+        msg.style.cssText = 'display:block;margin-top:12px;padding:12px 16px;border-radius:10px;font-size:14px;font-weight:600;text-align:center;background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;';
+        msg.textContent = 'Something went wrong. Please try again or contact us directly.';
+        console.error('Registration error:', err);
+        btn.disabled    = false;
+        btn.textContent = 'Register for Free →';
+      }
+    });
+
+    // June 3, 2026 7:00 PM EDT (UTC-4) = June 3 23:00 UTC
+    const target = new Date('2026-06-03T23:00:00Z').getTime();
+    function tick() {
+      const diff = Math.max(0, target - Date.now());
+      if (diff === 0) {
+        document.getElementById('countdown').innerHTML =
+          '<div style="color:var(--teal);font-size:18px;font-weight:700;letter-spacing:0.03em;">The session is live now!</div>';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff / 3600000) % 24);
+      const m = Math.floor((diff / 60000) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
+      document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+      document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+      document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
+
+</body>
+</html>
