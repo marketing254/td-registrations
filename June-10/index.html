@@ -370,16 +370,16 @@
 
     .speakers-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 28px;
-      max-width: 760px;
+      max-width: 1000px;
       margin: 0 auto;
     }
     .speaker-card {
       background: var(--white);
       border: 1.5px solid var(--border);
       border-radius: 18px;
-      padding: 36px 36px;
+      padding: 32px 28px;
       transition: box-shadow 0.22s, border-color 0.22s, transform 0.22s;
       display: flex;
       flex-direction: column;
@@ -392,12 +392,12 @@
     .speaker-top {
       display: flex;
       align-items: center;
-      gap: 22px;
-      margin-bottom: 22px;
+      gap: 18px;
+      margin-bottom: 18px;
     }
     .speaker-img-wrap {
-      width: 112px;
-      height: 112px;
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
       overflow: hidden;
       border: 3px solid var(--teal);
@@ -405,7 +405,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 800;
       color: var(--teal);
       flex-shrink: 0;
@@ -418,14 +418,14 @@
       object-position: center top;
     }
     .speaker-name {
-      font-size: 22px;
+      font-size: 19px;
       font-weight: 800;
       color: var(--text-dark);
       margin-bottom: 4px;
       line-height: 1.2;
     }
     .speaker-title {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--teal-dark);
       font-weight: 600;
       text-transform: uppercase;
@@ -433,16 +433,16 @@
       line-height: 1.4;
     }
     .sp-divider {
-      width: 48px;
+      width: 40px;
       height: 2px;
       background: linear-gradient(90deg, var(--teal), var(--amber));
       border-radius: 2px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .speaker-bio {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text-mid);
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
     .section-dark { background: var(--navy); color: var(--white); }
@@ -648,7 +648,7 @@
       <div class="hero-left">
         <div class="badges">
           <span class="badge"><span class="badge-dot"></span> Live Webinar</span>
-          <span class="badge">🎤 Featured Speaker</span>
+          <span class="badge">🎤 2-Speaker Expert Panel</span>
         </div>
 
         <h1 class="hero-heading">
@@ -746,9 +746,9 @@
 
   <section class="section" style="background: var(--bg-light);">
     <div class="section-inner">
-      <div class="section-eyebrow">Your Featured Speaker</div>
-      <h2>Meet <em>Eric Dawe</em></h2>
-      <p class="section-lead">A practice-growth leader who has helped hundreds of independent practices and DSOs reduce PPO reliance through sustainable, patient-first revenue models.</p>
+      <div class="section-eyebrow">Your Expert Panel</div>
+      <h2>Meet the <em>Speakers</em></h2>
+      <p class="section-lead">Two dental industry leaders sharing what really works when practices reduce PPO reliance and build sustainable, patient-first revenue models.</p>
 
       <div class="speakers-grid">
 
@@ -765,6 +765,21 @@
           </div>
           <div class="sp-divider"></div>
           <p class="speaker-bio">Eric Dawe is the Vice President of Business Development at DentalHQ, where he helps dental practices build sustainable, patient-first revenue models. With a strong background in dental partnerships and practice growth, Eric works closely with independent practices and DSOs to reduce reliance on insurance and create more predictable, profitable systems through membership plans. He's supported hundreds of practices in implementing membership plans that drive long-term growth and stronger patient relationships — from increasing case acceptance to improving retention.</p>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-top">
+            <div class="speaker-img-wrap">
+              <img src="Maritza E. Duran.png" alt="Maritza E. Duran"
+                   onerror="this.style.display='none';this.parentNode.innerHTML='MD'" />
+            </div>
+            <div>
+              <div class="speaker-name">Maritza E. Duran</div>
+              <div class="speaker-title">CEO &amp; Founder<br>MDent Consulting</div>
+            </div>
+          </div>
+          <div class="sp-divider"></div>
+          <p class="speaker-bio">Founder and CEO of MDent Consulting with 20+ years of management experience in dental. Maritza began as a dental assistant, advanced into practice management, played a pivotal role in developing 15+ startup dental practices, and rose to regional manager. At MDent Consulting, she and her team guide emerging dentists through launching or acquiring their first practice — from location and financial planning to operational setup and staff training. She is also a Certified Body Language Trainer, Leadership Coach, and Adjunct Faculty at Temple University.</p>
         </div>
 
       </div>
