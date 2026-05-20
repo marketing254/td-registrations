@@ -377,16 +377,16 @@
     /* Featured single-speaker card */
     .speakers-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 28px;
-      max-width: 760px;
+      max-width: 1000px;
       margin: 0 auto;
     }
     .speaker-card {
       background: var(--white);
       border: 1.5px solid var(--border);
       border-radius: 18px;
-      padding: 36px 36px;
+      padding: 32px 28px;
       transition: box-shadow 0.22s, border-color 0.22s, transform 0.22s;
       display: flex;
       flex-direction: column;
@@ -399,12 +399,12 @@
     .speaker-top {
       display: flex;
       align-items: center;
-      gap: 22px;
-      margin-bottom: 22px;
+      gap: 18px;
+      margin-bottom: 18px;
     }
     .speaker-img-wrap {
-      width: 112px;
-      height: 112px;
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
       overflow: hidden;
       border: 3px solid var(--teal);
@@ -412,7 +412,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 800;
       color: var(--teal);
       flex-shrink: 0;
@@ -425,14 +425,14 @@
       object-position: center top;
     }
     .speaker-name {
-      font-size: 22px;
+      font-size: 19px;
       font-weight: 800;
       color: var(--text-dark);
       margin-bottom: 4px;
       line-height: 1.2;
     }
     .speaker-title {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--teal-dark);
       font-weight: 600;
       text-transform: uppercase;
@@ -440,16 +440,16 @@
       line-height: 1.4;
     }
     .sp-divider {
-      width: 48px;
+      width: 40px;
       height: 2px;
       background: linear-gradient(90deg, var(--teal), var(--amber));
       border-radius: 2px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .speaker-bio {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text-mid);
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
     /* ── TOPICS ── */
@@ -659,7 +659,7 @@
       <div class="hero-left">
         <div class="badges">
           <span class="badge"><span class="badge-dot"></span> Live Webinar</span>
-          <span class="badge">🎤 Featured Speaker</span>
+          <span class="badge">🎤 2-Speaker Expert Panel</span>
         </div>
 
         <h1 class="hero-heading">
@@ -757,9 +757,9 @@
 
   <section class="section" style="background: var(--bg-light);">
     <div class="section-inner">
-      <div class="section-eyebrow">Your Featured Speaker</div>
-      <h2>Meet <em>Bri Richardson</em></h2>
-      <p class="section-lead">A dental insurance specialist on a mission to help dental teams get paid in 30 days — through systems, training, and contagious energy.</p>
+      <div class="section-eyebrow">Your Expert Panel</div>
+      <h2>Meet the <em>Speakers</em></h2>
+      <p class="section-lead">Two dental insurance experts sharing what it really takes to bring insurance work in-house, get paid faster, and protect practice value.</p>
 
       <div class="speakers-grid">
 
@@ -776,6 +776,21 @@
           </div>
           <div class="sp-divider"></div>
           <p class="speaker-bio">Bri Richardson, CDA is a dental insurance specialist, trainer, and speaker on a mission to help dental teams get Paid in 30 Days. As founder of Elevate My Practice, she trains front office teams to master insurance verifications, submit clean claims, overturn denials, and collect from patients — so practices can slash their A/R and get paid faster. She brings real-world expertise, a proven system, and the kind of contagious energy that makes even dental insurance feel exciting. When dental teams work with Bri, getting paid stops being the hard part.</p>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-top">
+            <div class="speaker-img-wrap">
+              <img src="Tracy.jpg" alt="Tracey Gutzmer"
+                   onerror="this.style.display='none';this.parentNode.innerHTML='TG'" />
+            </div>
+            <div>
+              <div class="speaker-name">Tracey Gutzmer</div>
+              <div class="speaker-title">Founder &amp; CEO<br>Dental Credential</div>
+            </div>
+          </div>
+          <div class="sp-divider"></div>
+          <p class="speaker-bio">Founder and CEO of Dental Credential and a nationally recognized speaker on dental insurance credentialing and strategic insurance contracting. With 25+ years of experience in dentistry, Tracey helps practices improve operations, strengthen profitability, and navigate complex insurance challenges — including credentialing, insurance participation, fee negotiations, and practice transitions. Known for her engaging style and practical guidance, she equips dental teams with strategies to improve cash flow, protect practice value, and build long-term success in today's insurance environment.</p>
         </div>
 
       </div>
