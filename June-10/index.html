@@ -625,6 +625,84 @@
       .event-meta { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
     }
+
+    /* ── EVENT ENDED OVERLAY ── */
+    .ended-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(12,24,41,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .ended-overlay.show { display: flex; }
+    .ended-card {
+      background: linear-gradient(165deg, #0f2140 0%, #0c1829 60%, #162a4e 100%);
+      border: 1px solid rgba(45,212,191,0.25);
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      color: var(--white);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .ended-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--amber-2), var(--amber));
+    }
+    .ended-icon { font-size: 48px; margin-bottom: 18px; line-height: 1; }
+    .ended-card h2 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    .ended-card p {
+      color: rgba(255,255,255,0.7);
+      font-size: 15px;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+    .ended-cta {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+      color: var(--white);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 14px 34px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 18px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ended-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(45,212,191,0.32);
+    }
+    .ended-redirect {
+      font-size: 12px !important;
+      color: rgba(255,255,255,0.4) !important;
+      margin-bottom: 0 !important;
+    }
+    @media (max-width: 480px) {
+      .ended-card { padding: 36px 24px; }
+      .ended-card h2 { font-size: 22px; }
+      .ended-card p { font-size: 14px; }
+      .ended-cta { padding: 12px 28px; font-size: 13px; }
+    }
   </style>
 </head>
 <body>
@@ -858,6 +936,17 @@
     </p>
   </footer>
 
+  <!-- Event ended blocker overlay -->
+  <div class="ended-overlay" id="ended-overlay">
+    <div class="ended-card">
+      <div class="ended-icon">📺</div>
+      <h2>This Event Has Ended</h2>
+      <p>The live webinar has finished. Browse our other upcoming live panels on the events hub if you'd like to join one.</p>
+      <a href="/" class="ended-cta">View Upcoming Events →</a>
+      <p class="ended-redirect">Redirecting in <span id="ended-countdown">10</span>s…</p>
+    </div>
+  </div>
+
   <script>
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzyxlgV8_VFXqKgINipNuurNgGNPgdwPxgPECnBvvFKUUvXCbdN-WIgW1o_lTaFoLVp/exec';
     const EVENT_KEY = 'event_2026_06_10';
@@ -943,6 +1032,29 @@
     }
     tick();
     setInterval(tick, 1000);
+
+    // ── EVENT ENDED BLOCKER ──
+    // Show overlay once start + 60min has passed, then redirect to hub after 10s.
+    const EVENT_END_TARGET = target + 60 * 60 * 1000;
+    function checkEnded() {
+      if (Date.now() < EVENT_END_TARGET) return;
+      const overlay = document.getElementById('ended-overlay');
+      if (!overlay || overlay.classList.contains('show')) return;
+      overlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      let n = 10;
+      const cd = document.getElementById('ended-countdown');
+      const iv = setInterval(function() {
+        n--;
+        if (cd) cd.textContent = n;
+        if (n <= 0) {
+          clearInterval(iv);
+          window.location.href = '/';
+        }
+      }, 1000);
+    }
+    checkEnded();
+    setInterval(checkEnded, 30000);
   </script>
 
 </body>

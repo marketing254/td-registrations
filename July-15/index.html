@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stop Running Your Practice Alone | Thriving Dentist Expert Panel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wj5ouho8fy");
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0M26KGT8V2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0M26KGT8V2');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:        #1da1e0;
+      --blue-dark:   #0c7eb3;
+      --blue-light:  #e8f4fb;
+      --blue-bg:     #f0f8fc;
+      --black:       #0a0a0a;
+      --ink:         #1f2937;
+      --mid:         #4b5563;
+      --muted:       #6b7280;
+      --soft:        #9ca3af;
+      --border:      #e5e7eb;
+      --border-soft: #f1f3f5;
+      --bg:          #ffffff;
+      --bg-alt:      #f8fafc;
+    }
+
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; font-size: 15px; }
+
+    /* ── NAV ── */
+    .nav { background: var(--bg); border-bottom: 1px solid var(--border); padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { display: flex; align-items: center; gap: 14px; }
+    .nav-brand img { height: 32px; width: auto; }
+    .nav-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding-left: 14px; border-left: 1px solid var(--border); }
+    .nav-cta { background: var(--blue); color: var(--bg); font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; padding: 9px 18px; border-radius: 6px; text-decoration: none; transition: background 0.18s; }
+    .nav-cta:hover { background: var(--blue-dark); }
+
+    /* ── HERO ── */
+    .hero { padding: 56px 40px 64px; background: var(--bg); border-bottom: 1px solid var(--border); }
+    .hero-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 56px; align-items: start; }
+
+    .date-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--blue-light); color: var(--blue-dark); padding: 6px 12px; border-radius: 999px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 18px; }
+    .date-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+    .date-pill .sep { color: var(--soft); margin: 0 4px; }
+
+    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+
+    h1.hero-title { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; letter-spacing: -0.015em; color: var(--black); margin-bottom: 14px; }
+    h1.hero-title em { font-style: normal; color: var(--blue); }
+    .hero-desc { font-size: 15.5px; line-height: 1.65; color: var(--mid); max-width: 540px; margin-bottom: 28px; }
+
+    .meta-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 0; margin-bottom: 28px; }
+    .meta-strip .item { padding: 0 14px; border-right: 1px solid var(--border-soft); }
+    .meta-strip .item:last-child { border-right: none; padding-right: 0; }
+    .meta-strip .item:first-child { padding-left: 0; }
+    .meta-strip .label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .meta-strip .value { font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+
+    /* ── COUNTDOWN (odometer-style) ── */
+    .countdown { display: flex; gap: 22px; align-items: flex-start; }
+    .countdown > div { display: flex; flex-direction: column; align-items: flex-start; }
+    .countdown .cd-num {
+      display: inline-block;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--black);
+      line-height: 28px;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+      background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 8px;
+      box-shadow: inset 0 -2px 0 rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.04);
+      position: relative;
+      white-space: nowrap;
+    }
+    .countdown .cd-num::after {
+      content: ''; position: absolute; left: 4px; right: 4px; top: 50%; height: 1px;
+      background: rgba(15,23,42,0.06); pointer-events: none; z-index: 1;
+    }
+    .countdown .digit { display: inline-block; width: 19px; height: 28px; overflow: hidden; vertical-align: top; text-align: center; }
+    .countdown .strip { display: block; transition: transform 0.6s cubic-bezier(0.45, 0, 0.15, 1); will-change: transform; }
+    .countdown .strip > span { display: block; height: 28px; line-height: 28px; text-align: center; }
+    .countdown .cd-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-top: 8px; }
+    @keyframes cdPulse {
+      0% { box-shadow: inset 0 -2px 0 rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.04), 0 0 0 0 rgba(29,161,224,0.32); }
+      40% { box-shadow: inset 0 -2px 0 rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.04), 0 0 0 6px rgba(29,161,224,0); }
+      100% { box-shadow: inset 0 -2px 0 rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.04), 0 0 0 0 rgba(29,161,224,0); }
+    }
+    .countdown .cd-num.tick { animation: cdPulse 0.6s ease-out; }
+
+    /* ── FORM CARD ── */
+    .form-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 26px 24px 24px; box-shadow: 0 8px 24px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.04); position: relative; }
+    .form-card::before { content: ''; position: absolute; top: -1px; left: -1px; right: -1px; height: 3px; background: var(--blue); border-radius: 10px 10px 0 0; }
+    .form-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+    .form-card h2 { font-size: 20px; font-weight: 700; color: var(--black); line-height: 1.25; margin-bottom: 4px; }
+    .form-subtext { font-size: 12.5px; color: var(--muted); margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--border-soft); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .form-group { margin-bottom: 11px; }
+    .form-group label { display: block; font-size: 11.5px; font-weight: 600; color: var(--ink); margin-bottom: 5px; }
+    .form-group label .req { color: var(--blue); }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 9px 11px; border: 1px solid var(--border); background: var(--bg);
+      border-radius: 6px; font-size: 13.5px; font-family: 'Inter', sans-serif; color: var(--ink);
+      outline: none; transition: border-color 0.18s, box-shadow 0.18s;
+    }
+    .form-group textarea { resize: vertical; min-height: 64px; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #b8bfc9; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(29,161,224,0.14); }
+    .btn-register { width: 100%; background: var(--black); color: var(--bg); font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; padding: 13px; border: none; border-radius: 6px; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; margin-top: 4px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-register::after { content: '→'; font-size: 15px; transition: transform 0.2s; }
+    .btn-register:hover { background: var(--blue); }
+    .btn-register:hover::after { transform: translateX(3px); }
+    .privacy-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+
+    /* ── SECTIONS ── */
+    .section { padding: 64px 40px; }
+    .section-inner { max-width: 1180px; margin: 0 auto; }
+    .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 36px; padding-bottom: 16px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 12px; }
+    .section-head h2 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 800; color: var(--black); line-height: 1.2; letter-spacing: -0.015em; }
+    .section-head h2 em { font-style: normal; color: var(--blue); }
+    .section-head .count { font-size: 13px; color: var(--muted); }
+
+    /* ── SPEAKERS ── */
+    .section-speakers { background: var(--bg-alt); }
+    .speakers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .speaker-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 26px 26px 28px; transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s; display: flex; gap: 22px; align-items: flex-start; }
+    .speaker-card:hover { transform: translateY(-3px); border-color: var(--blue); box-shadow: 0 14px 32px -10px rgba(29,161,224,0.16); }
+    .speaker-photo { width: 110px; height: 110px; border-radius: 8px; object-fit: cover; object-position: center top; flex-shrink: 0; background: var(--blue-bg); }
+    .speaker-body { flex: 1; min-width: 0; }
+    .speaker-num { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
+    .speaker-name { font-size: 18px; font-weight: 700; color: var(--black); line-height: 1.2; margin-bottom: 4px; }
+    .speaker-role { font-size: 12px; font-weight: 500; color: var(--muted); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border-soft); }
+    .speaker-bio { font-size: 13.5px; color: var(--mid); line-height: 1.65; }
+
+    /* ── TOPICS (table-of-contents style) ── */
+    .topics-list { border-top: 1px solid var(--border); }
+    .topic-row {
+      display: grid;
+      grid-template-columns: 100px 1fr 40px;
+      gap: 28px;
+      padding: 26px 4px;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+      position: relative;
+      transition: padding-left 0.25s, background 0.25s;
+    }
+    .topic-row::before {
+      content: ''; position: absolute; left: 0; top: 50%;
+      width: 3px; height: 0; background: var(--blue);
+      transform: translateY(-50%); transition: height 0.3s ease;
+    }
+    .topic-row:hover { padding-left: 20px; background: linear-gradient(90deg, var(--blue-bg) 0%, transparent 100%); }
+    .topic-row:hover::before { height: 70%; }
+    .topic-row:hover .topic-arrow { opacity: 1; transform: translateX(0); color: var(--blue); }
+    .topic-num { font-size: 38px; font-weight: 800; color: var(--black); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; transition: color 0.25s; }
+    .topic-row:hover .topic-num { color: var(--blue); }
+    .topic-content { padding-top: 4px; }
+    .topic-row h4 { font-size: 18px; font-weight: 700; color: var(--black); line-height: 1.3; margin-bottom: 6px; letter-spacing: -0.005em; }
+    .topic-row p { font-size: 14px; color: var(--mid); line-height: 1.6; max-width: 640px; }
+    .topic-arrow { font-size: 22px; color: var(--soft); line-height: 1; opacity: 0.4; transform: translateX(-6px); transition: opacity 0.25s, transform 0.25s, color 0.25s; align-self: center; text-align: right; }
+    .topic-row .topic-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+
+    /* ── CTA ── */
+    .cta-bottom { background: var(--black); color: var(--bg); padding: 64px 40px; text-align: center; }
+    .cta-bottom .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+    .cta-bottom h2 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 800; color: var(--bg); line-height: 1.25; max-width: 640px; margin: 0 auto 14px; letter-spacing: -0.015em; }
+    .cta-bottom h2 em { font-style: normal; color: var(--blue); }
+    .cta-bottom p { font-size: 14.5px; color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto 28px; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--blue); color: var(--bg); font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; padding: 14px 28px; text-decoration: none; border-radius: 6px; transition: background 0.2s; }
+    .btn-cta::after { content: '→'; font-size: 15px; transition: transform 0.2s; }
+    .btn-cta:hover { background: var(--blue-dark); }
+    .btn-cta:hover::after { transform: translateX(3px); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 28px 40px; text-align: center; }
+    .footer-logo img { height: 26px; width: auto; margin-bottom: 10px; opacity: 0.9; }
+    footer p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    footer a { color: var(--ink); text-decoration: none; }
+    footer a:hover { color: var(--blue); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) { .hero-inner { grid-template-columns: 1fr 360px; gap: 36px; } }
+    @media (max-width: 880px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+      .form-card { max-width: 500px; }
+      .topic-row { grid-template-columns: 80px 1fr 32px; gap: 22px; padding: 22px 4px; }
+      .topic-num { font-size: 32px; }
+      .topic-row h4 { font-size: 17px; }
+    }
+    @media (max-width: 640px) {
+      .nav { padding: 12px 20px; }
+      .nav-tag { display: none; }
+      .hero { padding: 40px 20px 48px; }
+      .section { padding: 48px 20px; }
+      .cta-bottom { padding: 48px 20px; }
+      footer { padding: 24px 20px; }
+      .meta-strip { grid-template-columns: 1fr 1fr; gap: 14px 0; }
+      .meta-strip .item { border-right: none; padding: 0; }
+      .meta-strip .item:nth-child(odd) { border-right: 1px solid var(--border-soft); padding-right: 14px; }
+      .meta-strip .item:nth-child(even) { padding-left: 14px; }
+      .speakers-grid { grid-template-columns: 1fr; }
+      .speaker-card { flex-direction: column; gap: 18px; }
+      .speaker-photo { width: 90px; height: 90px; }
+      .topic-row { grid-template-columns: 1fr; gap: 12px; padding: 20px 4px; }
+      .topic-row:hover { padding-left: 4px; background: none; }
+      .topic-num { font-size: 28px; color: var(--blue); margin-bottom: 2px; }
+      .topic-row h4 { font-size: 16px; }
+      .topic-row p { font-size: 13.5px; }
+      .topic-arrow { display: none; }
+      .countdown { gap: 14px; }
+      .countdown .cd-num { font-size: 24px; line-height: 24px; }
+      .countdown .digit { height: 24px; width: 16px; }
+      .countdown .strip > span { height: 24px; line-height: 24px; }
+      .section-head { flex-direction: column; align-items: flex-start; margin-bottom: 28px; }
+    }
+    @media (max-width: 480px) { .form-card { padding: 22px 18px 20px; } .form-row { grid-template-columns: 1fr; } }
+
+    /* ── EVENT ENDED OVERLAY ── */
+    .ended-overlay { position: fixed; inset: 0; background: rgba(10,10,10,0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .ended-overlay.show { display: flex; }
+    .ended-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 40px 32px; max-width: 440px; width: 100%; text-align: center; color: var(--ink); position: relative; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.4); }
+    .ended-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--blue); }
+    .ended-eyebrow { font-size: 10.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+    .ended-card h2 { font-size: 22px; font-weight: 800; color: var(--black); margin-bottom: 10px; line-height: 1.2; letter-spacing: -0.01em; }
+    .ended-card p { color: var(--mid); font-size: 14px; line-height: 1.6; margin-bottom: 22px; }
+    .ended-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: var(--bg); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; padding: 12px 24px; border-radius: 6px; text-decoration: none; margin-bottom: 14px; transition: background 0.2s; }
+    .ended-cta::after { content: '→'; }
+    .ended-cta:hover { background: var(--blue); }
+    .ended-redirect { font-size: 11.5px !important; color: var(--muted) !important; margin-bottom: 0 !important; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-brand">
+      <img src="../images/logo.png" alt="Thriving Dentist" />
+      <span class="nav-tag">Webinar Series</span>
+    </div>
+    <a href="#register" class="nav-cta">Reserve Spot</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="date-pill">
+          <span class="dot"></span>
+          <span>Wednesday <span class="sep">·</span> July 15, 2026 <span class="sep">·</span> 7 PM EST</span>
+        </div>
+
+        <div class="hero-eyebrow">Live Expert Panel</div>
+
+        <h1 class="hero-title">
+          Stop Running Your Practice Alone: <em>The Leadership Shift That Changes Everything After Year 5</em>
+        </h1>
+
+        <p class="hero-desc">
+          The grind that built your practice in the early years is the same thing capping its growth now — and most owners don't see it until they're already burned out. Hear from dentists who made the shift from operator to leader, and the specific changes that finally let them step out of every decision.
+        </p>
+
+        <div class="meta-strip">
+          <div class="item"><div class="label">Format</div><div class="value">Live Zoom Panel</div></div>
+          <div class="item"><div class="label">Speakers</div><div class="value">2 Expert Panelists</div></div>
+          <div class="item"><div class="label">Duration</div><div class="value">60 minutes</div></div>
+          <div class="item"><div class="label">Cost</div><div class="value">Complimentary</div></div>
+        </div>
+
+        <div class="countdown" id="countdown">
+          <div><span class="cd-num" id="cd-days">30</span><span class="cd-label">Days</span></div>
+          <div><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Hours</span></div>
+          <div><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Minutes</span></div>
+          <div><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Seconds</span></div>
+        </div>
+      </div>
+
+      <div class="form-card" id="register">
+        <div class="form-eyebrow">Registration</div>
+        <h2>Reserve Your Spot</h2>
+        <p class="form-subtext">Complimentary to attend. Replay sent to all registrants.</p>
+
+        <form id="reg-form" novalidate>
+          <input type="hidden" name="event_key" value="event_2026_07_15" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name <span class="req">*</span></label>
+              <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name <span class="req">*</span></label>
+              <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="you@yourpractice.com" autocomplete="email" required />
+          </div>
+          <div class="form-group">
+            <label>Mobile <span class="req">*</span></label>
+            <input type="tel" name="phone" placeholder="+1 (555) 123-4567" autocomplete="tel" required />
+          </div>
+          <div class="form-group">
+            <label>Questions for the panel <span style="color:var(--muted);font-weight:500;">(optional)</span></label>
+            <textarea name="questions" placeholder="Anything specific you'd like the panel to address…"></textarea>
+          </div>
+          <button type="submit" class="btn-register" id="reg-btn">Register Free</button>
+          <p class="privacy-note">We respect your privacy. No spam, ever.</p>
+          <div id="reg-msg" style="display:none;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13.5px;font-weight:600;text-align:center;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SPEAKERS ── -->
+  <section class="section section-speakers">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Meet the <em>Panelists</em></h2>
+        <span class="count">2 expert speakers</span>
+      </div>
+
+      <div class="speakers-grid">
+
+        <article class="speaker-card">
+          <img class="speaker-photo" src="Brandy Trout_TD_15.07.2026.JPG" alt="Brandy Trout" />
+          <div class="speaker-body">
+            <div class="speaker-num">Panelist 01</div>
+            <h3 class="speaker-name">Brandy Trout</h3>
+            <div class="speaker-role">Executive Director, Dental Wellness Centers of GA · Founder, From Good To Grace</div>
+            <p class="speaker-bio">An executive dental leader, speaker, and leadership strategist with 17+ years of experience leading operations, team development, and organizational growth at a multi-location dental group in coastal Georgia. As Executive Director of Dental Wellness Centers of GA, she oversees leadership development, HR, operational systems, and team performance. She also founded From Good To Grace Training &amp; Development, helping leaders strengthen culture, build high-performing teams, and move beyond founder-dependent operations.</p>
+          </div>
+        </article>
+
+        <article class="speaker-card">
+          <img class="speaker-photo" src="Mark Thoreson_TD_15.07.2026.jpg" alt="Dr. Mark G. Thoreson" />
+          <div class="speaker-body">
+            <div class="speaker-num">Panelist 02</div>
+            <h3 class="speaker-name">Dr. Mark G. Thoreson, DDS</h3>
+            <div class="speaker-role">CEO &amp; Founder · Inflatrix</div>
+            <p class="speaker-bio">A retired general practitioner and CEO/Founder of Inflatrix — the Class 2 matrix system that's faster, simpler, and much more comfortable than traditional approaches. A passionate trainer of dental assistants, Mark brings decades of clinical and leadership experience to conversations about practice systems, team development, and the operational shifts that let owners lead instead of just operate.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TOPICS ── -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>What <em>We'll Cover</em></h2>
+        <span class="count">Five practical shifts</span>
+      </div>
+
+      <div class="topics-list">
+
+        <div class="topic-row">
+          <div class="topic-num">01</div>
+          <div class="topic-content">
+            <div class="topic-tag">The trap</div>
+            <h4>The "Founder Trap"</h4>
+            <p>Why what built your practice in years 1–5 is the same thing capping its growth now.</p>
+          </div>
+          <div class="topic-arrow">→</div>
+        </div>
+
+        <div class="topic-row">
+          <div class="topic-num">02</div>
+          <div class="topic-content">
+            <div class="topic-tag">The first hire</div>
+            <h4>Your First Real #2 Hire</h4>
+            <p>Who to hire, when to hire, and what to hand over to them first — the move most owners delay too long.</p>
+          </div>
+          <div class="topic-arrow">→</div>
+        </div>
+
+        <div class="topic-row">
+          <div class="topic-num">03</div>
+          <div class="topic-content">
+            <div class="topic-tag">The shift</div>
+            <h4>From Best Clinician in the Room to Best Leader in the Building</h4>
+            <p>The mindset and skill shifts that change how the whole team performs.</p>
+          </div>
+          <div class="topic-arrow">→</div>
+        </div>
+
+        <div class="topic-row">
+          <div class="topic-num">04</div>
+          <div class="topic-content">
+            <div class="topic-tag">The cadence</div>
+            <h4>Meeting Rhythms That Hold a Team Together When You Step Back</h4>
+            <p>The cadence and structure that keep the practice aligned without you in every conversation.</p>
+          </div>
+          <div class="topic-arrow">→</div>
+        </div>
+
+        <div class="topic-row">
+          <div class="topic-num">05</div>
+          <div class="topic-content">
+            <div class="topic-tag">The hardest part</div>
+            <h4>Letting Go Without Losing Control</h4>
+            <p>The hardest part nobody warns you about — and how to do it without losing the practice you built.</p>
+          </div>
+          <div class="topic-arrow">→</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-bottom">
+    <div class="eyebrow">Don't miss it</div>
+    <h2>One hour. The specific shifts that let you finally <em>step out of every decision.</em></h2>
+    <p>Reserve your complimentary spot now — replay sent to all registrants.</p>
+    <a href="#register" class="btn-cta">Reserve My Spot</a>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><img src="../images/logo.png" alt="Thriving Dentist" /></div>
+    <p>
+      © 2026 Thriving Dentist. All rights reserved.<br>
+      <a href="https://www.thrivingdentist.com/privacy-policy/">Privacy Policy</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.thrivingdentist.com/contact/">Contact</a>
+    </p>
+  </footer>
+
+  <!-- Event ended overlay -->
+  <div class="ended-overlay" id="ended-overlay">
+    <div class="ended-card">
+      <div class="ended-eyebrow">Live Webinar</div>
+      <h2>This Event Has Ended</h2>
+      <p>The live panel has finished. Browse our other upcoming live panels on the events hub if you'd like to join one.</p>
+      <a href="/" class="ended-cta">View Upcoming Events</a>
+      <p class="ended-redirect">Redirecting in <span id="ended-countdown">10</span>s</p>
+    </div>
+  </div>
+
+  <script>
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzyxlgV8_VFXqKgINipNuurNgGNPgdwPxgPECnBvvFKUUvXCbdN-WIgW1o_lTaFoLVp/exec';
+    const EVENT_KEY = 'event_2026_07_15';
+    const LOCAL_TEST_MODE = APPS_SCRIPT_URL.startsWith('REPLACE_ME');
+
+    document.getElementById('reg-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn  = document.getElementById('reg-btn');
+      const msg  = document.getElementById('reg-msg');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const source_id = new URLSearchParams(window.location.search).get('s') || '';
+
+      const data = {
+        event_key: form.event_key.value.trim() || EVENT_KEY,
+        first_name: form.first_name.value.trim(),
+        last_name: form.last_name.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        questions: form.questions.value.trim(),
+        source_id: source_id,
+        source_name: '',
+      };
+
+      btn.disabled = true; btn.textContent = 'Registering…'; msg.style.display = 'none';
+
+      if (LOCAL_TEST_MODE) {
+        console.log('%c[LOCAL TEST] Payload:', 'color:#1da1e0;font-weight:bold;', data);
+        setTimeout(() => {
+          msg.style.cssText = 'display:block;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13.5px;font-weight:600;text-align:center;background:#d4edda;color:#155724;border:1px solid #c3e6cb;';
+          msg.textContent = '✓ [TEST] Payload captured — check browser console.';
+          btn.disabled = false; btn.textContent = 'Register Free'; form.reset();
+        }, 800);
+        return;
+      }
+
+      try {
+        await fetch(APPS_SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(data) });
+        form.querySelectorAll('input, textarea').forEach(i => i.disabled = true);
+        btn.disabled = true; btn.textContent = "✓ You're Registered"; btn.style.background = '#1e7e34';
+        msg.style.cssText = 'display:block;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13.5px;font-weight:600;text-align:center;background:#d4edda;color:#155724;border:1px solid #c3e6cb;';
+        msg.textContent = "You're all set. Check your email for the Zoom confirmation link.";
+      } catch (err) {
+        msg.style.cssText = 'display:block;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13.5px;font-weight:600;text-align:center;background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;';
+        msg.textContent = 'Something went wrong. Please try again or contact us directly.';
+        console.error('Registration error:', err);
+        btn.disabled = false; btn.textContent = 'Register Free';
+      }
+    });
+
+    // July 15, 2026 7:00 PM EDT = July 15 23:00 UTC
+    const target = new Date('2026-07-15T23:00:00Z').getTime();
+
+    function buildFlipper(id, numDigits) {
+      const el = document.getElementById(id);
+      el.innerHTML = ''; el.dataset.last = '';
+      for (let i = 0; i < numDigits; i++) {
+        const digit = document.createElement('span'); digit.className = 'digit';
+        const strip = document.createElement('span'); strip.className = 'strip';
+        for (let n = 0; n <= 9; n++) {
+          const s = document.createElement('span'); s.textContent = n; strip.appendChild(s);
+        }
+        digit.appendChild(strip); el.appendChild(digit);
+      }
+    }
+    const DIGIT_HEIGHT_PX = 28;
+    function setFlipper(id, value) {
+      const el = document.getElementById(id);
+      const digits = el.querySelectorAll('.digit');
+      const padded = String(value).padStart(digits.length, '0');
+      if (el.dataset.last === padded) return;
+      digits.forEach((digit, i) => {
+        const d = parseInt(padded[i], 10);
+        digit.querySelector('.strip').style.transform = `translateY(-${d * DIGIT_HEIGHT_PX}px)`;
+      });
+      el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick');
+      el.dataset.last = padded;
+    }
+    ['cd-days', 'cd-hours', 'cd-mins', 'cd-secs'].forEach(id => buildFlipper(id, 2));
+
+    function tick() {
+      const diff = Math.max(0, target - Date.now());
+      if (diff === 0) {
+        document.getElementById('countdown').innerHTML = '<div style="font-size:16px;font-weight:700;color:var(--blue);">The panel is live now</div>';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff / 3600000) % 24);
+      const m = Math.floor((diff / 60000) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      setFlipper('cd-days', d); setFlipper('cd-hours', h); setFlipper('cd-mins', m); setFlipper('cd-secs', s);
+    }
+    requestAnimationFrame(() => requestAnimationFrame(tick));
+    setInterval(tick, 1000);
+
+    // EVENT ENDED BLOCKER
+    const EVENT_END_TARGET = target + 60 * 60 * 1000;
+    function checkEnded() {
+      if (Date.now() < EVENT_END_TARGET) return;
+      const overlay = document.getElementById('ended-overlay');
+      if (!overlay || overlay.classList.contains('show')) return;
+      overlay.classList.add('show'); document.body.style.overflow = 'hidden';
+      let n = 10; const cd = document.getElementById('ended-countdown');
+      const iv = setInterval(function() {
+        n--; if (cd) cd.textContent = n;
+        if (n <= 0) { clearInterval(iv); window.location.href = '/'; }
+      }, 1000);
+    }
+    checkEnded();
+    setInterval(checkEnded, 30000);
+  </script>
+
+</body>
+</html>
