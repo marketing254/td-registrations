@@ -140,12 +140,12 @@
     .section-head h2 em { font-style: normal; color: var(--blue); }
     .section-head .count { font-size: 13px; color: var(--muted); }
 
-    /* ── SPEAKERS ── */
+    /* ── SPEAKERS (3 = single column stack of horizontal cards) ── */
     .section-speakers { background: var(--bg-alt); }
-    .speakers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .speaker-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 26px 26px 28px; transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s; display: flex; gap: 22px; align-items: flex-start; }
+    .speakers-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 880px; }
+    .speaker-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 26px 28px 28px; transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s; display: flex; gap: 24px; align-items: flex-start; }
     .speaker-card:hover { transform: translateY(-3px); border-color: var(--blue); box-shadow: 0 14px 32px -10px rgba(29,161,224,0.16); }
-    .speaker-photo { width: 110px; height: 110px; border-radius: 8px; object-fit: cover; object-position: center top; flex-shrink: 0; background: var(--blue-bg); }
+    .speaker-photo { width: 120px; height: 120px; border-radius: 8px; object-fit: cover; object-position: center top; flex-shrink: 0; background: var(--blue-bg); }
     .speaker-body { flex: 1; min-width: 0; }
     .speaker-num { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
     .speaker-name { font-size: 18px; font-weight: 700; color: var(--black); line-height: 1.2; margin-bottom: 4px; }
@@ -218,8 +218,7 @@
       .meta-strip .item { border-right: none; padding: 0; }
       .meta-strip .item:nth-child(odd) { border-right: 1px solid var(--border-soft); padding-right: 14px; }
       .meta-strip .item:nth-child(even) { padding-left: 14px; }
-      .speakers-grid { grid-template-columns: 1fr; }
-      .speaker-card { flex-direction: column; gap: 18px; }
+      .speaker-card { flex-direction: column; gap: 18px; padding: 22px 22px 24px; }
       .speaker-photo { width: 90px; height: 90px; }
       .topic-row { grid-template-columns: 1fr; gap: 12px; padding: 20px 4px; }
       .topic-row:hover { padding-left: 4px; background: none; }
@@ -279,7 +278,7 @@
 
         <div class="meta-strip">
           <div class="item"><div class="label">Format</div><div class="value">Live Zoom Panel</div></div>
-          <div class="item"><div class="label">Speakers</div><div class="value">2 Expert Panelists</div></div>
+          <div class="item"><div class="label">Speakers</div><div class="value">3 Expert Panelists</div></div>
           <div class="item"><div class="label">Duration</div><div class="value">60 minutes</div></div>
           <div class="item"><div class="label">Cost</div><div class="value">Complimentary</div></div>
         </div>
@@ -334,7 +333,7 @@
     <div class="section-inner">
       <div class="section-head">
         <h2>Meet the <em>Panelists</em></h2>
-        <span class="count">2 expert speakers</span>
+        <span class="count">3 expert speakers</span>
       </div>
 
       <div class="speakers-grid">
@@ -356,6 +355,16 @@
             <h3 class="speaker-name">Dr. Mark G. Thoreson, DDS</h3>
             <div class="speaker-role">CEO &amp; Founder · Inflatrix</div>
             <p class="speaker-bio">A retired general practitioner and CEO/Founder of Inflatrix — the Class 2 matrix system that's faster, simpler, and much more comfortable than traditional approaches. A passionate trainer of dental assistants, Mark brings decades of clinical and leadership experience to conversations about practice systems, team development, and the operational shifts that let owners lead instead of just operate.</p>
+          </div>
+        </article>
+
+        <article class="speaker-card">
+          <img class="speaker-photo" src="Dr Kevin Kremer, D.D.S_TD_15.07.2026.jpg" alt="Dr. Kevin Kremer" />
+          <div class="speaker-body">
+            <div class="speaker-num">Panelist 03</div>
+            <h3 class="speaker-name">Dr. Kevin Kremer, DDS</h3>
+            <div class="speaker-role">Founder &amp; CEO · Kremer Leadership Institute · Kremer Dental Care</div>
+            <p class="speaker-bio">Founder of Kremer Leadership Institute, Kremer Dental Care, New Smile Now Implant Center, and AegisCare. Based in Chico, California, his clinical expertise focuses on advanced dental reconstruction and implants. He received his D.D.S. from UCLA and has continued his training at the Las Vegas Institute and the Misch International Implant Institute. In 2018, Kevin founded Kremer Leadership Institute to provide management training and guidance for medical professionals and their teams — empowering and inspiring companies to grow and thrive.</p>
           </div>
         </article>
 
