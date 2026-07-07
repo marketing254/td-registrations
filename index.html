@@ -261,6 +261,58 @@
       cursor: not-allowed;
     }
 
+    /* Completed event state */
+    .event-card.completed {
+      background: linear-gradient(165deg, #0f1f24 0%, #0a1519 60%, #101f24 100%);
+      border-color: rgba(45,212,191,0.20);
+    }
+    .event-card.completed::before {
+      background: linear-gradient(90deg, #14b8a6 0%, #0d9488 100%);
+    }
+    .event-card.completed::after {
+      background: radial-gradient(circle, rgba(45,212,191,0.10) 0%, transparent 65%);
+    }
+    .event-card.completed:hover {
+      transform: none;
+      box-shadow:
+        0 30px 60px -16px rgba(0,0,0,0.45),
+        0 8px 20px -4px rgba(15,33,64,0.25);
+      border-color: rgba(45,212,191,0.20);
+    }
+    .event-card.completed h3,
+    .event-card.completed .event-desc,
+    .event-card.completed .date-badge,
+    .event-card.completed .event-time-block,
+    .event-card.completed .speaker-showcase { opacity: 0.55; }
+    .event-tag.completed-tag {
+      background: rgba(45,212,191,0.16);
+      color: #5eead4;
+      border: 1px solid rgba(45,212,191,0.38);
+      font-weight: 700;
+    }
+    .event-tag.completed-tag::before {
+      content: '✓';
+      color: #5eead4;
+      margin-right: 5px;
+      font-weight: 900;
+    }
+    .btn-event-completed {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(45,212,191,0.12);
+      color: #5eead4;
+      border: 1px solid rgba(45,212,191,0.28);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: default;
+    }
+
     .event-meta-row {
       display: flex;
       align-items: center;
@@ -634,8 +686,8 @@
     <div class="events-inner">
       <div class="events-grid">
 
-        <!-- May 18 -->
-        <div class="event-card">
+        <!-- May 18 (COMPLETED) -->
+        <div class="event-card completed">
           <div class="event-meta-row">
             <div class="date-badge">
               <div class="month">May</div>
@@ -646,7 +698,7 @@
               <div class="event-day">Monday</div>
               <div class="event-time">8:00 – 9:00 PM EST</div>
             </div>
-            <span class="event-tag">Live Panel</span>
+            <span class="event-tag completed-tag">Completed</span>
           </div>
           <h3>
             AI in Your Dental Practice Right Now
@@ -680,13 +732,13 @@
             </div>
           </div>
           <div class="event-foot">
-            <span class="event-tag-foot">🎤 Live Expert Panel</span>
-            <a href="https://thriving-dentist-registrations.netlify.app/" target="_blank" rel="noopener" class="btn-event">Register →</a>
+            <span class="event-tag-foot" style="color:#5eead4;">✓ Event Completed</span>
+            <span class="btn-event-completed">Completed</span>
           </div>
         </div>
 
-        <!-- June 03 -->
-        <div class="event-card">
+        <!-- June 03 (COMPLETED) -->
+        <div class="event-card completed">
           <div class="event-meta-row">
             <div class="date-badge">
               <div class="month">Jun</div>
@@ -697,7 +749,7 @@
               <div class="event-day">Wednesday</div>
               <div class="event-time">7:00 – 8:00 PM EST</div>
             </div>
-            <span class="event-tag">Live Webinar</span>
+            <span class="event-tag completed-tag">Completed</span>
           </div>
           <h3>
             From Credentialing to Collections
@@ -724,13 +776,13 @@
             </div>
           </div>
           <div class="event-foot">
-            <span class="event-tag-foot">🎤 Live Expert Panel</span>
-            <a href="June-03/" class="btn-event">Register →</a>
+            <span class="event-tag-foot" style="color:#5eead4;">✓ Event Completed</span>
+            <span class="btn-event-completed">Completed</span>
           </div>
         </div>
 
-        <!-- June 10 -->
-        <div class="event-card">
+        <!-- June 10 (COMPLETED) -->
+        <div class="event-card completed">
           <div class="event-meta-row">
             <div class="date-badge">
               <div class="month">Jun</div>
@@ -741,7 +793,7 @@
               <div class="event-day">Wednesday</div>
               <div class="event-time">7:00 – 8:00 PM EST</div>
             </div>
-            <span class="event-tag">Live Webinar</span>
+            <span class="event-tag completed-tag">Completed</span>
           </div>
           <h3>
             Drop a PPO Without Losing a Patient
@@ -768,13 +820,13 @@
             </div>
           </div>
           <div class="event-foot">
-            <span class="event-tag-foot">🎤 Live Expert Panel</span>
-            <a href="June-10/" class="btn-event">Register →</a>
+            <span class="event-tag-foot" style="color:#5eead4;">✓ Event Completed</span>
+            <span class="btn-event-completed">Completed</span>
           </div>
         </div>
 
-        <!-- June 15 -->
-        <div class="event-card">
+        <!-- June 15 (COMPLETED) -->
+        <div class="event-card completed">
           <div class="event-meta-row">
             <div class="date-badge">
               <div class="month">Jun</div>
@@ -785,7 +837,7 @@
               <div class="event-day">Monday</div>
               <div class="event-time">8:00 – 9:00 PM EST</div>
             </div>
-            <span class="event-tag">Live Panel</span>
+            <span class="event-tag completed-tag">Completed</span>
           </div>
           <h3>
             The Profitable Ethical Dental Practice
@@ -826,13 +878,13 @@
             </div>
           </div>
           <div class="event-foot">
-            <span class="event-tag-foot">🎤 Live Expert Panel</span>
-            <a href="June-15/" class="btn-event">Register →</a>
+            <span class="event-tag-foot" style="color:#5eead4;">✓ Event Completed</span>
+            <span class="btn-event-completed">Completed</span>
           </div>
         </div>
 
-        <!-- June 17 -->
-        <div class="event-card">
+        <!-- June 17 (COMPLETED) -->
+        <div class="event-card completed">
           <div class="event-meta-row">
             <div class="date-badge">
               <div class="month">Jun</div>
@@ -843,7 +895,7 @@
               <div class="event-day">Wednesday</div>
               <div class="event-time">7:00 – 8:00 PM EST</div>
             </div>
-            <span class="event-tag">Live Panel</span>
+            <span class="event-tag completed-tag">Completed</span>
           </div>
           <h3>
             Trust-Based Case Acceptance
@@ -877,13 +929,13 @@
             </div>
           </div>
           <div class="event-foot">
-            <span class="event-tag-foot">🎤 Live Expert Panel</span>
-            <a href="June-17/" class="btn-event">Register →</a>
+            <span class="event-tag-foot" style="color:#5eead4;">✓ Event Completed</span>
+            <span class="btn-event-completed">Completed</span>
           </div>
         </div>
 
-        <!-- June 22 -->
-        <div class="event-card">
+        <!-- June 22 (COMPLETED) -->
+        <div class="event-card completed">
           <div class="event-meta-row">
             <div class="date-badge">
               <div class="month">Jun</div>
@@ -894,7 +946,7 @@
               <div class="event-day">Monday</div>
               <div class="event-time">8:00 – 9:00 PM EST</div>
             </div>
-            <span class="event-tag">Live Panel</span>
+            <span class="event-tag completed-tag">Completed</span>
           </div>
           <h3>
             The Dental Workforce Reset (2026)
@@ -928,8 +980,8 @@
             </div>
           </div>
           <div class="event-foot">
-            <span class="event-tag-foot">🎤 Live Expert Panel</span>
-            <a href="June-22/" class="btn-event">Register →</a>
+            <span class="event-tag-foot" style="color:#5eead4;">✓ Event Completed</span>
+            <span class="btn-event-completed">Completed</span>
           </div>
         </div>
 
