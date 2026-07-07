@@ -206,6 +206,61 @@
       border-color: rgba(148,163,184,0.18);
     }
 
+    /* Cancelled event state */
+    .event-card.cancelled {
+      background: linear-gradient(165deg, #1a1210 0%, #0f0808 60%, #1e1414 100%);
+      border-color: rgba(185,28,28,0.28);
+    }
+    .event-card.cancelled::before {
+      background: linear-gradient(90deg, #b91c1c 0%, #7f1d1d 100%);
+    }
+    .event-card.cancelled::after {
+      background: radial-gradient(circle, rgba(185,28,28,0.14) 0%, transparent 65%);
+    }
+    .event-card.cancelled:hover {
+      transform: none;
+      box-shadow:
+        0 30px 60px -16px rgba(0,0,0,0.45),
+        0 8px 20px -4px rgba(0,0,0,0.25);
+      border-color: rgba(185,28,28,0.28);
+    }
+    .event-card.cancelled h3,
+    .event-card.cancelled .event-desc,
+    .event-card.cancelled .date-badge,
+    .event-card.cancelled .event-time-block,
+    .event-card.cancelled .speaker-showcase { opacity: 0.55; }
+    .event-tag.cancelled-tag {
+      background: rgba(185,28,28,0.20);
+      color: #fca5a5;
+      border: 1px solid rgba(185,28,28,0.42);
+      font-weight: 700;
+    }
+    .event-tag.cancelled-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fca5a5;
+      margin-right: 6px;
+      display: inline-block;
+    }
+    .btn-event-cancelled {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(185,28,28,0.14);
+      color: #fca5a5;
+      border: 1px solid rgba(185,28,28,0.32);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: not-allowed;
+    }
+
     .event-meta-row {
       display: flex;
       align-items: center;
@@ -878,8 +933,8 @@
           </div>
         </div>
 
-        <!-- July 07 -->
-        <div class="event-card">
+        <!-- July 07 (CANCELLED) -->
+        <div class="event-card cancelled">
           <div class="event-meta-row">
             <div class="date-badge">
               <div class="month">Jul</div>
@@ -890,7 +945,7 @@
               <div class="event-day">Tuesday</div>
               <div class="event-time">7:00 – 8:00 PM EST</div>
             </div>
-            <span class="event-tag">Live Panel</span>
+            <span class="event-tag cancelled-tag">Cancelled</span>
           </div>
           <h3>
             Case Acceptance Secrets
@@ -917,8 +972,8 @@
             </div>
           </div>
           <div class="event-foot">
-            <span class="event-tag-foot">🎤 Live Expert Panel</span>
-            <a href="July-07/" class="btn-event">Register →</a>
+            <span class="event-tag-foot" style="color:#fca5a5;">✕ Event Cancelled</span>
+            <span class="btn-event-cancelled">Cancelled</span>
           </div>
         </div>
 
