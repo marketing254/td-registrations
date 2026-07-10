@@ -253,6 +253,7 @@
           </div>
           <div class="form-group"><label>Email <span class="req">*</span></label><input type="email" name="email" placeholder="you@yourpractice.com" autocomplete="email" required /></div>
           <div class="form-group"><label>Mobile <span class="req">*</span></label><input type="tel" name="phone" placeholder="+1 (555) 123-4567" autocomplete="tel" required /></div>
+          <div class="form-group"><label>Practice Name <span class="req">*</span></label><input type="text" name="practice_name" placeholder="Your practice name" autocomplete="organization" required /></div>
           <div class="form-group"><label>Questions for the panel <span style="color:var(--muted);font-weight:500;">(optional)</span></label><textarea name="questions" placeholder="Anything specific you'd like the panel to address…"></textarea></div>
           <button type="submit" class="btn-register" id="reg-btn">Register Free</button>
           <p class="privacy-note">We respect your privacy. No spam, ever.</p>
@@ -404,6 +405,7 @@
         last_name: form.last_name.value.trim(),
         email: form.email.value.trim(),
         phone: form.phone.value.trim(),
+        practice_name: form.practice_name.value.trim(),
         questions: form.questions.value.trim(),
         source_id: source_id,
         source_name: '',
