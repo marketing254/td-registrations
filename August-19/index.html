@@ -15,6 +15,9 @@
     })(window, document, "clarity", "script", "wj5ouho8fy");
   </script>
 
+  <!-- html2canvas for generating the "I Am Attending" post image -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0M26KGT8V2"></script>
   <script>
@@ -181,6 +184,338 @@
     }
     @media (max-width: 480px) { .form-card { padding: 22px 18px 20px; } .form-row { grid-template-columns: 1fr; } }
 
+    /* ── SHARE SECTION (revealed after registration) ── */
+    .share-section {
+      background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 40px;
+      display: none;
+      scroll-margin-top: 80px;
+    }
+    .share-section.show { display: block; animation: shareIn 0.6s ease-out; }
+    @keyframes shareIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .share-inner { max-width: 1100px; margin: 0 auto; }
+    .share-head { text-align: center; margin-bottom: 40px; }
+    .share-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #dcfce7;
+      color: #166534;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .share-badge::before {
+      content: '✓';
+      width: 16px;
+      height: 16px;
+      background: #16a34a;
+      color: #ffffff;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 900;
+    }
+    .share-head h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 800;
+      color: var(--black);
+      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -0.015em;
+    }
+    .share-head h2 em { font-style: normal; color: var(--blue); }
+    .share-head p {
+      font-size: 15px;
+      color: var(--mid);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .share-grid {
+      display: grid;
+      grid-template-columns: 440px 1fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    /* ── I AM ATTENDING POST (uses Canva PNG as base + editable overlays) ── */
+    .post-preview {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1080 / 1350;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(15,23,42,0.20), 0 4px 12px rgba(15,23,42,0.08);
+      background: #061125;
+      font-family: 'Inter', sans-serif;
+    }
+    .post-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: none;
+    }
+    /* Photo slot — measured directly from Canva PNG so it EXACTLY fills the
+       phone screen area (no green hills peeking through, no gold border cut off) */
+    .post-photo-slot {
+      position: absolute;
+      left: 54.9%;
+      top: 18.5%;
+      width: 39.5%;
+      height: 50%;
+      border-radius: 3%;
+      overflow: hidden;
+      background: transparent;
+    }
+    .post-photo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Cover — solid navy patch (matches Canva bg exactly) hiding ALL of
+       Canva's "YOUR NAME HERE / YOUR PRACTICE HERE" placeholder text AND the
+       diamond decorations between and below them. Text overlays sit ON TOP. */
+    .post-cover {
+      position: absolute;
+      top: 72%;
+      left: 51%;
+      right: 5%;
+      height: 10%;
+      /* Gradient matches Canva's subtle vertical gradient at these Y positions */
+      background: linear-gradient(180deg, #001536 0%, #001332 40%, #001230 80%, #00122f 100%);
+    }
+    /* Name text — sits on top of the cover at the name row */
+    .post-name {
+      position: absolute;
+      top: 72%;
+      left: 51%;
+      right: 5%;
+      height: 4%;
+      padding: 0 0.4em;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Practice text — sits on top of the cover at the practice row.
+       Hidden entirely when user leaves practice input empty. */
+    .post-practice {
+      position: absolute;
+      top: 79.5%;
+      left: 51%;
+      right: 5%;
+      height: 3%;
+      padding: 0 0.4em;
+      color: #f6b93b;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      line-height: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .post-practice.hidden { display: none; }
+
+    /* Customize form fields */
+    .customize-block { display: flex; flex-direction: column; gap: 6px; }
+    .customize-block label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .customize-block input[type="text"] {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+    .customize-block input[type="text"]:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(29,161,224,0.14);
+    }
+    .file-upload {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px 10px 10px;
+      border: 1px dashed var(--border);
+      background: var(--bg);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .file-upload:hover { border-color: var(--blue); background: var(--blue-bg); }
+    .file-upload input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+    .file-upload-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .file-upload-text { flex: 1; min-width: 0; }
+    .file-upload-text .primary { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .file-upload-text .secondary { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+
+    .download-btn {
+      background: var(--blue);
+      color: var(--bg);
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s, transform 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .download-btn::before { content: '⬇'; font-size: 15px; }
+    .download-btn:hover { background: var(--blue-dark); }
+    .download-btn:disabled { opacity: 0.6; cursor: wait; }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 4px 0 8px;
+    }
+    .share-actions { display: flex; flex-direction: column; gap: 20px; }
+    .share-block label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .share-copy-wrap {
+      position: relative;
+      display: flex;
+      gap: 8px;
+    }
+    .share-block textarea,
+    .share-block input {
+      flex: 1;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      outline: none;
+      resize: none;
+    }
+    .share-block textarea { min-height: 110px; line-height: 1.55; }
+    .copy-btn {
+      background: var(--ink);
+      color: var(--bg);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .copy-btn:hover { background: var(--blue); }
+    .copy-btn.copied { background: #16a34a; }
+    .copy-btn.copied::before { content: '✓ '; }
+
+    .share-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+    .share-btn {
+      flex: 1;
+      min-width: 140px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .share-btn:hover { transform: translateY(-1px); }
+    .share-btn.linkedin { background: #0a66c2; color: #ffffff; }
+    .share-btn.linkedin:hover { background: #084d94; }
+    .share-btn.twitter { background: var(--black); color: #ffffff; }
+    .share-btn.twitter:hover { background: #333; }
+    .share-btn.canva {
+      background: var(--bg);
+      color: var(--ink);
+      border: 1px solid var(--border);
+    }
+    .share-btn.canva:hover { background: var(--bg-alt); border-color: var(--blue); color: var(--blue); }
+
+    @media (max-width: 880px) {
+      .share-section { padding: 48px 24px; }
+      .share-grid { grid-template-columns: 1fr; gap: 28px; }
+      .share-preview { max-width: 360px; margin: 0 auto; }
+    }
+    @media (max-width: 640px) {
+      .share-section { padding: 40px 20px; }
+      .share-copy-wrap { flex-direction: column; }
+      .copy-btn { width: 100%; }
+    }
+
     .ended-overlay { position: fixed; inset: 0; background: rgba(10,10,10,0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; }
     .ended-overlay.show { display: flex; }
     .ended-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 40px 32px; max-width: 440px; width: 100%; text-align: center; color: var(--ink); position: relative; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.4); }
@@ -256,6 +591,89 @@
           <p class="privacy-note">We respect your privacy. No spam, ever.</p>
           <div id="reg-msg" style="display:none;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13.5px;font-weight:600;text-align:center;"></div>
         </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SHARE SECTION (revealed after registration) ── -->
+  <section class="share-section" id="share-section">
+    <div class="share-inner">
+      <div class="share-head">
+        <div class="share-badge">You're Registered</div>
+        <h2>Now share you're <em>attending</em></h2>
+        <p>Let your network know you'll be at the panel. Grab the share graphic and caption below — takes 30 seconds and helps more dentists find the room.</p>
+      </div>
+
+      <div class="share-grid">
+
+        <!-- Editable post preview (Canva PNG + overlays, renders to PNG via html2canvas) -->
+        <div class="post-preview" id="post-preview">
+          <img class="post-bg" src="I am Attending - Thriving Dentist Expert Panels.png" alt="I Am Attending — Thriving Dentist Expert Panel" />
+          <div class="post-photo-slot" id="post-photo-slot">
+            <img id="post-photo-img" alt="" style="display:none;" />
+          </div>
+          <!-- Solid navy cover: hides ALL of Canva's YOUR NAME HERE / YOUR PRACTICE HERE placeholders -->
+          <div class="post-cover"></div>
+          <div class="post-name" id="post-user-name">YOUR NAME HERE</div>
+          <div class="post-practice" id="post-user-practice">YOUR PRACTICE HERE</div>
+        </div>
+
+        <!-- Customize + share controls -->
+        <div class="share-actions">
+
+          <div class="customize-block">
+            <label>Your Name</label>
+            <input type="text" id="input-name" placeholder="e.g. Dr. Jane Smith" maxlength="40" />
+          </div>
+
+          <div class="customize-block">
+            <label>Practice / Company</label>
+            <input type="text" id="input-practice" placeholder="e.g. Smith Family Dental" maxlength="50" />
+          </div>
+
+          <div class="customize-block">
+            <label>Your Photo</label>
+            <div class="file-upload">
+              <div class="file-upload-icon">📷</div>
+              <div class="file-upload-text">
+                <div class="primary" id="file-name">Upload a photo (JPG or PNG)</div>
+                <div class="secondary">Square works best · optional</div>
+              </div>
+              <input type="file" id="input-photo" accept="image/*" />
+            </div>
+          </div>
+
+          <button type="button" class="download-btn" id="download-btn">Download Image</button>
+
+          <div class="divider"></div>
+
+          <div class="share-block">
+            <label>Suggested caption</label>
+            <div class="share-copy-wrap">
+              <textarea id="share-caption" readonly>I'm attending the upcoming Thriving Dentist Expert Panel — "Fill Your Chair in 90 Days: The New Patient Blueprint."
+
+Looking forward to an insightful discussion with dental professionals and industry experts on Wednesday, August 19 at 7 PM EST.
+
+Register here: https://www.reg.thrivingdentist.com/August-19/</textarea>
+              <button type="button" class="copy-btn" data-target="share-caption">Copy</button>
+            </div>
+          </div>
+
+          <div class="share-block">
+            <label>Share directly</label>
+            <div class="share-buttons">
+              <a class="share-btn linkedin" target="_blank" rel="noopener"
+                 href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.reg.thrivingdentist.com%2FAugust-19%2F">
+                Share on LinkedIn
+              </a>
+              <a class="share-btn twitter" target="_blank" rel="noopener"
+                 href="https://twitter.com/intent/tweet?text=I%27m%20attending%20the%20Thriving%20Dentist%20Expert%20Panel%20%E2%80%94%20Fill%20Your%20Chair%20in%2090%20Days.%20Aug%2019%20%C2%B7%207%20PM%20EST.&url=https%3A%2F%2Fwww.reg.thrivingdentist.com%2FAugust-19%2F">
+                Share on X
+              </a>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -426,21 +844,163 @@
           msg.style.cssText = 'display:block;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13.5px;font-weight:600;text-align:center;background:#d4edda;color:#155724;border:1px solid #c3e6cb;';
           msg.textContent = '✓ [TEST] Payload captured — check browser console.';
           btn.disabled = false; btn.textContent = 'Register Free'; form.reset();
+          revealShareSection();
         }, 800);
         return;
       }
 
+      // Optimistic UI — show success IMMEDIATELY, fire the fetch in the background.
+      // (In no-cors mode we can't read the response anyway, so awaiting the network
+      // round-trip just makes the user wait for nothing.)
+      form.querySelectorAll('input, textarea').forEach(i => i.disabled = true);
+      btn.disabled = true; btn.textContent = "✓ You're Registered"; btn.style.background = '#1e7e34';
+      msg.style.cssText = 'display:block;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13.5px;font-weight:600;text-align:center;background:#d4edda;color:#155724;border:1px solid #c3e6cb;';
+      msg.textContent = "You're all set. Check your email for the Zoom confirmation link.";
+      revealShareSection();
+
+      // Send the actual registration in the background — user doesn't wait for it.
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(data),
+        keepalive: true,
+      }).catch(err => console.error('Registration error:', err));
+    });
+
+    // ── SHARE SECTION reveal + copy buttons ──
+    function revealShareSection() {
+      const share = document.getElementById('share-section');
+      if (!share) return;
+      share.classList.add('show');
+      // Pre-fill name/practice from the registration form if available
+      const registeredName = (document.querySelector('[name="first_name"]').value + ' ' +
+                              document.querySelector('[name="last_name"]').value).trim();
+      const registeredPractice = document.querySelector('[name="practice_name"]').value.trim();
+      const nameIn = document.getElementById('input-name');
+      const practiceIn = document.getElementById('input-practice');
+      const namePost = document.getElementById('post-user-name');
+      const practicePost = document.getElementById('post-user-practice');
+      if (registeredName && !nameIn.value) {
+        nameIn.value = registeredName;
+        namePost.textContent = registeredName;
+      }
+      if (registeredPractice && !practiceIn.value) {
+        practiceIn.value = registeredPractice;
+        practicePost.textContent = registeredPractice;
+      }
+      // Sync practice visibility: hide the line on the post if empty OR "na"/"n/a"
+      if (typeof isPracticeSkipped === 'function' && isPracticeSkipped(practiceIn.value)) {
+        practicePost.classList.add('hidden');
+      } else {
+        practicePost.classList.remove('hidden');
+      }
+      setTimeout(() => share.scrollIntoView({ behavior: 'smooth', block: 'start' }), 900);
+    }
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const target = document.getElementById(btn.dataset.target);
+        if (!target) return;
+        try {
+          await navigator.clipboard.writeText(target.value);
+        } catch (err) {
+          target.select();
+          document.execCommand('copy');
+        }
+        const originalText = btn.textContent;
+        btn.classList.add('copied');
+        btn.textContent = 'Copied';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.textContent = originalText;
+        }, 1800);
+      });
+    });
+
+    // ── LIVE POST CUSTOMIZATION ──
+    const nameInput = document.getElementById('input-name');
+    const practiceInput = document.getElementById('input-practice');
+    const photoInput = document.getElementById('input-photo');
+    const postName = document.getElementById('post-user-name');
+    const postPractice = document.getElementById('post-user-practice');
+    const postPhotoImg = document.getElementById('post-photo-img');
+    const fileNameLabel = document.getElementById('file-name');
+
+    nameInput.addEventListener('input', () => {
+      const v = nameInput.value.trim();
+      postName.textContent = v || 'YOUR NAME HERE';
+    });
+    // Hide the practice line on the post if the input is empty or a
+    // "not-applicable" marker like "na" / "n/a" / "none"
+    function isPracticeSkipped(v) {
+      const t = (v || '').trim().toLowerCase();
+      if (!t) return true;
+      return ['na', 'n/a', 'n.a.', 'na.', 'none', '-'].includes(t);
+    }
+    practiceInput.addEventListener('input', () => {
+      const v = practiceInput.value.trim();
+      if (isPracticeSkipped(v)) {
+        postPractice.classList.add('hidden');
+      } else {
+        postPractice.textContent = v;
+        postPractice.classList.remove('hidden');
+      }
+    });
+    photoInput.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        postPhotoImg.src = ev.target.result;
+        postPhotoImg.style.display = 'block';
+        fileNameLabel.textContent = file.name.length > 32 ? file.name.substring(0, 30) + '…' : file.name;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // ── Scale overlay text to preview size (keeps positions right at any zoom) ──
+    function updatePostFontSizes(w) {
+      if (!w) return;
+      postName.style.fontSize     = (w * 0.048) + 'px';
+      postPractice.style.fontSize = (w * 0.023) + 'px';
+    }
+    const previewEl = document.getElementById('post-preview');
+    if (window.ResizeObserver && previewEl) {
+      const ro = new ResizeObserver(entries => {
+        for (const entry of entries) updatePostFontSizes(entry.contentRect.width);
+      });
+      ro.observe(previewEl);
+    } else if (previewEl) {
+      window.addEventListener('resize', () => updatePostFontSizes(previewEl.offsetWidth));
+      updatePostFontSizes(previewEl.offsetWidth);
+    }
+
+    // ── DOWNLOAD POST AS PNG ──
+    document.getElementById('download-btn').addEventListener('click', async () => {
+      const btn = document.getElementById('download-btn');
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Generating…';
       try {
-        await fetch(APPS_SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(data) });
-        form.querySelectorAll('input, textarea').forEach(i => i.disabled = true);
-        btn.disabled = true; btn.textContent = "✓ You're Registered"; btn.style.background = '#1e7e34';
-        msg.style.cssText = 'display:block;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13.5px;font-weight:600;text-align:center;background:#d4edda;color:#155724;border:1px solid #c3e6cb;';
-        msg.textContent = "You're all set. Check your email for the Zoom confirmation link.";
+        const preview = document.getElementById('post-preview');
+        const canvas = await html2canvas(preview, {
+          scale: 2,
+          backgroundColor: null,
+          useCORS: true,
+          logging: false,
+        });
+        const link = document.createElement('a');
+        const cleanName = (nameInput.value.trim() || 'attendee').replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+        link.download = `td-attending-${cleanName}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        btn.textContent = '✓ Downloaded';
+        setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 1800);
       } catch (err) {
-        msg.style.cssText = 'display:block;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13.5px;font-weight:600;text-align:center;background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;';
-        msg.textContent = 'Something went wrong. Please try again or contact us directly.';
-        console.error('Registration error:', err);
-        btn.disabled = false; btn.textContent = 'Register Free';
+        console.error('Download error:', err);
+        btn.textContent = 'Error — try again';
+        setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 2000);
       }
     });
 
