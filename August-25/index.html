@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Numbers That Matter Most | Thriving Dentist Expert Panel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- html2canvas for generating the "I Am Attending" post image -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wj5ouho8fy");
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0M26KGT8V2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0M26KGT8V2');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1da1e0; --blue-dark: #0c7eb3; --blue-light: #e8f4fb; --blue-bg: #f0f8fc;
+      --black: #0a0a0a; --ink: #1f2937; --mid: #4b5563; --muted: #6b7280; --soft: #9ca3af;
+      --border: #e5e7eb; --border-soft: #f1f3f5; --bg: #ffffff; --bg-alt: #f8fafc;
+    }
+
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; font-size: 15px; }
+
+    .nav { background: var(--bg); border-bottom: 1px solid var(--border); padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { display: flex; align-items: center; gap: 14px; }
+    .nav-brand img { height: 32px; width: auto; }
+    .nav-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding-left: 14px; border-left: 1px solid var(--border); }
+    .nav-cta { background: var(--blue); color: var(--bg); font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; padding: 9px 18px; border-radius: 6px; text-decoration: none; transition: background 0.18s; }
+    .nav-cta:hover { background: var(--blue-dark); }
+
+    .hero { padding: 56px 40px 64px; background: var(--bg); border-bottom: 1px solid var(--border); }
+    .hero-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 56px; align-items: start; }
+
+    .date-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--blue-light); color: var(--blue-dark); padding: 6px 12px; border-radius: 999px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 18px; }
+    .date-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+    .date-pill .sep { color: var(--soft); margin: 0 4px; }
+
+    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+
+    h1.hero-title { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; letter-spacing: -0.015em; color: var(--black); margin-bottom: 14px; }
+    h1.hero-title em { font-style: normal; color: var(--blue); }
+    .hero-desc { font-size: 15.5px; line-height: 1.65; color: var(--mid); max-width: 540px; margin-bottom: 28px; }
+
+    .meta-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 0; margin-bottom: 28px; }
+    .meta-strip .item { padding: 0 14px; border-right: 1px solid var(--border-soft); }
+    .meta-strip .item:last-child { border-right: none; padding-right: 0; }
+    .meta-strip .item:first-child { padding-left: 0; }
+    .meta-strip .label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .meta-strip .value { font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+
+    .countdown { display: flex; gap: 22px; align-items: flex-start; }
+    .countdown > div { display: flex; flex-direction: column; align-items: flex-start; }
+    .countdown .cd-num { display: inline-block; font-size: 28px; font-weight: 800; color: var(--black); line-height: 28px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%); border: 1px solid var(--border); border-radius: 6px; padding: 8px 8px; box-shadow: inset 0 -2px 0 rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.04); position: relative; white-space: nowrap; }
+    .countdown .cd-num::after { content: ''; position: absolute; left: 4px; right: 4px; top: 50%; height: 1px; background: rgba(15,23,42,0.06); pointer-events: none; z-index: 1; }
+    .countdown .digit { display: inline-block; width: 19px; height: 28px; overflow: hidden; vertical-align: top; text-align: center; }
+    .countdown .strip { display: block; transition: transform 0.6s cubic-bezier(0.45, 0, 0.15, 1); will-change: transform; }
+    .countdown .strip > span { display: block; height: 28px; line-height: 28px; text-align: center; }
+    .countdown .cd-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-top: 8px; }
+    @keyframes cdPulse {
+      0% { box-shadow: inset 0 -2px 0 rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.04), 0 0 0 0 rgba(29,161,224,0.32); }
+      40% { box-shadow: inset 0 -2px 0 rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.04), 0 0 0 6px rgba(29,161,224,0); }
+      100% { box-shadow: inset 0 -2px 0 rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.04), 0 0 0 0 rgba(29,161,224,0); }
+    }
+    .countdown .cd-num.tick { animation: cdPulse 0.6s ease-out; }
+
+    .form-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 26px 24px 24px; box-shadow: 0 8px 24px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.04); position: relative; }
+    .form-card::before { content: ''; position: absolute; top: -1px; left: -1px; right: -1px; height: 3px; background: var(--blue); border-radius: 10px 10px 0 0; }
+    .form-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+    .form-card h2 { font-size: 20px; font-weight: 700; color: var(--black); line-height: 1.25; margin-bottom: 4px; }
+    .form-subtext { font-size: 12.5px; color: var(--muted); margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--border-soft); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .form-group { margin-bottom: 11px; }
+    .form-group label { display: block; font-size: 11.5px; font-weight: 600; color: var(--ink); margin-bottom: 5px; }
+    .form-group label .req { color: var(--blue); }
+    .form-group input, .form-group textarea { width: 100%; padding: 9px 11px; border: 1px solid var(--border); background: var(--bg); border-radius: 6px; font-size: 13.5px; font-family: 'Inter', sans-serif; color: var(--ink); outline: none; transition: border-color 0.18s, box-shadow 0.18s; }
+    .form-group textarea { resize: vertical; min-height: 64px; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #b8bfc9; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(29,161,224,0.14); }
+    .btn-register { width: 100%; background: var(--black); color: var(--bg); font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; padding: 13px; border: none; border-radius: 6px; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; margin-top: 4px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-register::after { content: '→'; font-size: 15px; transition: transform 0.2s; }
+    .btn-register:hover { background: var(--blue); }
+    .btn-register:hover::after { transform: translateX(3px); }
+    .privacy-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+
+    .section { padding: 64px 40px; }
+    .section-inner { max-width: 1180px; margin: 0 auto; }
+    .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 36px; padding-bottom: 16px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 12px; }
+    .section-head h2 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 800; color: var(--black); line-height: 1.2; letter-spacing: -0.015em; }
+    .section-head h2 em { font-style: normal; color: var(--blue); }
+    .section-head .count { font-size: 13px; color: var(--muted); }
+
+    /* Speakers: 3 = single column stack */
+    .section-speakers { background: var(--bg-alt); }
+    .speakers-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 880px; }
+    .speaker-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 26px 28px 28px; transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s; display: flex; gap: 24px; align-items: flex-start; }
+    .speaker-card:hover { transform: translateY(-3px); border-color: var(--blue); box-shadow: 0 14px 32px -10px rgba(29,161,224,0.16); }
+    .speaker-photo { width: 120px; height: 120px; border-radius: 8px; object-fit: cover; object-position: center top; flex-shrink: 0; background: var(--blue-bg); }
+    .speaker-body { flex: 1; min-width: 0; }
+    .speaker-num { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
+    .speaker-name { font-size: 19px; font-weight: 700; color: var(--black); line-height: 1.2; margin-bottom: 4px; }
+    .speaker-role { font-size: 12px; font-weight: 500; color: var(--muted); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border-soft); }
+    .speaker-bio { font-size: 13.5px; color: var(--mid); line-height: 1.65; }
+
+    /* Topics editorial list */
+    .topics-list { border-top: 1px solid var(--border); }
+    .topic-row { display: grid; grid-template-columns: 100px 1fr 40px; gap: 28px; padding: 26px 4px; border-bottom: 1px solid var(--border); align-items: start; position: relative; transition: padding-left 0.25s, background 0.25s; }
+    .topic-row::before { content: ''; position: absolute; left: 0; top: 50%; width: 3px; height: 0; background: var(--blue); transform: translateY(-50%); transition: height 0.3s ease; }
+    .topic-row:hover { padding-left: 20px; background: linear-gradient(90deg, var(--blue-bg) 0%, transparent 100%); }
+    .topic-row:hover::before { height: 70%; }
+    .topic-row:hover .topic-arrow { opacity: 1; transform: translateX(0); color: var(--blue); }
+    .topic-num { font-size: 38px; font-weight: 800; color: var(--black); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; transition: color 0.25s; }
+    .topic-row:hover .topic-num { color: var(--blue); }
+    .topic-content { padding-top: 4px; }
+    .topic-row h4 { font-size: 18px; font-weight: 700; color: var(--black); line-height: 1.3; margin-bottom: 6px; letter-spacing: -0.005em; }
+    .topic-row p { font-size: 14px; color: var(--mid); line-height: 1.6; max-width: 640px; }
+    .topic-arrow { font-size: 22px; color: var(--soft); line-height: 1; opacity: 0.4; transform: translateX(-6px); transition: opacity 0.25s, transform 0.25s, color 0.25s; align-self: center; text-align: right; }
+    .topic-row .topic-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+
+    .cta-bottom { background: var(--black); color: var(--bg); padding: 64px 40px; text-align: center; }
+    .cta-bottom .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+    .cta-bottom h2 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 800; color: var(--bg); line-height: 1.25; max-width: 640px; margin: 0 auto 14px; letter-spacing: -0.015em; }
+    .cta-bottom h2 em { font-style: normal; color: var(--blue); }
+    .cta-bottom p { font-size: 14.5px; color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto 28px; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--blue); color: var(--bg); font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; padding: 14px 28px; text-decoration: none; border-radius: 6px; transition: background 0.2s; }
+    .btn-cta::after { content: '→'; font-size: 15px; transition: transform 0.2s; }
+    .btn-cta:hover { background: var(--blue-dark); }
+    .btn-cta:hover::after { transform: translateX(3px); }
+
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 28px 40px; text-align: center; }
+    .footer-logo img { height: 26px; width: auto; margin-bottom: 10px; opacity: 0.9; }
+    footer p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    footer a { color: var(--ink); text-decoration: none; }
+    footer a:hover { color: var(--blue); }
+
+    @media (max-width: 1024px) { .hero-inner { grid-template-columns: 1fr 360px; gap: 36px; } }
+    @media (max-width: 880px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+      .form-card { max-width: 500px; }
+      .topic-row { grid-template-columns: 80px 1fr 32px; gap: 22px; padding: 22px 4px; }
+      .topic-num { font-size: 32px; }
+      .topic-row h4 { font-size: 17px; }
+    }
+    @media (max-width: 640px) {
+      .nav { padding: 12px 20px; }
+      .nav-tag { display: none; }
+      .hero { padding: 40px 20px 48px; }
+      .section { padding: 48px 20px; }
+      .cta-bottom { padding: 48px 20px; }
+      footer { padding: 24px 20px; }
+      .meta-strip { grid-template-columns: 1fr 1fr; gap: 14px 0; }
+      .meta-strip .item { border-right: none; padding: 0; }
+      .meta-strip .item:nth-child(odd) { border-right: 1px solid var(--border-soft); padding-right: 14px; }
+      .meta-strip .item:nth-child(even) { padding-left: 14px; }
+      .speaker-card { flex-direction: column; gap: 18px; padding: 22px 22px 24px; }
+      .speaker-photo { width: 90px; height: 90px; }
+      .topic-row { grid-template-columns: 1fr; gap: 12px; padding: 20px 4px; }
+      .topic-row:hover { padding-left: 4px; background: none; }
+      .topic-num { font-size: 28px; color: var(--blue); margin-bottom: 2px; }
+      .topic-row h4 { font-size: 16px; }
+      .topic-row p { font-size: 13.5px; }
+      .topic-arrow { display: none; }
+      .countdown { gap: 14px; }
+      .countdown .cd-num { font-size: 24px; line-height: 24px; }
+      .countdown .digit { height: 24px; width: 16px; }
+      .countdown .strip > span { height: 24px; line-height: 24px; }
+      .section-head { flex-direction: column; align-items: flex-start; margin-bottom: 28px; }
+    }
+    @media (max-width: 480px) { .form-card { padding: 22px 18px 20px; } .form-row { grid-template-columns: 1fr; } }
+
+    /* ── SHARE SECTION (revealed after registration) ── */
+    .share-section {
+      background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 40px;
+      display: none;
+      scroll-margin-top: 80px;
+    }
+    .share-section.show { display: block; animation: shareIn 0.6s ease-out; }
+    @keyframes shareIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .share-inner { max-width: 1100px; margin: 0 auto; }
+    .share-head { text-align: center; margin-bottom: 40px; }
+    .share-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #dcfce7; color: #166534;
+      padding: 6px 14px; border-radius: 999px;
+      font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .share-badge::before {
+      content: '✓'; width: 16px; height: 16px;
+      background: #16a34a; color: #ffffff; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900;
+    }
+    .share-head h2 {
+      font-size: clamp(24px, 3vw, 34px); font-weight: 800; color: var(--black);
+      line-height: 1.2; margin-bottom: 10px; letter-spacing: -0.015em;
+    }
+    .share-head h2 em { font-style: normal; color: var(--blue); }
+    .share-head p { font-size: 15px; color: var(--mid); max-width: 520px; margin: 0 auto; line-height: 1.6; }
+    .share-grid { display: grid; grid-template-columns: 440px 1fr; gap: 44px; align-items: start; }
+
+    .post-preview {
+      position: relative; width: 100%; aspect-ratio: 1080 / 1350;
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(15,23,42,0.20), 0 4px 12px rgba(15,23,42,0.08);
+      background: #061125; font-family: 'Inter', sans-serif;
+    }
+    .post-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; user-select: none; -webkit-user-drag: none; pointer-events: none; }
+    .post-photo-slot {
+      position: absolute; left: 54.9%; top: 18.5%; width: 39.5%; height: 50%;
+      border-radius: 3%; overflow: hidden; background: transparent;
+    }
+    .post-photo-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-cover {
+      position: absolute; top: 72%; left: 51%; right: 5%; height: 10%;
+      background: linear-gradient(180deg, #001536 0%, #001332 40%, #001230 80%, #00122f 100%);
+    }
+    .post-name {
+      position: absolute; top: 72%; left: 51%; right: 5%; height: 4%;
+      padding: 0 0.4em; color: #ffffff; font-family: 'Inter', sans-serif;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
+      line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .post-practice {
+      position: absolute; top: 79.5%; left: 51%; right: 5%; height: 3%;
+      padding: 0 0.4em; color: #f6b93b; font-family: 'Inter', sans-serif;
+      font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em;
+      line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .post-practice.hidden { display: none; }
+
+    .customize-block { display: flex; flex-direction: column; gap: 6px; }
+    .customize-block label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .customize-block input[type="text"] {
+      padding: 12px 14px; border: 1px solid var(--border); background: var(--bg); border-radius: 8px;
+      font-size: 14px; font-family: 'Inter', sans-serif; color: var(--ink); outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+    .customize-block input[type="text"]:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(29,161,224,0.14); }
+    .file-upload {
+      position: relative; display: flex; align-items: center; gap: 12px;
+      padding: 10px 12px 10px 10px; border: 1px dashed var(--border);
+      background: var(--bg); border-radius: 8px; cursor: pointer;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .file-upload:hover { border-color: var(--blue); background: var(--blue-bg); }
+    .file-upload input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+    .file-upload-icon { width: 40px; height: 40px; background: var(--blue-light); color: var(--blue-dark); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .file-upload-text { flex: 1; min-width: 0; }
+    .file-upload-text .primary { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .file-upload-text .secondary { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+
+    .download-btn {
+      background: var(--blue); color: var(--bg); font-size: 13.5px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 14px;
+      border: none; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif;
+      transition: background 0.2s, transform 0.15s;
+      display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+    }
+    .download-btn::before { content: '⬇'; font-size: 15px; }
+    .download-btn:hover { background: var(--blue-dark); }
+    .download-btn:disabled { opacity: 0.6; cursor: wait; }
+
+    .divider { height: 1px; background: var(--border); margin: 4px 0 8px; }
+    .share-actions { display: flex; flex-direction: column; gap: 20px; }
+    .share-block label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .share-copy-wrap { position: relative; display: flex; gap: 8px; }
+    .share-block textarea, .share-block input {
+      flex: 1; padding: 12px 14px; border: 1px solid var(--border);
+      background: var(--bg); border-radius: 8px;
+      font-size: 13.5px; font-family: 'Inter', sans-serif; color: var(--ink); outline: none; resize: none;
+    }
+    .share-block textarea { min-height: 110px; line-height: 1.55; }
+    .copy-btn {
+      background: var(--ink); color: var(--bg); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 12px 18px;
+      border: none; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .copy-btn:hover { background: var(--blue); }
+    .copy-btn.copied { background: #16a34a; }
+    .copy-btn.copied::before { content: '✓ '; }
+
+    .share-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+    .share-btn {
+      flex: 1; min-width: 140px; display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 13px 16px; border-radius: 8px; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.04em; text-decoration: none; transition: background 0.2s, transform 0.15s;
+    }
+    .share-btn:hover { transform: translateY(-1px); }
+    .share-btn.linkedin { background: #0a66c2; color: #ffffff; }
+    .share-btn.linkedin:hover { background: #084d94; }
+    .share-btn.twitter { background: var(--black); color: #ffffff; }
+    .share-btn.twitter:hover { background: #333; }
+
+    @media (max-width: 880px) {
+      .share-section { padding: 48px 24px; }
+      .share-grid { grid-template-columns: 1fr; gap: 28px; }
+      .post-preview { max-width: 360px; margin: 0 auto; }
+    }
+    @media (max-width: 640px) {
+      .share-section { padding: 40px 20px; }
+      .share-copy-wrap { flex-direction: column; }
+      .copy-btn { width: 100%; }
+    }
+
+    .ended-overlay { position: fixed; inset: 0; background: rgba(10,10,10,0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .ended-overlay.show { display: flex; }
+    .ended-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 40px 32px; max-width: 440px; width: 100%; text-align: center; color: var(--ink); position: relative; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.4); }
+    .ended-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--blue); }
+    .ended-eyebrow { font-size: 10.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+    .ended-card h2 { font-size: 22px; font-weight: 800; color: var(--black); margin-bottom: 10px; line-height: 1.2; letter-spacing: -0.01em; }
+    .ended-card p { color: var(--mid); font-size: 14px; line-height: 1.6; margin-bottom: 22px; }
+    .ended-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: var(--bg); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; padding: 12px 24px; border-radius: 6px; text-decoration: none; margin-bottom: 14px; transition: background 0.2s; }
+    .ended-cta::after { content: '→'; }
+    .ended-cta:hover { background: var(--blue); }
+    .ended-redirect { font-size: 11.5px !important; color: var(--muted) !important; margin-bottom: 0 !important; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-brand">
+      <img src="../images/logo.png" alt="Thriving Dentist" />
+      <span class="nav-tag">Webinar Series</span>
+    </div>
+    <a href="#register" class="nav-cta">Reserve Spot</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="date-pill">
+          <span class="dot"></span>
+          <span>Tuesday <span class="sep">·</span> August 25, 2026 <span class="sep">·</span> 7 PM EST</span>
+        </div>
+
+        <div class="hero-eyebrow">Live Expert Panel</div>
+
+        <h1 class="hero-title">
+          The Numbers That Matter Most <em>(And the Ones That Don't)</em>
+        </h1>
+
+        <p class="hero-desc">
+          You don't have a data problem — you have a too much data problem. Owner-dentists cut through the noise: the handful of numbers that actually signal a thriving practice, the vanity metrics quietly wasting your attention, how to read your P&amp;L like an owner, and why hygiene tells you more than almost any other number on the board.
+        </p>
+
+        <div class="meta-strip">
+          <div class="item"><div class="label">Format</div><div class="value">Live Zoom Panel</div></div>
+          <div class="item"><div class="label">Speakers</div><div class="value">3 Expert Panelists</div></div>
+          <div class="item"><div class="label">Duration</div><div class="value">60 minutes</div></div>
+          <div class="item"><div class="label">Cost</div><div class="value">Complimentary</div></div>
+        </div>
+
+        <div class="countdown" id="countdown">
+          <div><span class="cd-num" id="cd-days">30</span><span class="cd-label">Days</span></div>
+          <div><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Hours</span></div>
+          <div><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Minutes</span></div>
+          <div><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Seconds</span></div>
+        </div>
+      </div>
+
+      <div class="form-card" id="register">
+        <div class="form-eyebrow">Registration</div>
+        <h2>Reserve Your Spot</h2>
+        <p class="form-subtext">Complimentary to attend. Replay sent to all registrants.</p>
+
+        <form id="reg-form" novalidate>
+          <input type="hidden" name="event_key" value="event_2026_08_25" />
+          <div class="form-row">
+            <div class="form-group"><label>First Name <span class="req">*</span></label><input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required /></div>
+            <div class="form-group"><label>Last Name <span class="req">*</span></label><input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required /></div>
+          </div>
+          <div class="form-group"><label>Email <span class="req">*</span></label><input type="email" name="email" placeholder="you@yourpractice.com" autocomplete="email" required /></div>
+          <div class="form-group"><label>Mobile <span class="req">*</span></label><input type="tel" name="phone" placeholder="+1 (555) 123-4567" autocomplete="tel" required /></div>
+          <div class="form-group"><label>Practice Name <span class="req">*</span></label><input type="text" name="practice_name" placeholder="Your practice name" autocomplete="organization" required /></div>
+          <div class="form-group"><label>Questions for the panel <span style="color:var(--muted);font-weight:500;">(optional)</span></label><textarea name="questions" placeholder="Anything specific you'd like the panel to address…"></textarea></div>
+          <button type="submit" class="btn-register" id="reg-btn">Register Free</button>
+          <p class="privacy-note">We respect your privacy. No spam, ever.</p>
+          <div id="reg-msg" style="display:none;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13.5px;font-weight:600;text-align:center;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-speakers">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Meet the <em>Panelists</em></h2>
+        <span class="count">3 expert speakers</span>
+      </div>
+
+      <div class="speakers-grid">
+
+        <article class="speaker-card">
+          <img class="speaker-photo" src="VAJAHAT YAR KHAN.png" alt="Dr. Vajahat Yar Khan" />
+          <div class="speaker-body">
+            <div class="speaker-num">Panelist 01</div>
+            <h3 class="speaker-name">Dr. Vajahat Yar Khan</h3>
+            <div class="speaker-role">CEO &amp; President · USA Dental Solutions · Founder, DentTracks</div>
+            <p class="speaker-bio">Dr. Khan is a board-certified pediatric dentist with 20+ years of clinical experience and a practice owner who turned his frontline frustrations into software. As Founder &amp; CEO of DentTracks, he builds systems around the real-time KPIs, financial insights, and operational metrics that help practices run leaner and grow smarter. He's a frequent speaker on AI, practice performance, and building dental businesses that thrive — bringing an owner's-eye view of which numbers actually move the needle.</p>
+          </div>
+        </article>
+
+        <article class="speaker-card">
+          <img class="speaker-photo" src="Gabriele Maycher_TD_25.08.2026.jpeg" alt="Gabriele Eva Maycher" />
+          <div class="speaker-body">
+            <div class="speaker-num">Panelist 02</div>
+            <h3 class="speaker-name">Gabriele Eva Maycher</h3>
+            <div class="speaker-role">CEO &amp; Founder · GEM Dental Experts</div>
+            <p class="speaker-bio">Gabriele is an award-winning entrepreneur, dental practice growth strategist, educator, and Founder &amp; CEO of GEM Dental Experts Inc. With more than four decades spanning clinical dentistry, business ownership, education, and consulting, she connects evidence-based care, ethical practice, operational discipline, and business strategy. A former Dental Hygiene Program Director and contributor to the Darby &amp; Walsh dental hygiene textbook, she's known for replacing outdated systems with practical, defensible models that position hygiene as one of the most powerful clinical and financial engines in the modern dental practice.</p>
+          </div>
+        </article>
+
+        <article class="speaker-card">
+          <img class="speaker-photo" src="Benita Soni_TD_25.08.2026.JPG" alt="Benita Soni" />
+          <div class="speaker-body">
+            <div class="speaker-num">Panelist 03</div>
+            <h3 class="speaker-name">Benita Soni</h3>
+            <div class="speaker-role">Owner &amp; Practice Management Coach · Benita Dental Management</div>
+            <p class="speaker-bio">Benita has over 32 years in the dental industry, overseeing every aspect of the dental practice in her career — with the last 12 years as a General Manager in a multi-practice setting and as Regional Operations Coach for multiple independently owned practices. Her training focuses on Dental Business Administration, Treatment Coordinator Training, and Dental Practice Management. Benita empowers dental teams with Best Practice Principles, offering step-by-step guidance, coaching, and systems to elevate patient-centred care and increase practice success.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>What <em>We'll Cover</em></h2>
+        <span class="count">Five signals, not noise</span>
+      </div>
+
+      <div class="topics-list">
+
+        <div class="topic-row">
+          <div class="topic-num">01</div>
+          <div class="topic-content">
+            <div class="topic-tag">The signal</div>
+            <h4>The 5-7 numbers thriving owners actually watch every week</h4>
+            <p>A short, disciplined dashboard that tells you what's really happening in the practice — before you dig into anything else.</p>
+          </div>
+          <div class="topic-arrow">→</div>
+        </div>
+
+        <div class="topic-row">
+          <div class="topic-num">02</div>
+          <div class="topic-content">
+            <div class="topic-tag">The noise</div>
+            <h4>The vanity metrics that waste your attention</h4>
+            <p>The numbers that look important, feel important, and quietly steer you toward the wrong decisions.</p>
+          </div>
+          <div class="topic-arrow">→</div>
+        </div>
+
+        <div class="topic-row">
+          <div class="topic-num">03</div>
+          <div class="topic-content">
+            <div class="topic-tag">The canary</div>
+            <h4>Hygiene as the canary — what it reveals about everything else</h4>
+            <p>Why hygiene is the earliest, clearest indicator of trouble (or growth) — and what to watch for.</p>
+          </div>
+          <div class="topic-arrow">→</div>
+        </div>
+
+        <div class="topic-row">
+          <div class="topic-num">04</div>
+          <div class="topic-content">
+            <div class="topic-tag">The P&amp;L</div>
+            <h4>Reading your P&amp;L like an owner, not a clinician</h4>
+            <p>The line items that matter, the ratios that matter more, and how to turn a monthly report into a real decision-making tool.</p>
+          </div>
+          <div class="topic-arrow">→</div>
+        </div>
+
+        <div class="topic-row">
+          <div class="topic-num">05</div>
+          <div class="topic-content">
+            <div class="topic-tag">The scorecard</div>
+            <h4>The team scorecard that drives results without feeling like surveillance</h4>
+            <p>How to make numbers visible to the team in a way that motivates instead of micromanages.</p>
+          </div>
+          <div class="topic-arrow">→</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-bottom">
+    <div class="eyebrow">Don't miss it</div>
+    <h2>One hour. The handful of numbers that <em>actually run the practice.</em></h2>
+    <p>Reserve your complimentary spot now — replay sent to all registrants.</p>
+    <a href="#register" class="btn-cta">Reserve My Spot</a>
+  </section>
+
+  <!-- ── SHARE SECTION (revealed after registration) ── -->
+  <section class="share-section" id="share-section">
+    <div class="share-inner">
+      <div class="share-head">
+        <div class="share-badge">You're Registered</div>
+        <h2>Now share you're <em>attending</em></h2>
+        <p>Let your network know you'll be at the panel. Grab the share graphic and caption below — takes 30 seconds and helps more dentists find the room.</p>
+      </div>
+
+      <div class="share-grid">
+
+        <!-- Editable post preview (Canva PNG + overlays, renders to PNG via html2canvas) -->
+        <div class="post-preview" id="post-preview">
+          <img class="post-bg" src="I am Attending - Thriving Dentist Expert Panels (2).png" alt="I Am Attending — Thriving Dentist Expert Panel" />
+          <div class="post-photo-slot" id="post-photo-slot">
+            <img id="post-photo-img" alt="" style="display:none;" />
+          </div>
+          <div class="post-cover"></div>
+          <div class="post-name" id="post-user-name">YOUR NAME HERE</div>
+          <div class="post-practice" id="post-user-practice">YOUR PRACTICE HERE</div>
+        </div>
+
+        <div class="share-actions">
+
+          <div class="customize-block">
+            <label>Your Name</label>
+            <input type="text" id="input-name" placeholder="e.g. Dr. Jane Smith" maxlength="40" />
+          </div>
+
+          <div class="customize-block">
+            <label>Practice / Company</label>
+            <input type="text" id="input-practice" placeholder="e.g. Smith Family Dental" maxlength="50" />
+          </div>
+
+          <div class="customize-block">
+            <label>Your Photo</label>
+            <div class="file-upload">
+              <div class="file-upload-icon">📷</div>
+              <div class="file-upload-text">
+                <div class="primary" id="file-name">Upload a photo (JPG or PNG)</div>
+                <div class="secondary">Square works best · optional</div>
+              </div>
+              <input type="file" id="input-photo" accept="image/*" />
+            </div>
+          </div>
+
+          <button type="button" class="download-btn" id="download-btn">Download Image</button>
+
+          <div class="divider"></div>
+
+          <div class="share-block">
+            <label>Suggested caption</label>
+            <div class="share-copy-wrap">
+              <textarea id="share-caption" readonly>I'm attending the upcoming Thriving Dentist Expert Panel — "The Numbers That Matter Most (And the Ones That Don't)."
+
+Looking forward to a live conversation with owner-dentists on the numbers that actually signal a thriving practice — Tuesday, August 25 at 7 PM EST.
+
+Register here: https://www.reg.thrivingdentist.com/August-25/</textarea>
+              <button type="button" class="copy-btn" data-target="share-caption">Copy</button>
+            </div>
+          </div>
+
+          <div class="share-block">
+            <label>Share directly</label>
+            <div class="share-buttons">
+              <a class="share-btn linkedin" target="_blank" rel="noopener"
+                 href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.reg.thrivingdentist.com%2FAugust-25%2F">
+                Share on LinkedIn
+              </a>
+              <a class="share-btn twitter" target="_blank" rel="noopener"
+                 href="https://twitter.com/intent/tweet?text=I%27m%20attending%20the%20Thriving%20Dentist%20Expert%20Panel%20%E2%80%94%20The%20Numbers%20That%20Matter%20Most.%20Aug%2025%20%C2%B7%207%20PM%20EST.&url=https%3A%2F%2Fwww.reg.thrivingdentist.com%2FAugust-25%2F">
+                Share on X
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><img src="../images/logo.png" alt="Thriving Dentist" /></div>
+    <p>
+      © 2026 Thriving Dentist. All rights reserved.<br>
+      <a href="https://www.thrivingdentist.com/privacy-policy/">Privacy Policy</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.thrivingdentist.com/contact/">Contact</a>
+    </p>
+  </footer>
+
+  <div class="ended-overlay" id="ended-overlay">
+    <div class="ended-card">
+      <div class="ended-eyebrow">Live Webinar</div>
+      <h2>This Event Has Ended</h2>
+      <p>The live panel has finished. Browse our other upcoming live panels on the events hub if you'd like to join one.</p>
+      <a href="/" class="ended-cta">View Upcoming Events</a>
+      <p class="ended-redirect">Redirecting in <span id="ended-countdown">10</span>s</p>
+    </div>
+  </div>
+
+  <script>
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzyxlgV8_VFXqKgINipNuurNgGNPgdwPxgPECnBvvFKUUvXCbdN-WIgW1o_lTaFoLVp/exec';
+    const EVENT_KEY = 'event_2026_08_25';
+    const LOCAL_TEST_MODE = APPS_SCRIPT_URL.startsWith('REPLACE_ME');
+
+    document.getElementById('reg-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn  = document.getElementById('reg-btn');
+      const msg  = document.getElementById('reg-msg');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const source_id = new URLSearchParams(window.location.search).get('s') || '';
+      const data = {
+        event_key: form.event_key.value.trim() || EVENT_KEY,
+        first_name: form.first_name.value.trim(),
+        last_name: form.last_name.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        practice_name: form.practice_name.value.trim(),
+        questions: form.questions.value.trim(),
+        source_id: source_id,
+        source_name: '',
+      };
+
+      btn.disabled = true; btn.textContent = 'Registering…'; msg.style.display = 'none';
+
+      if (LOCAL_TEST_MODE) {
+        console.log('%c[LOCAL TEST] Payload:', 'color:#1da1e0;font-weight:bold;', data);
+        setTimeout(() => {
+          msg.style.cssText = 'display:block;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13.5px;font-weight:600;text-align:center;background:#d4edda;color:#155724;border:1px solid #c3e6cb;';
+          msg.textContent = '✓ [TEST] Payload captured — check browser console.';
+          btn.disabled = false; btn.textContent = 'Register Free'; form.reset();
+          revealShareSection();
+        }, 800);
+        return;
+      }
+
+      // Optimistic UI — instant success, fetch in background
+      form.querySelectorAll('input, textarea').forEach(i => i.disabled = true);
+      btn.disabled = true; btn.textContent = "✓ You're Registered"; btn.style.background = '#1e7e34';
+      msg.style.cssText = 'display:block;margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13.5px;font-weight:600;text-align:center;background:#d4edda;color:#155724;border:1px solid #c3e6cb;';
+      msg.textContent = "You're all set. Check your email for the Zoom confirmation link.";
+      revealShareSection();
+
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(data),
+        keepalive: true,
+      }).catch(err => console.error('Registration error:', err));
+    });
+
+    // ── SHARE SECTION reveal + copy buttons ──
+    function revealShareSection() {
+      const share = document.getElementById('share-section');
+      if (!share) return;
+      share.classList.add('show');
+      const registeredName = (document.querySelector('[name="first_name"]').value + ' ' +
+                              document.querySelector('[name="last_name"]').value).trim();
+      const registeredPractice = document.querySelector('[name="practice_name"]').value.trim();
+      const nameIn = document.getElementById('input-name');
+      const practiceIn = document.getElementById('input-practice');
+      const namePost = document.getElementById('post-user-name');
+      const practicePost = document.getElementById('post-user-practice');
+      if (registeredName && !nameIn.value) {
+        nameIn.value = registeredName;
+        namePost.textContent = registeredName;
+      }
+      if (registeredPractice && !practiceIn.value) {
+        practiceIn.value = registeredPractice;
+        practicePost.textContent = registeredPractice;
+      }
+      if (typeof isPracticeSkipped === 'function' && isPracticeSkipped(practiceIn.value)) {
+        practicePost.classList.add('hidden');
+      } else {
+        practicePost.classList.remove('hidden');
+      }
+      setTimeout(() => share.scrollIntoView({ behavior: 'smooth', block: 'start' }), 900);
+    }
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const target = document.getElementById(btn.dataset.target);
+        if (!target) return;
+        try {
+          await navigator.clipboard.writeText(target.value);
+        } catch (err) {
+          target.select();
+          document.execCommand('copy');
+        }
+        const originalText = btn.textContent;
+        btn.classList.add('copied');
+        btn.textContent = 'Copied';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.textContent = originalText;
+        }, 1800);
+      });
+    });
+
+    // ── LIVE POST CUSTOMIZATION ──
+    const nameInput = document.getElementById('input-name');
+    const practiceInput = document.getElementById('input-practice');
+    const photoInput = document.getElementById('input-photo');
+    const postName = document.getElementById('post-user-name');
+    const postPractice = document.getElementById('post-user-practice');
+    const postPhotoImg = document.getElementById('post-photo-img');
+    const fileNameLabel = document.getElementById('file-name');
+
+    nameInput.addEventListener('input', () => {
+      const v = nameInput.value.trim();
+      postName.textContent = v || 'YOUR NAME HERE';
+    });
+    function isPracticeSkipped(v) {
+      const t = (v || '').trim().toLowerCase();
+      if (!t) return true;
+      return ['na', 'n/a', 'n.a.', 'na.', 'none', '-'].includes(t);
+    }
+    practiceInput.addEventListener('input', () => {
+      const v = practiceInput.value.trim();
+      if (isPracticeSkipped(v)) {
+        postPractice.classList.add('hidden');
+      } else {
+        postPractice.textContent = v;
+        postPractice.classList.remove('hidden');
+      }
+    });
+    photoInput.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        postPhotoImg.src = ev.target.result;
+        postPhotoImg.style.display = 'block';
+        fileNameLabel.textContent = file.name.length > 32 ? file.name.substring(0, 30) + '…' : file.name;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function updatePostFontSizes(w) {
+      if (!w) return;
+      postName.style.fontSize     = (w * 0.048) + 'px';
+      postPractice.style.fontSize = (w * 0.023) + 'px';
+    }
+    const previewEl = document.getElementById('post-preview');
+    if (window.ResizeObserver && previewEl) {
+      const ro = new ResizeObserver(entries => {
+        for (const entry of entries) updatePostFontSizes(entry.contentRect.width);
+      });
+      ro.observe(previewEl);
+    } else if (previewEl) {
+      window.addEventListener('resize', () => updatePostFontSizes(previewEl.offsetWidth));
+      updatePostFontSizes(previewEl.offsetWidth);
+    }
+
+    document.getElementById('download-btn').addEventListener('click', async () => {
+      const btn = document.getElementById('download-btn');
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Generating…';
+      try {
+        const preview = document.getElementById('post-preview');
+        const canvas = await html2canvas(preview, {
+          scale: 2,
+          backgroundColor: null,
+          useCORS: true,
+          logging: false,
+        });
+        const link = document.createElement('a');
+        const cleanName = (nameInput.value.trim() || 'attendee').replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+        link.download = `td-attending-${cleanName}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        btn.textContent = '✓ Downloaded';
+        setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 1800);
+      } catch (err) {
+        console.error('Download error:', err);
+        btn.textContent = 'Error — try again';
+        setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 2000);
+      }
+    });
+
+    // August 25, 2026 7:00 PM EDT = Aug 25 23:00 UTC
+    const target = new Date('2026-08-25T23:00:00Z').getTime();
+
+    function buildFlipper(id, numDigits) {
+      const el = document.getElementById(id);
+      el.innerHTML = ''; el.dataset.last = '';
+      for (let i = 0; i < numDigits; i++) {
+        const digit = document.createElement('span'); digit.className = 'digit';
+        const strip = document.createElement('span'); strip.className = 'strip';
+        for (let n = 0; n <= 9; n++) { const s = document.createElement('span'); s.textContent = n; strip.appendChild(s); }
+        digit.appendChild(strip); el.appendChild(digit);
+      }
+    }
+    const DIGIT_HEIGHT_PX = 28;
+    function setFlipper(id, value) {
+      const el = document.getElementById(id);
+      const digits = el.querySelectorAll('.digit');
+      const padded = String(value).padStart(digits.length, '0');
+      if (el.dataset.last === padded) return;
+      digits.forEach((digit, i) => {
+        const d = parseInt(padded[i], 10);
+        digit.querySelector('.strip').style.transform = `translateY(-${d * DIGIT_HEIGHT_PX}px)`;
+      });
+      el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick');
+      el.dataset.last = padded;
+    }
+    ['cd-days', 'cd-hours', 'cd-mins', 'cd-secs'].forEach(id => buildFlipper(id, 2));
+
+    function tick() {
+      const diff = Math.max(0, target - Date.now());
+      if (diff === 0) {
+        document.getElementById('countdown').innerHTML = '<div style="font-size:16px;font-weight:700;color:var(--blue);">The panel is live now</div>';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff / 3600000) % 24);
+      const m = Math.floor((diff / 60000) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      setFlipper('cd-days', d); setFlipper('cd-hours', h); setFlipper('cd-mins', m); setFlipper('cd-secs', s);
+    }
+    requestAnimationFrame(() => requestAnimationFrame(tick));
+    setInterval(tick, 1000);
+
+    const EVENT_END_TARGET = target + 60 * 60 * 1000;
+    function checkEnded() {
+      if (Date.now() < EVENT_END_TARGET) return;
+      const overlay = document.getElementById('ended-overlay');
+      if (!overlay || overlay.classList.contains('show')) return;
+      overlay.classList.add('show'); document.body.style.overflow = 'hidden';
+      let n = 10; const cd = document.getElementById('ended-countdown');
+      const iv = setInterval(function() {
+        n--; if (cd) cd.textContent = n;
+        if (n <= 0) { clearInterval(iv); window.location.href = '/'; }
+      }, 1000);
+    }
+    checkEnded();
+    setInterval(checkEnded, 30000);
+  </script>
+
+</body>
+</html>
