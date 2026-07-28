@@ -106,17 +106,17 @@
     .section-head h2 em { font-style: normal; color: var(--blue); }
     .section-head .count { font-size: 13px; color: var(--muted); }
 
-    /* Featured single-speaker layout */
+    /* Speakers: 2 = 2-col grid */
     .section-speakers { background: var(--bg-alt); }
-    .speakers-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 760px; margin: 0 auto; }
-    .speaker-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 34px 34px 36px; transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s; display: flex; gap: 28px; align-items: flex-start; }
+    .speakers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .speaker-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 26px 26px 28px; transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s; display: flex; gap: 22px; align-items: flex-start; }
     .speaker-card:hover { transform: translateY(-3px); border-color: var(--blue); box-shadow: 0 14px 32px -10px rgba(29,161,224,0.16); }
-    .speaker-photo { width: 140px; height: 140px; border-radius: 10px; object-fit: cover; object-position: center top; flex-shrink: 0; background: var(--blue-bg); }
+    .speaker-photo { width: 110px; height: 110px; border-radius: 8px; object-fit: cover; object-position: center top; flex-shrink: 0; background: var(--blue-bg); }
     .speaker-body { flex: 1; min-width: 0; }
     .speaker-num { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
-    .speaker-name { font-size: 22px; font-weight: 700; color: var(--black); line-height: 1.2; margin-bottom: 4px; }
-    .speaker-role { font-size: 12.5px; font-weight: 500; color: var(--muted); margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--border-soft); }
-    .speaker-bio { font-size: 14px; color: var(--mid); line-height: 1.7; }
+    .speaker-name { font-size: 18px; font-weight: 700; color: var(--black); line-height: 1.2; margin-bottom: 4px; }
+    .speaker-role { font-size: 12px; font-weight: 500; color: var(--muted); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border-soft); }
+    .speaker-bio { font-size: 13.5px; color: var(--mid); line-height: 1.65; }
 
     /* Topics editorial list */
     .topics-list { border-top: 1px solid var(--border); }
@@ -297,8 +297,9 @@
       .meta-strip .item { border-right: none; padding: 0; }
       .meta-strip .item:nth-child(odd) { border-right: 1px solid var(--border-soft); padding-right: 14px; }
       .meta-strip .item:nth-child(even) { padding-left: 14px; }
-      .speaker-card { flex-direction: column; gap: 18px; padding: 24px 22px 26px; }
-      .speaker-photo { width: 100px; height: 100px; }
+      .speakers-grid { grid-template-columns: 1fr; }
+      .speaker-card { flex-direction: column; gap: 18px; padding: 22px 22px 24px; }
+      .speaker-photo { width: 90px; height: 90px; }
       .topic-row { grid-template-columns: 1fr; gap: 12px; padding: 20px 4px; }
       .topic-row:hover { padding-left: 4px; background: none; }
       .topic-num { font-size: 28px; color: var(--blue); margin-bottom: 2px; }
@@ -356,7 +357,7 @@
 
         <div class="meta-strip">
           <div class="item"><div class="label">Format</div><div class="value">Live Zoom Panel</div></div>
-          <div class="item"><div class="label">Speaker</div><div class="value">Featured Expert</div></div>
+          <div class="item"><div class="label">Speakers</div><div class="value">2 Expert Panelists</div></div>
           <div class="item"><div class="label">Duration</div><div class="value">60 minutes</div></div>
           <div class="item"><div class="label">Cost</div><div class="value">Complimentary</div></div>
         </div>
@@ -395,8 +396,8 @@
   <section class="section section-speakers">
     <div class="section-inner">
       <div class="section-head">
-        <h2>Meet Your <em>Speaker</em></h2>
-        <span class="count">Featured expert · 60 minutes</span>
+        <h2>Meet the <em>Panelists</em></h2>
+        <span class="count">2 expert speakers</span>
       </div>
 
       <div class="speakers-grid">
@@ -404,10 +405,20 @@
         <article class="speaker-card">
           <img class="speaker-photo" src="Daniel - Daniel Schriftman.jpg" alt="Daniel Schriftman" />
           <div class="speaker-body">
-            <div class="speaker-num">Featured Speaker</div>
+            <div class="speaker-num">Panelist 01</div>
             <h3 class="speaker-name">Daniel Schriftman, MBA, DAADOM</h3>
-            <div class="speaker-role">Founder &amp; Executive Director · Circle of Dental Excellence (CODE) · CEO, The Philadelphia Dentist, P.C.</div>
-            <p class="speaker-bio">Daniel is an accomplished dental practice management expert, business coach, and patient finance master with over 20 years of industry experience. He serves as CEO and Executive Manager of The Philadelphia Dentist, P.C., an innovative emergency dental practice operating 365 days a year. Daniel is also the Founder and Executive Director of Circle of Dental Excellence (CODE), a networking and education organization for dental industry professionals. He holds an MBA in Human Resources and earned his Diplomate designation from the American Association of Dental Office Management (DAADOM). Known for his focus on operational efficiency and team leadership, he's passionate about elevating the dental employer, employee, and patient experience.</p>
+            <div class="speaker-role">Founder &amp; Executive Director · Circle of Dental Excellence (CODE)</div>
+            <p class="speaker-bio">Daniel is an accomplished dental practice management expert, business coach, and patient finance master with over 20 years of industry experience. He serves as CEO and Executive Manager of The Philadelphia Dentist, P.C., an innovative emergency dental practice operating 365 days a year. Daniel is also Founder and Executive Director of Circle of Dental Excellence (CODE), a networking and education organization for dental industry professionals. He holds an MBA in Human Resources and earned his Diplomate designation from the AADOM.</p>
+          </div>
+        </article>
+
+        <article class="speaker-card">
+          <img class="speaker-photo" src="Dr David Rice.png" alt="Dr. David Rice" />
+          <div class="speaker-body">
+            <div class="speaker-num">Panelist 02</div>
+            <h3 class="speaker-name">Dr. David Rice</h3>
+            <div class="speaker-role">Founder · IGNITEDDS · Editor-in-Chief, DentistryIQ</div>
+            <p class="speaker-bio">Dr. David Rice is more than a coach — he's a practicing dentist who navigated the same challenges you face every day. His journey began in the operatory, where he built a successful practice by focusing on the three pillars of sustainable growth: People, Process, and Production. That real-world experience became the foundation for IGNITEDDS, the nation's largest community for new dentists — where he mentors over 40,000 dental professionals. He's the best-selling author of <em>From Student to CEO</em>, Editor-in-Chief of DentistryIQ, and Adjunct Faculty at The Pankey Institute.</p>
           </div>
         </article>
 
