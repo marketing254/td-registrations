@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Panelist Kit · Thriving Dentist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1da1e0; --blue-dark: #0c7eb3; --blue-light: #e8f4fb; --blue-bg: #f0f8fc;
+      --navy: #001536; --navy-2: #002448; --navy-3: #001230;
+      --gold: #f6b93b;
+      --black: #0a0a0a; --ink: #1f2937; --mid: #4b5563; --muted: #6b7280; --soft: #9ca3af;
+      --border: #e5e7eb; --border-soft: #f1f3f5; --bg: #ffffff; --bg-alt: #f8fafc;
+      --green: #1e7e34;
+    }
+
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg-alt); line-height: 1.55; font-size: 15px; }
+
+    /* ── NAV ─────────────────────────────────────────────────────── */
+    .nav { background: var(--bg); border-bottom: 1px solid var(--border); padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { display: flex; align-items: center; gap: 14px; }
+    .nav-brand img { height: 30px; width: auto; }
+    .nav-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); padding-left: 14px; border-left: 1px solid var(--border); }
+    .nav-right { font-size: 12.5px; color: var(--muted); }
+    .nav-right strong { color: var(--ink); font-weight: 600; }
+
+    /* ── HERO ────────────────────────────────────────────────────── */
+    .hero { padding: 56px 40px 40px; background: var(--bg); border-bottom: 1px solid var(--border); }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; }
+    .hero-avatar { width: 96px; height: 96px; border-radius: 12px; object-fit: cover; object-position: center top; background: var(--blue-bg); border: 3px solid var(--bg); box-shadow: 0 6px 20px rgba(15,23,42,0.14); }
+    .hero-avatar-placeholder { width: 96px; height: 96px; border-radius: 12px; background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; font-weight: 800; }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+    h1.hero-title { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 34px); line-height: 1.15; letter-spacing: -0.015em; color: var(--black); margin-bottom: 8px; }
+    .hero-title em { font-style: normal; color: var(--blue); }
+    .hero-meta { font-size: 14px; color: var(--mid); }
+    .hero-meta strong { color: var(--ink); font-weight: 600; }
+    .hero-meta .dot { margin: 0 8px; color: var(--soft); }
+
+    /* ── QUICK STATS ─────────────────────────────────────────────── */
+    .stats { max-width: 1100px; margin: 0 auto; padding: 32px 40px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .stat { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px; display: flex; align-items: flex-start; gap: 14px; transition: border-color 0.2s, transform 0.2s; }
+    .stat:hover { border-color: var(--blue); transform: translateY(-2px); }
+    .stat-icon { width: 40px; height: 40px; border-radius: 8px; background: var(--blue-light); color: var(--blue-dark); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .stat-body { flex: 1; min-width: 0; }
+    .stat-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .stat-value { font-size: 14px; font-weight: 700; color: var(--ink); }
+    .stat-jump { font-size: 12.5px; color: var(--blue); text-decoration: none; font-weight: 600; margin-top: 2px; display: inline-block; }
+
+    /* ── SECTIONS ────────────────────────────────────────────────── */
+    .section { padding: 40px 40px; max-width: 1100px; margin: 0 auto; }
+    .section-head { margin-bottom: 20px; }
+    .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+    .section-head h2 { font-size: 22px; font-weight: 800; color: var(--black); letter-spacing: -0.01em; margin-bottom: 4px; }
+    .section-head p { font-size: 14px; color: var(--muted); }
+
+    .card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; }
+    .card + .card { margin-top: 14px; }
+
+    /* ── COPY ROW (URL + copy button) ────────────────────────────── */
+    .copy-row { display: flex; gap: 10px; align-items: stretch; }
+    .copy-row input { flex: 1; padding: 12px 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 13.5px; color: var(--ink); font-family: 'Inter', sans-serif; background: var(--bg-alt); outline: none; }
+    .copy-row input:focus { border-color: var(--blue); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; border: none; background: var(--black); color: var(--bg); font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 6px; font-family: 'Inter', sans-serif; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .btn:hover { background: var(--blue); }
+    .btn.copied { background: var(--green); }
+    .btn.primary { background: var(--blue); }
+    .btn.primary:hover { background: var(--blue-dark); }
+    .btn.ghost { background: transparent; color: var(--blue); border: 1px solid var(--border); }
+    .btn.ghost:hover { color: var(--bg); background: var(--blue); border-color: var(--blue); }
+
+    .note { font-size: 12.5px; color: var(--muted); margin-top: 10px; line-height: 1.55; }
+    .note strong { color: var(--ink); font-weight: 600; }
+
+    .status-pending { background: #fff8e1; color: #7a5b00; border: 1px solid #ffecb3; padding: 12px 14px; border-radius: 6px; font-size: 13px; margin-top: 10px; }
+    .status-pending strong { display: block; margin-bottom: 2px; font-weight: 700; }
+
+    /* ── SOCIAL GRAPHICS PREVIEW ─────────────────────────────────── */
+    .graphics-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .graphic-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+    .graphic-card-head { display: flex; align-items: baseline; justify-content: space-between; }
+    .graphic-card-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+    .graphic-card-dims { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .preview-wrap { position: relative; background: var(--bg-alt); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 14px rgba(15,23,42,0.08); }
+    .preview-wrap.square { aspect-ratio: 1/1; }
+    .preview-wrap.landscape { aspect-ratio: 16/9; }
+    .preview-wrap.portrait { aspect-ratio: 4/5; }
+    .preview-inner { position: absolute; top: 0; left: 0; transform-origin: top left; }
+
+    /* ── CAPTIONS ────────────────────────────────────────────────── */
+    .caption-tabs { display: flex; gap: 4px; margin-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .caption-tab { padding: 10px 18px; background: none; border: none; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; font-family: 'Inter', sans-serif; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+    .caption-tab:hover { color: var(--ink); }
+    .caption-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+    .caption-body { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; padding: 18px; white-space: pre-wrap; font-size: 13.5px; color: var(--ink); line-height: 1.65; margin-bottom: 12px; min-height: 140px; }
+    .caption-actions { display: flex; justify-content: flex-end; }
+
+    /* ── ERROR / LOADING ─────────────────────────────────────────── */
+    .loader-screen { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 18px; z-index: 999; }
+    .loader-screen.hidden { display: none; }
+    .spinner { width: 44px; height: 44px; border: 3px solid var(--border); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error-screen { max-width: 460px; margin: 100px auto; padding: 40px 32px; text-align: center; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
+    .error-screen h2 { font-size: 22px; font-weight: 800; color: var(--black); margin-bottom: 10px; }
+    .error-screen p { color: var(--mid); margin-bottom: 22px; }
+
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 28px 40px; text-align: center; }
+    footer img { height: 24px; opacity: 0.85; margin-bottom: 10px; }
+    footer p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav { padding: 12px 20px; }
+      .nav-tag { display: none; }
+      .hero { padding: 40px 20px 32px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 20px; }
+      .stats { padding: 24px 20px 0; grid-template-columns: 1fr; }
+      .section { padding: 32px 20px; }
+      .graphics-row { grid-template-columns: 1fr; }
+      .copy-row { flex-direction: column; }
+      .copy-row .btn { width: 100%; }
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       GRAPHIC TEMPLATES — full-resolution masters (hidden off-screen)
+       html2canvas screenshots these when the download button is clicked.
+       ══════════════════════════════════════════════════════════════ */
+
+    .graphic-master-stage { position: fixed; top: 0; left: -99999px; pointer-events: none; z-index: -1; }
+
+    /* Common typography inside graphics */
+    .g { font-family: 'Inter', sans-serif; color: #ffffff; overflow: hidden; }
+    .g-photo { position: absolute; background-position: center top; background-size: cover; background-repeat: no-repeat; background-color: #061125; }
+    .g-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,18,48,0) 65%, rgba(0,18,48,0.55) 100%); }
+    .g-content { position: absolute; background: linear-gradient(140deg, #001536 0%, #002448 55%, #001230 100%); }
+    .g-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: #ffffff; padding: 7px 14px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+    .g-tag .dot { width: 7px; height: 7px; border-radius: 50%; background: #ffffff; box-shadow: 0 0 0 3px rgba(255,255,255,0.25); }
+    .g-topic { font-weight: 800; letter-spacing: -0.02em; color: #ffffff; }
+    .g-rule { display: block; height: 3px; background: var(--blue); }
+    .g-name { font-weight: 800; color: #ffffff; letter-spacing: -0.01em; }
+    .g-role { color: rgba(255,255,255,0.68); font-weight: 500; }
+    .g-when { color: var(--blue); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+    .g-when strong { color: #ffffff; font-weight: 700; }
+    .g-url-block { display: flex; align-items: center; gap: 16px; padding: 14px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); border-radius: 8px; }
+    .g-url-text { flex: 1; min-width: 0; }
+    .g-url-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
+    .g-url-value { color: #ffffff; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .g-qr { background: #ffffff; border-radius: 6px; padding: 6px; display: block; }
+    .g-brand { position: absolute; display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.85); font-weight: 700; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .g-brand::before { content: ''; display: block; width: 22px; height: 22px; background: url('../images/logo1.png') center/contain no-repeat; filter: brightness(0) invert(1); }
+
+    /* ── SQUARE 1080×1080 ── */
+    .g-square { position: relative; width: 1080px; height: 1080px; background: #001230; }
+    .g-square .g-photo   { top: 0; left: 0; width: 540px;  height: 1080px; }
+    .g-square .g-content { top: 0; left: 540px; width: 540px; height: 1080px; padding: 72px 60px 60px; }
+    .g-square .g-topic   { font-size: 46px; line-height: 1.1; margin-top: 32px; }
+    .g-square .g-rule    { width: 64px; margin: 30px 0 30px; }
+    .g-square .g-name    { font-size: 32px; line-height: 1.15; margin-bottom: 8px; }
+    .g-square .g-role    { font-size: 16px; line-height: 1.4; }
+    .g-square .g-when    { font-size: 13px; margin-top: 32px; display: flex; flex-direction: column; gap: 6px; }
+    .g-square .g-when strong { display: block; font-size: 14px; letter-spacing: 0.02em; text-transform: none; }
+    .g-square .g-url-block { margin-top: 32px; }
+    .g-square .g-url-value { font-size: 14px; }
+    .g-square .g-qr img { width: 80px; height: 80px; display: block; }
+    .g-square .g-brand { bottom: 40px; right: 60px; font-size: 12px; }
+
+    /* ── LANDSCAPE 1600×900 ── */
+    .g-land { position: relative; width: 1600px; height: 900px; background: #001230; }
+    .g-land .g-photo   { top: 0; left: 0; width: 640px; height: 900px; }
+    .g-land .g-content { top: 0; left: 640px; width: 960px; height: 900px; padding: 80px 80px 60px; }
+    .g-land .g-topic   { font-size: 60px; line-height: 1.05; margin-top: 32px; max-width: 720px; }
+    .g-land .g-rule    { width: 72px; margin: 34px 0 34px; }
+    .g-land .g-name    { font-size: 36px; line-height: 1.15; margin-bottom: 8px; }
+    .g-land .g-role    { font-size: 18px; line-height: 1.4; }
+    .g-land .g-when    { font-size: 14px; margin-top: 32px; display: flex; align-items: center; gap: 18px; }
+    .g-land .g-when strong { font-size: 15px; letter-spacing: 0.02em; text-transform: none; }
+    .g-land .g-url-block { margin-top: 40px; max-width: 660px; }
+    .g-land .g-url-value { font-size: 17px; }
+    .g-land .g-qr img { width: 96px; height: 96px; display: block; }
+    .g-land .g-brand { bottom: 50px; right: 80px; font-size: 13px; }
+
+    /* ── PORTRAIT 1080×1350 ── */
+    .g-port { position: relative; width: 1080px; height: 1350px; background: #001230; }
+    .g-port .g-photo   { top: 0; left: 0; width: 1080px; height: 720px; }
+    .g-port .g-photo::after { background: linear-gradient(180deg, rgba(0,18,48,0) 55%, rgba(0,18,48,0.9) 88%, #001230 100%); }
+    .g-port .g-content { top: 700px; left: 0; width: 1080px; height: 650px; padding: 40px 72px 60px; background: linear-gradient(180deg, transparent 0%, #001230 12%, #001230 100%); }
+    .g-port .g-topic   { font-size: 52px; line-height: 1.1; margin-top: 30px; }
+    .g-port .g-rule    { width: 64px; margin: 30px 0 30px; }
+    .g-port .g-name    { font-size: 36px; line-height: 1.15; margin-bottom: 8px; }
+    .g-port .g-role    { font-size: 17px; line-height: 1.4; }
+    .g-port .g-when    { font-size: 13.5px; margin-top: 30px; display: flex; align-items: center; gap: 20px; }
+    .g-port .g-when strong { font-size: 15px; letter-spacing: 0.02em; text-transform: none; }
+    .g-port .g-url-block { margin-top: 30px; }
+    .g-port .g-url-value { font-size: 15px; }
+    .g-port .g-qr img { width: 84px; height: 84px; display: block; }
+    .g-port .g-brand { bottom: 30px; right: 72px; font-size: 12px; }
+  </style>
+</head>
+<body>
+
+  <!-- Loader while data fetches -->
+  <div class="loader-screen" id="loader">
+    <div class="spinner"></div>
+    <div style="font-size:13px;color:var(--muted);">Loading your panelist kit…</div>
+  </div>
+
+  <!-- Error state -->
+  <div class="error-screen" id="error-screen" style="display:none;">
+    <h2>Kit not found</h2>
+    <p id="error-msg">This kit link is invalid or has expired. Please check the URL, or contact marketing at Thriving Dentist.</p>
+    <a href="https://www.reg.thrivingdentist.com/" class="btn primary">Visit the events page</a>
+  </div>
+
+  <!-- Main app (revealed after data loads) -->
+  <div id="app" style="display:none;">
+
+    <nav class="nav">
+      <div class="nav-brand">
+        <img src="../images/logo.png" alt="Thriving Dentist" />
+        <span class="nav-tag">Panelist Kit</span>
+      </div>
+      <div class="nav-right">Signed in as <strong id="nav-name">—</strong></div>
+    </nav>
+
+    <!-- ── HERO ─────────────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-inner">
+        <img class="hero-avatar" id="hero-avatar" alt="" />
+        <div>
+          <div class="hero-eyebrow">Welcome</div>
+          <h1 class="hero-title">Hi <span id="hero-first-name">there</span>, <em>you're on the panel.</em></h1>
+          <div class="hero-meta">
+            <strong id="hero-topic">—</strong>
+            <span class="dot">·</span>
+            <span id="hero-when">—</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── QUICK STATS ──────────────────────────────────────────── -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-icon">🎥</div>
+        <div class="stat-body">
+          <div class="stat-label">Zoom Panelist Link</div>
+          <div class="stat-value" id="stat-zoom">Being generated…</div>
+          <a href="#zoom-section" class="stat-jump">Open ↓</a>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">🔗</div>
+        <div class="stat-body">
+          <div class="stat-label">Your Registration Link</div>
+          <div class="stat-value" id="stat-track">Ready to share</div>
+          <a href="#track-section" class="stat-jump">Copy ↓</a>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">📸</div>
+        <div class="stat-body">
+          <div class="stat-label">Social Kit</div>
+          <div class="stat-value">3 sized graphics + captions</div>
+          <a href="#kit-section" class="stat-jump">View ↓</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ZOOM SECTION ─────────────────────────────────────────── -->
+    <section class="section" id="zoom-section">
+      <div class="section-head">
+        <div class="section-tag">Step 1</div>
+        <h2>Your Zoom panelist join link</h2>
+        <p>Use this the day of the event. Save it in your calendar and open a few minutes before we go live.</p>
+      </div>
+      <div class="card">
+        <div class="copy-row">
+          <input type="text" id="zoom-input" readonly value="Being generated — refresh this page in a minute if it still shows as pending." />
+          <button type="button" class="btn primary" id="zoom-copy" disabled>Copy</button>
+        </div>
+        <div id="zoom-pending" class="status-pending" style="display:none;">
+          <strong>Zoom link is being generated.</strong>
+          Once marketing adds you to the webinar, this section fills in automatically. Reload the page after 1–2 minutes.
+        </div>
+        <p class="note">🔒 <strong>Don't share this link publicly.</strong> This is your personal panelist access — for you only.</p>
+      </div>
+    </section>
+
+    <!-- ── TRACKING SECTION ─────────────────────────────────────── -->
+    <section class="section" id="track-section">
+      <div class="section-head">
+        <div class="section-tag">Step 2</div>
+        <h2>Your personal registration link</h2>
+        <p>Share this — every registration through it is attributed to you.</p>
+      </div>
+      <div class="card">
+        <div class="copy-row">
+          <input type="text" id="track-input" readonly />
+          <button type="button" class="btn primary" id="track-copy">Copy Link</button>
+        </div>
+        <p class="note">💡 <strong>Use this link everywhere</strong> — in your social captions, email signature, DMs to colleagues. When people register through it, marketing knows they came from you.</p>
+      </div>
+    </section>
+
+    <!-- ── SOCIAL GRAPHICS ──────────────────────────────────────── -->
+    <section class="section" id="kit-section">
+      <div class="section-head">
+        <div class="section-tag">Step 3</div>
+        <h2>Ready-to-post social graphics</h2>
+        <p>Three sizes, all pre-designed with your details. Click Download and post them anywhere.</p>
+      </div>
+      <div class="graphics-row">
+        <div class="graphic-card">
+          <div class="graphic-card-head">
+            <div class="graphic-card-name">LinkedIn / IG feed</div>
+            <div class="graphic-card-dims">1080 × 1080</div>
+          </div>
+          <div class="preview-wrap square"><div class="preview-inner" id="preview-square"></div></div>
+          <button type="button" class="btn primary" data-download="square">Download PNG</button>
+        </div>
+        <div class="graphic-card">
+          <div class="graphic-card-head">
+            <div class="graphic-card-name">X / LinkedIn wide</div>
+            <div class="graphic-card-dims">1600 × 900</div>
+          </div>
+          <div class="preview-wrap landscape"><div class="preview-inner" id="preview-land"></div></div>
+          <button type="button" class="btn primary" data-download="land">Download PNG</button>
+        </div>
+        <div class="graphic-card">
+          <div class="graphic-card-head">
+            <div class="graphic-card-name">Instagram portrait</div>
+            <div class="graphic-card-dims">1080 × 1350</div>
+          </div>
+          <div class="preview-wrap portrait"><div class="preview-inner" id="preview-port"></div></div>
+          <button type="button" class="btn primary" data-download="port">Download PNG</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CAPTIONS ─────────────────────────────────────────────── -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-tag">Step 4</div>
+        <h2>Ready-to-post captions</h2>
+        <p>Tap the platform you're posting to, copy the caption, paste it with the graphic.</p>
+      </div>
+      <div class="card">
+        <div class="caption-tabs">
+          <button type="button" class="caption-tab active" data-tab="linkedin">LinkedIn</button>
+          <button type="button" class="caption-tab" data-tab="twitter">X (Twitter)</button>
+          <button type="button" class="caption-tab" data-tab="instagram">Instagram</button>
+        </div>
+        <div class="caption-body" id="caption-body">—</div>
+        <div class="caption-actions">
+          <button type="button" class="btn" id="caption-copy">Copy Caption</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <img src="../images/logo.png" alt="Thriving Dentist" />
+      <p>Thanks for joining the Thriving Dentist Expert Panel. Questions? <a href="mailto:marketing@thrivingdentist.com" style="color:var(--ink);">marketing@thrivingdentist.com</a></p>
+    </footer>
+
+  </div>
+
+  <!-- ── GRAPHIC MASTERS (hidden, full-resolution) ──────────────── -->
+  <div class="graphic-master-stage" id="graphic-stage">
+
+    <!-- SQUARE 1080×1080 -->
+    <div class="g g-square" id="master-square">
+      <div class="g-photo" data-slot="photo"></div>
+      <div class="g-content">
+        <span class="g-tag"><span class="dot"></span>ON THE PANEL</span>
+        <div class="g-topic" data-slot="topic">—</div>
+        <span class="g-rule"></span>
+        <div class="g-name" data-slot="name">—</div>
+        <div class="g-role" data-slot="role">—</div>
+        <div class="g-when">
+          <span data-slot="when-day">—</span>
+          <strong data-slot="when-time">—</strong>
+        </div>
+        <div class="g-url-block">
+          <div class="g-url-text">
+            <div class="g-url-label">Register</div>
+            <div class="g-url-value" data-slot="url">—</div>
+          </div>
+          <div class="g-qr" data-slot="qr"></div>
+        </div>
+        <div class="g-brand">Thriving Dentist</div>
+      </div>
+    </div>
+
+    <!-- LANDSCAPE 1600×900 -->
+    <div class="g g-land" id="master-land">
+      <div class="g-photo" data-slot="photo"></div>
+      <div class="g-content">
+        <span class="g-tag"><span class="dot"></span>ON THE PANEL</span>
+        <div class="g-topic" data-slot="topic">—</div>
+        <span class="g-rule"></span>
+        <div class="g-name" data-slot="name">—</div>
+        <div class="g-role" data-slot="role">—</div>
+        <div class="g-when">
+          <span data-slot="when-day">—</span>
+          <strong data-slot="when-time">—</strong>
+        </div>
+        <div class="g-url-block">
+          <div class="g-url-text">
+            <div class="g-url-label">Register — complimentary</div>
+            <div class="g-url-value" data-slot="url">—</div>
+          </div>
+          <div class="g-qr" data-slot="qr"></div>
+        </div>
+        <div class="g-brand">Thriving Dentist</div>
+      </div>
+    </div>
+
+    <!-- PORTRAIT 1080×1350 -->
+    <div class="g g-port" id="master-port">
+      <div class="g-photo" data-slot="photo"></div>
+      <div class="g-content">
+        <span class="g-tag"><span class="dot"></span>I'M ON THE PANEL</span>
+        <div class="g-topic" data-slot="topic">—</div>
+        <span class="g-rule"></span>
+        <div class="g-name" data-slot="name">—</div>
+        <div class="g-role" data-slot="role">—</div>
+        <div class="g-when">
+          <span data-slot="when-day">—</span>
+          <strong data-slot="when-time">—</strong>
+        </div>
+        <div class="g-url-block">
+          <div class="g-url-text">
+            <div class="g-url-label">Register — complimentary</div>
+            <div class="g-url-value" data-slot="url">—</div>
+          </div>
+          <div class="g-qr" data-slot="qr"></div>
+        </div>
+        <div class="g-brand">Thriving Dentist</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // ══════════════════════════════════════════════════════════════
+    // CONFIG — set the Apps Script web-app URL here
+    // ══════════════════════════════════════════════════════════════
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby28znCDoxKLdMBXpDwRjP--3HbJpXMivLVMWkxl9wXpAcOXoFhr7cZJm94krp8S0QK/exec';
+
+    // ══════════════════════════════════════════════════════════════
+    // Boot
+    // ══════════════════════════════════════════════════════════════
+    const params = new URLSearchParams(window.location.search);
+    const panelistId = params.get('p');
+
+    if (!panelistId) {
+      showError('No panelist ID in URL.');
+    } else {
+      loadKit();
+    }
+
+    async function loadKit() {
+      try {
+        const url = `${APPS_SCRIPT_URL}?action=kit&p=${encodeURIComponent(panelistId)}`;
+        const res = await fetch(url, { method: 'GET' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        if (data.error) throw new Error(data.error);
+        renderKit(data);
+      } catch (err) {
+        console.error(err);
+        showError('Could not load your kit. Please check the link or contact marketing.');
+      }
+    }
+
+    function showError(msg) {
+      document.getElementById('loader').classList.add('hidden');
+      document.getElementById('error-screen').style.display = 'block';
+      if (msg) document.getElementById('error-msg').textContent = msg;
+    }
+
+    // ══════════════════════════════════════════════════════════════
+    // Render everything from the kit data
+    // ══════════════════════════════════════════════════════════════
+    let KIT = null;
+
+    function renderKit(data) {
+      KIT = data;
+
+      const displayName = data.display_name || `${data.first_name} ${data.last_name}`.trim();
+      const roleLine = [data.title, data.company].filter(Boolean).join(' · ');
+      const topic = data.event?.panel_topic || data.event?.event_title || 'Thriving Dentist Expert Panel';
+      const whenLine = [data.event?.day_display, data.event?.date_display, data.event?.time_display].filter(Boolean).join(' · ');
+      const whenDay = [data.event?.day_display, data.event?.date_display].filter(Boolean).join(' · ');
+      const whenTime = data.event?.time_display || '';
+      const shortUrl = displayUrl(data.tracking_url);
+
+      // NAV + HERO
+      document.getElementById('nav-name').textContent = displayName;
+      document.title = `${data.first_name}'s Panelist Kit · Thriving Dentist`;
+      const heroAvatar = document.getElementById('hero-avatar');
+      if (data.headshot_data_uri) {
+        heroAvatar.src = data.headshot_data_uri;
+      } else {
+        // Placeholder gradient with initials
+        const initials = (data.first_name?.[0] || '') + (data.last_name?.[0] || '');
+        heroAvatar.outerHTML = `<div class="hero-avatar-placeholder">${initials || 'TD'}</div>`;
+      }
+      document.getElementById('hero-first-name').textContent = data.first_name || 'there';
+      document.getElementById('hero-topic').textContent = topic;
+      document.getElementById('hero-when').textContent = whenLine;
+
+      // ZOOM
+      const zoomInput = document.getElementById('zoom-input');
+      const zoomBtn = document.getElementById('zoom-copy');
+      const zoomStat = document.getElementById('stat-zoom');
+      const zoomPending = document.getElementById('zoom-pending');
+      if (data.zoom_join_url) {
+        zoomInput.value = data.zoom_join_url;
+        zoomBtn.disabled = false;
+        zoomStat.textContent = 'Ready';
+        zoomPending.style.display = 'none';
+      } else {
+        zoomInput.value = 'Being generated — check back in 1–2 minutes.';
+        zoomBtn.disabled = true;
+        zoomStat.textContent = 'Being generated…';
+        zoomPending.style.display = 'block';
+      }
+
+      // TRACKING URL
+      document.getElementById('track-input').value = data.tracking_url;
+
+      // CAPTIONS
+      renderCaption('linkedin');
+
+      // GRAPHICS — fill masters + scale previews
+      fillMaster('square', { topic, name: displayName, role: roleLine, whenDay, whenTime, url: shortUrl, tracking: data.tracking_url, photo: data.headshot_data_uri });
+      fillMaster('land',   { topic, name: displayName, role: roleLine, whenDay, whenTime, url: shortUrl, tracking: data.tracking_url, photo: data.headshot_data_uri });
+      fillMaster('port',   { topic, name: displayName, role: roleLine, whenDay, whenTime, url: shortUrl, tracking: data.tracking_url, photo: data.headshot_data_uri });
+
+      buildPreviews();
+
+      // Show
+      document.getElementById('loader').classList.add('hidden');
+      document.getElementById('app').style.display = 'block';
+
+      wireInteractions();
+    }
+
+    // ══════════════════════════════════════════════════════════════
+    // Graphic master population
+    // ══════════════════════════════════════════════════════════════
+    function fillMaster(key, v) {
+      const el = document.getElementById('master-' + key);
+      el.querySelector('[data-slot="topic"]').textContent = v.topic;
+      el.querySelector('[data-slot="name"]').textContent = v.name;
+      el.querySelector('[data-slot="role"]').textContent = v.role;
+      el.querySelector('[data-slot="when-day"]').textContent = v.whenDay;
+      el.querySelector('[data-slot="when-time"]').textContent = v.whenTime;
+      el.querySelector('[data-slot="url"]').textContent = v.url;
+      const photoEl = el.querySelector('[data-slot="photo"]');
+      if (v.photo) photoEl.style.backgroundImage = `url("${v.photo}")`;
+
+      // QR code — generated to a canvas, then swapped for an <img> so html2canvas captures cleanly
+      const qrSlot = el.querySelector('[data-slot="qr"]');
+      qrSlot.innerHTML = '';
+      const qrCanvas = document.createElement('canvas');
+      new QRious({
+        element: qrCanvas,
+        value: v.tracking,
+        size: key === 'land' ? 192 : (key === 'port' ? 168 : 160),
+        background: '#ffffff',
+        foreground: '#001536',
+        level: 'M',
+      });
+      const qrImg = document.createElement('img');
+      qrImg.src = qrCanvas.toDataURL('image/png');
+      qrSlot.appendChild(qrImg);
+    }
+
+    // ══════════════════════════════════════════════════════════════
+    // Preview scaling — clone each master into the preview container
+    // ══════════════════════════════════════════════════════════════
+    function buildPreviews() {
+      buildOne('preview-square', 'master-square', 1080, 1080);
+      buildOne('preview-land',   'master-land',   1600, 900);
+      buildOne('preview-port',   'master-port',   1080, 1350);
+      window.addEventListener('resize', buildPreviews);
+    }
+    function buildOne(previewId, masterId, w, h) {
+      const preview = document.getElementById(previewId);
+      const master = document.getElementById(masterId);
+      const wrap = preview.parentElement;
+      const targetW = wrap.clientWidth;
+      const scale = targetW / w;
+      // Clone once, then just adjust scale on resize
+      if (!preview.dataset.built) {
+        const clone = master.cloneNode(true);
+        clone.style.position = 'static';
+        preview.appendChild(clone);
+        preview.dataset.built = '1';
+      }
+      preview.style.width = w + 'px';
+      preview.style.height = h + 'px';
+      preview.style.transform = `scale(${scale})`;
+      // Force the parent wrap to size accordingly (aspect-ratio already handles the frame)
+    }
+
+    // ══════════════════════════════════════════════════════════════
+    // Download — screenshot the master element at full resolution
+    // ══════════════════════════════════════════════════════════════
+    async function downloadGraphic(key) {
+      const btn = document.querySelector(`[data-download="${key}"]`);
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Generating…';
+      try {
+        const el = document.getElementById('master-' + key);
+        // Bring it on-screen at absolute position for html2canvas
+        const stage = document.getElementById('graphic-stage');
+        stage.style.left = '0';
+        stage.style.top = '0';
+        stage.style.zIndex = '-999';  // still off view but reachable
+
+        const canvas = await html2canvas(el, {
+          scale: 2,
+          backgroundColor: null,
+          useCORS: true,
+          logging: false,
+          width: el.offsetWidth,
+          height: el.offsetHeight,
+        });
+
+        stage.style.left = '-99999px';
+
+        const link = document.createElement('a');
+        const cleanName = ((KIT?.first_name || 'panelist') + '-' + (KIT?.last_name || '')).toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        const sizeLabel = key === 'square' ? '1080' : (key === 'land' ? 'wide' : 'portrait');
+        link.download = `td-${cleanName}-${sizeLabel}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+
+        btn.textContent = '✓ Downloaded';
+        setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 1600);
+      } catch (err) {
+        console.error(err);
+        btn.textContent = 'Error — try again';
+        setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 2000);
+      }
+    }
+
+    // ══════════════════════════════════════════════════════════════
+    // Captions + copy interactions
+    // ══════════════════════════════════════════════════════════════
+    function renderCaption(which) {
+      const captions = KIT?.captions || {};
+      document.getElementById('caption-body').textContent = captions[which] || '(no caption)';
+      document.querySelectorAll('.caption-tab').forEach(t => {
+        t.classList.toggle('active', t.dataset.tab === which);
+      });
+    }
+
+    function wireInteractions() {
+      // Copy buttons for input fields
+      bindCopy('zoom-copy', () => document.getElementById('zoom-input').value);
+      bindCopy('track-copy', () => document.getElementById('track-input').value);
+      bindCopy('caption-copy', () => document.getElementById('caption-body').textContent);
+
+      // Caption tab switching
+      document.querySelectorAll('.caption-tab').forEach(t => {
+        t.addEventListener('click', () => renderCaption(t.dataset.tab));
+      });
+
+      // Download buttons
+      document.querySelectorAll('[data-download]').forEach(b => {
+        b.addEventListener('click', () => downloadGraphic(b.dataset.download));
+      });
+    }
+
+    function bindCopy(btnId, getText) {
+      const btn = document.getElementById(btnId);
+      if (!btn) return;
+      btn.addEventListener('click', async () => {
+        const text = getText();
+        if (!text) return;
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (err) {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); ta.remove();
+        }
+        const original = btn.textContent;
+        btn.classList.add('copied');
+        btn.textContent = 'Copied ✓';
+        setTimeout(() => { btn.classList.remove('copied'); btn.textContent = original; }, 1600);
+      });
+    }
+
+    function displayUrl(url) {
+      if (!url) return '';
+      try {
+        const u = new URL(url);
+        return u.host + u.pathname + (u.search ? u.search : '');
+      } catch (err) {
+        return url;
+      }
+    }
+  </script>
+
+</body>
+</html>
