@@ -1,719 +1,1085 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Panelist Kit · Thriving Dentist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TD Panelist Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+  :root{
+    --navy:#0a1a3f;--navy-2:#0f2451;--gold:#d4af37;--gold-lite:#f0d078;
+    --ink:#111827;--muted:#5b6478;--line:#e3e7f0;--bg:#f4f6fb;--card:#fff;
+    --ok:#1a9c5b;--warn:#c98b0c;--err:#c0392b;--radius:14px;
+    --shadow:0 6px 24px rgba(10,26,63,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.5}
+  a{color:var(--navy)}
+  button{font-family:inherit;cursor:pointer}
+  .hidden{display:none!important}
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  /* TOP BAR */
+  .topbar{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+  .logo{display:flex;align-items:baseline;gap:10px}
+  .logo b{font-family:'Playfair Display',serif;font-size:1.2rem;letter-spacing:.01em}
+  .logo span{color:var(--gold-lite);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+  .top-right{display:flex;align-items:center;gap:12px;font-size:.82rem;color:#cdd8ef}
+  .pill{background:rgba(212,175,55,.14);border:1px solid rgba(212,175,55,.4);color:var(--gold-lite);border-radius:999px;padding:4px 12px;font-weight:600;white-space:nowrap;max-width:360px;overflow:hidden;text-overflow:ellipsis}
+  .link-btn{background:none;border:none;color:#cdd8ef;text-decoration:underline;font-size:.82rem;padding:0}
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* STEPS */
+  .steps{display:flex;gap:8px;max-width:1180px;margin:22px auto 0;padding:0 24px}
+  .step{flex:1;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:#fff;border:1px solid var(--line);color:var(--muted);font-size:.82rem;font-weight:600;cursor:default}
+  .step .n{width:24px;height:24px;border-radius:50%;background:var(--line);color:var(--muted);display:grid;place-items:center;font-size:.75rem;font-weight:800;flex:none}
+  .step.done{cursor:pointer;color:var(--navy)}
+  .step.done .n{background:var(--ok);color:#fff}
+  .step.active{border-color:var(--gold);color:var(--navy);box-shadow:0 0 0 3px rgba(212,175,55,.18)}
+  .step.active .n{background:var(--navy);color:var(--gold-lite)}
+  @media (max-width:760px){.step span{display:none}.step{justify-content:center}}
 
-    :root {
-      --blue: #1da1e0; --blue-dark: #0c7eb3; --blue-light: #e8f4fb; --blue-bg: #f0f8fc;
-      --navy: #001536; --navy-2: #002448; --navy-3: #001230;
-      --gold: #f6b93b;
-      --black: #0a0a0a; --ink: #1f2937; --mid: #4b5563; --muted: #6b7280; --soft: #9ca3af;
-      --border: #e5e7eb; --border-soft: #f1f3f5; --bg: #ffffff; --bg-alt: #f8fafc;
-      --green: #1e7e34;
-    }
+  /* LAYOUT */
+  .wrap{max-width:1180px;margin:20px auto 60px;padding:0 24px}
+  .card-ui{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
+  h1{font-family:'Playfair Display',serif;font-size:1.6rem;margin:0 0 4px;color:var(--navy)}
+  h2{font-family:'Playfair Display',serif;font-size:1.25rem;margin:0 0 4px;color:var(--navy)}
+  h3{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .sub{color:var(--muted);margin:0 0 18px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .grow{flex:1;min-width:220px}
 
-    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg-alt); line-height: 1.55; font-size: 15px; }
+  /* FORM */
+  label{display:block;font-size:.8rem;font-weight:700;color:var(--navy);margin:0 0 6px}
+  label small{font-weight:500;color:var(--muted)}
+  input[type=text],input[type=url],input[type=password],select,textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:.95rem;background:#fff;color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.18)}
+  textarea{min-height:120px;resize:vertical}
+  .field{margin-bottom:16px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  @media (max-width:700px){.grid2,.grid3{grid-template-columns:1fr}}
+  .hint{font-size:.78rem;color:var(--muted);margin-top:5px}
+  .counter{font-size:.75rem;color:var(--muted);text-align:right}
 
-    /* ── NAV ─────────────────────────────────────────────────────── */
-    .nav { background: var(--bg); border-bottom: 1px solid var(--border); padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-    .nav-brand { display: flex; align-items: center; gap: 14px; }
-    .nav-brand img { height: 30px; width: auto; }
-    .nav-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); padding-left: 14px; border-left: 1px solid var(--border); }
-    .nav-right { font-size: 12.5px; color: var(--muted); }
-    .nav-right strong { color: var(--ink); font-weight: 600; }
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;border:1px solid transparent;font-weight:700;font-size:.92rem;transition:.15s}
+  .btn-primary{background:var(--navy);color:#fff}
+  .btn-primary:hover{background:var(--navy-2)}
+  .btn-gold{background:var(--gold);color:var(--navy)}
+  .btn-gold:hover{background:var(--gold-lite)}
+  .btn-ghost{background:#fff;border-color:var(--line);color:var(--navy)}
+  .btn-ghost:hover{border-color:var(--navy)}
+  .btn-sm{padding:7px 12px;font-size:.8rem;border-radius:8px}
+  .btn[disabled]{opacity:.55;cursor:not-allowed}
 
-    /* ── HERO ────────────────────────────────────────────────────── */
-    .hero { padding: 56px 40px 40px; background: var(--bg); border-bottom: 1px solid var(--border); }
-    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; }
-    .hero-avatar { width: 96px; height: 96px; border-radius: 12px; object-fit: cover; object-position: center top; background: var(--blue-bg); border: 3px solid var(--bg); box-shadow: 0 6px 20px rgba(15,23,42,0.14); }
-    .hero-avatar-placeholder { width: 96px; height: 96px; border-radius: 12px; background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; font-weight: 800; }
-    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
-    h1.hero-title { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 34px); line-height: 1.15; letter-spacing: -0.015em; color: var(--black); margin-bottom: 8px; }
-    .hero-title em { font-style: normal; color: var(--blue); }
-    .hero-meta { font-size: 14px; color: var(--mid); }
-    .hero-meta strong { color: var(--ink); font-weight: 600; }
-    .hero-meta .dot { margin: 0 8px; color: var(--soft); }
+  .banner{padding:12px 14px;border-radius:10px;font-size:.88rem;margin-bottom:16px;border:1px solid}
+  .banner.err{background:#fdf1f0;border-color:#f3c2bd;color:#8a2a1f}
+  .banner.warn{background:#fff8e6;border-color:#f2dfa5;color:#7a5305}
+  .banner.ok{background:#edf9f2;border-color:#bfe6cf;color:#155e37}
+  .banner.info{background:#eef2fb;border-color:#cbd6f2;color:#22346b}
 
-    /* ── QUICK STATS ─────────────────────────────────────────────── */
-    .stats { max-width: 1100px; margin: 0 auto; padding: 32px 40px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .stat { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px; display: flex; align-items: flex-start; gap: 14px; transition: border-color 0.2s, transform 0.2s; }
-    .stat:hover { border-color: var(--blue); transform: translateY(-2px); }
-    .stat-icon { width: 40px; height: 40px; border-radius: 8px; background: var(--blue-light); color: var(--blue-dark); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
-    .stat-body { flex: 1; min-width: 0; }
-    .stat-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-    .stat-value { font-size: 14px; font-weight: 700; color: var(--ink); }
-    .stat-jump { font-size: 12.5px; color: var(--blue); text-decoration: none; font-weight: 600; margin-top: 2px; display: inline-block; }
+  /* PANELIST LIST */
+  .plist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:6px}
+  .pcard{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;cursor:pointer;display:flex;gap:12px;align-items:center;transition:.15s}
+  .pcard:hover{border-color:var(--gold);box-shadow:var(--shadow)}
+  .avatar{width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--gold-lite);display:grid;place-items:center;font-family:'Playfair Display',serif;font-weight:700;flex:none;overflow:hidden}
+  .pcard .nm{font-weight:700;color:var(--navy)}
+  .pcard .em{font-size:.8rem;color:var(--muted);word-break:break-all}
+  .tag{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;margin-top:6px}
+  .tag.need{background:#fff3d6;color:#7a5305}
+  .tag.ready{background:#e3f4ea;color:#155e37}
+  .tag.sent{background:#e7ecfb;color:#22346b}
+  .tag.gone{background:#fde8e6;color:#8a2a1f}
+  .tag.ok{background:#e3f4ea;color:#155e37}
+  .tag.bad{background:#fde8e6;color:#8a2a1f}
+  .tag.wait{background:#fff3d6;color:#7a5305}
 
-    /* ── SECTIONS ────────────────────────────────────────────────── */
-    .section { padding: 40px 40px; max-width: 1100px; margin: 0 auto; }
-    .section-head { margin-bottom: 20px; }
-    .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
-    .section-head h2 { font-size: 22px; font-weight: 800; color: var(--black); letter-spacing: -0.01em; margin-bottom: 4px; }
-    .section-head p { font-size: 14px; color: var(--muted); }
+  /* HEADSHOT UPLOAD */
+  .hs-wrap{display:flex;gap:16px;align-items:center}
+  .hs-preview{width:120px;height:120px;border-radius:14px;background:var(--bg);border:1px dashed #b9c2d6;display:grid;place-items:center;overflow:hidden;color:var(--muted);font-size:.75rem;text-align:center;flex:none}
+  .hs-preview img{width:100%;height:100%;object-fit:cover}
+  input[type=file]{font-size:.85rem}
 
-    .card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; }
-    .card + .card { margin-top: 14px; }
+  /* ASSETS */
+  .assets{display:grid;grid-template-columns:1.15fr 1fr;gap:22px;align-items:start}
+  @media (max-width:980px){.assets{grid-template-columns:1fr}}
+  .designs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+  @media (max-width:760px){.designs{grid-template-columns:1fr}}
+  .design{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+  .design .ph{background:#0a1a3f;display:grid;place-items:center;min-height:160px;position:relative}
+  .design .ph img{width:100%;display:block}
+  .design .ph .spin{color:var(--gold-lite);font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:20px;text-align:center}
+  .design .meta{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;font-size:.8rem}
+  .design .meta b{display:block;color:var(--navy)}
+  .design .meta small{color:var(--muted)}
 
-    /* ── COPY ROW (URL + copy button) ────────────────────────────── */
-    .copy-row { display: flex; gap: 10px; align-items: stretch; }
-    .copy-row input { flex: 1; padding: 12px 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 13.5px; color: var(--ink); font-family: 'Inter', sans-serif; background: var(--bg-alt); outline: none; }
-    .copy-row input:focus { border-color: var(--blue); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; border: none; background: var(--black); color: var(--bg); font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 6px; font-family: 'Inter', sans-serif; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.15s; }
-    .btn:hover { background: var(--blue); }
-    .btn.copied { background: var(--green); }
-    .btn.primary { background: var(--blue); }
-    .btn.primary:hover { background: var(--blue-dark); }
-    .btn.ghost { background: transparent; color: var(--blue); border: 1px solid var(--border); }
-    .btn.ghost:hover { color: var(--bg); background: var(--blue); border-color: var(--blue); }
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .tab{padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:#fff;font-size:.8rem;font-weight:700;color:var(--muted)}
+  .tab.active{background:var(--navy);color:var(--gold-lite);border-color:var(--navy)}
+  .copybox{background:#f8f9fc;border:1px solid var(--line);border-radius:10px;padding:14px;font-size:.88rem;white-space:pre-wrap;word-break:break-word;max-height:300px;overflow:auto}
+  .copybar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:10px}
+  .emailbox{max-height:520px}
+  .kv{display:grid;grid-template-columns:130px minmax(0,1fr);gap:6px 12px;font-size:.85rem;margin:0 0 14px}
+  .kv b{color:var(--muted);font-weight:600}
+  .kv span{min-width:0;overflow-wrap:anywhere;word-break:break-word}
+  .kv code{background:#f0f2f8;padding:2px 6px;border-radius:6px;font-size:.8rem;word-break:break-all}
+  .note{font-size:.78rem;color:#8a2a1f;background:#fdf1f0;border:1px solid #f3c2bd;border-radius:8px;padding:8px 10px;margin:0 0 12px}
 
-    .note { font-size: 12.5px; color: var(--muted); margin-top: 10px; line-height: 1.55; }
-    .note strong { color: var(--ink); font-weight: 600; }
+  .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 18px;border-radius:10px;font-size:.88rem;box-shadow:0 10px 30px rgba(0,0,0,.3);z-index:9000;opacity:0;pointer-events:none;transition:.25s;max-width:90vw}
+  .toast.show{opacity:1}
+  .toast.err{background:var(--err)}
+  .toast.ok{background:var(--ok)}
 
-    .status-pending { background: #fff8e1; color: #7a5b00; border: 1px solid #ffecb3; padding: 12px 14px; border-radius: 6px; font-size: 13px; margin-top: 10px; }
-    .status-pending strong { display: block; margin-bottom: 2px; font-weight: 700; }
+  #render-veil{position:fixed;inset:0;background:rgba(10,26,63,.92);color:#fff;z-index:6000;display:grid;place-items:center;text-align:center}
+  #render-veil b{display:block;font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:6px}
+  #render-veil span{color:var(--gold-lite);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
 
-    /* ── SOCIAL GRAPHICS PREVIEW ─────────────────────────────────── */
-    .graphics-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .graphic-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 14px; }
-    .graphic-card-head { display: flex; align-items: baseline; justify-content: space-between; }
-    .graphic-card-name { font-size: 13px; font-weight: 700; color: var(--ink); }
-    .graphic-card-dims { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
-    .preview-wrap { position: relative; background: var(--bg-alt); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 14px rgba(15,23,42,0.08); }
-    .preview-wrap.square { aspect-ratio: 1/1; }
-    .preview-wrap.landscape { aspect-ratio: 16/9; }
-    .preview-wrap.portrait { aspect-ratio: 4/5; }
-    .preview-inner { position: absolute; top: 0; left: 0; transform-origin: top left; }
+  /* ═══ BANNER TEMPLATES (native pixel sizes) ═══ */
+  .cardz{display:none;position:relative;overflow:hidden;background:#000d1e;color:#fff;font-family:'Playfair Display',serif;line-height:1.2}
+  .cardz.capturing{display:block;position:fixed;left:0;top:0;z-index:5000}
+  .cardz .photo{position:absolute;overflow:hidden;background:#12285a}
+  .cardz .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .cardz .photo .init{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#f0d078;font-size:120px}
+  .cardz .qrbox{position:absolute;background:#fff;display:flex;align-items:center;justify-content:center}
+  .cardz .qrbox canvas{display:block}
+  .cardz .t-name,.cardz .t-creds,.cardz .t-title,.cardz .t-sub{position:absolute;text-align:center;color:#fff;white-space:nowrap;overflow:hidden}
+  .cardz .t-name,.cardz .t-title{font-weight:700;line-height:1.1}
+  .cardz .t-creds,.cardz .t-sub{font-style:italic;font-weight:400;line-height:1.2}
+  .cardz .dot{display:inline-block;width:11px;height:11px;border-radius:50%;background:#e2c46b;margin:0 12px;vertical-align:middle}
 
-    /* ── CAPTIONS ────────────────────────────────────────────────── */
-    .caption-tabs { display: flex; gap: 4px; margin-bottom: 14px; border-bottom: 1px solid var(--border); }
-    .caption-tab { padding: 10px 18px; background: none; border: none; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; font-family: 'Inter', sans-serif; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
-    .caption-tab:hover { color: var(--ink); }
-    .caption-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
-    .caption-body { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; padding: 18px; white-space: pre-wrap; font-size: 13.5px; color: var(--ink); line-height: 1.65; margin-bottom: 12px; min-height: 140px; }
-    .caption-actions { display: flex; justify-content: flex-end; }
+  /* Portrait 1080×1350 — the Canva template, placeholders covered */
+  .c-por{width:1080px;height:1350px}
+  .c-por .tpl{position:absolute;left:0;top:0;width:1080px;height:1350px;display:block}
+  .c-por .patch{position:absolute;background:#000d1e}
+  .c-por .patch.date{background:#010c1a}
+  .c-por .photo{left:593px;top:399px;width:396px;height:512px;border-radius:14px}
+  .c-por .t-name{left:70px;top:442px;width:490px}
+  .c-por .t-creds{left:70px;top:508px;width:490px}
+  .c-por .t-title{left:70px;top:616px;width:490px}
+  .c-por .t-sub{left:70px;top:686px;width:490px}
+  .c-por .t-date{position:absolute;left:222px;top:952px;width:395px;text-align:center;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden}
+  .c-por .qrbox{left:852px;top:1075px;width:154px;height:144px}
 
-    /* ── ERROR / LOADING ─────────────────────────────────────────── */
-    .loader-screen { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 18px; z-index: 999; }
-    .loader-screen.hidden { display: none; }
-    .spinner { width: 44px; height: 44px; border: 3px solid var(--border); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.8s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .error-screen { max-width: 460px; margin: 100px auto; padding: 40px 32px; text-align: center; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
-    .error-screen h2 { font-size: 22px; font-weight: 800; color: var(--black); margin-bottom: 10px; }
-    .error-screen p { color: var(--mid); margin-bottom: 22px; }
+  /* Square + landscape — same visual language, HTML-drawn */
+  .kit .bg{position:absolute;inset:0;background:
+    radial-gradient(60% 50% at 82% 8%, #12336a 0%, rgba(18,51,106,0) 60%),
+    radial-gradient(55% 60% at 8% 95%, #0c2a5c 0%, rgba(12,42,92,0) 60%),
+    radial-gradient(40% 30% at 50% 50%, rgba(255,255,255,.03) 0%, rgba(255,255,255,0) 70%),
+    linear-gradient(160deg,#04173a 0%,#000d1e 55%,#02112a 100%)}
+  .kit .frame{position:absolute;inset:22px;border:2px solid #cfa64c;border-radius:8px}
+  .kit .frame2{position:absolute;inset:32px;border:1px solid rgba(207,166,76,.5);border-radius:6px}
+  .kit .k-speak{position:absolute;color:#e2c46b;letter-spacing:.38em;text-transform:uppercase;font-weight:700;text-align:center;font-family:'Inter',sans-serif}
+  .kit .k-logo{position:absolute;background:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;padding:8px 16px}
+  .kit .k-logo img{max-width:100%;max-height:100%;display:block}
+  .kit .k-expert{position:absolute;color:#e2c46b;font-weight:700;letter-spacing:.08em;text-align:center;text-transform:uppercase}
+  .kit .k-div{position:absolute;height:2px;background:linear-gradient(90deg,transparent,#cfa64c 20%,#cfa64c 80%,transparent)}
+  .kit .k-div::after{content:'';position:absolute;left:50%;top:-5px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#e2c46b}
+  .kit .k-date{position:absolute;border:3px solid #cfa64c;border-radius:14px;background:rgba(0,10,28,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#fff}
+  .kit .k-date .l1{font-weight:700;white-space:nowrap}
+  .kit .k-date .l2{font-weight:400}
+  .kit .k-reg{position:absolute;background:linear-gradient(180deg,#f6df85 0%,#d9b555 55%,#c39a3e 100%);color:#0a1a3f;border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;text-transform:uppercase;line-height:1.15;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+  .kit .k-join{position:absolute;text-align:center;color:#fff;font-style:italic}
+  .kit .k-scan{position:absolute;color:#e2c46b;font-style:italic;text-align:right;line-height:1.25}
+  .kit .photo{border:5px solid #d4af37;border-radius:18px;box-shadow:0 24px 50px rgba(0,0,0,.5)}
+  .kit .qrbox{border-radius:10px}
 
-    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 28px 40px; text-align: center; }
-    footer img { height: 24px; opacity: 0.85; margin-bottom: 10px; }
-    footer p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .c-sq{width:1080px;height:1080px}
+  .c-sq .k-speak{left:0;right:0;top:52px;font-size:26px}
+  .c-sq .k-logo{left:270px;top:92px;width:540px;height:100px}
+  .c-sq .k-expert{left:0;right:0;top:206px;font-size:40px}
+  .c-sq .t-name{left:70px;top:290px;width:480px}
+  .c-sq .t-creds{left:70px;top:352px;width:480px}
+  .c-sq .k-div{left:120px;top:404px;width:380px}
+  .c-sq .t-title{left:70px;top:428px;width:480px}
+  .c-sq .t-sub{left:70px;top:488px;width:480px}
+  .c-sq .k-date{left:70px;top:548px;width:480px;height:104px}
+  .c-sq .k-date .l1{font-size:32px}
+  .c-sq .k-date .l2{font-size:22px}
+  .c-sq .k-reg{left:70px;top:676px;width:480px;height:104px;font-size:28px}
+  .c-sq .k-join{left:70px;top:806px;width:480px;font-size:28px}
+  .c-sq .photo{left:600px;top:280px;width:410px;height:510px}
+  .c-sq .k-scan{left:600px;top:872px;width:240px;font-size:22px}
+  .c-sq .qrbox{left:860px;top:822px;width:150px;height:150px}
 
-    /* ── RESPONSIVE ──────────────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .nav { padding: 12px 20px; }
-      .nav-tag { display: none; }
-      .hero { padding: 40px 20px 32px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 20px; }
-      .stats { padding: 24px 20px 0; grid-template-columns: 1fr; }
-      .section { padding: 32px 20px; }
-      .graphics-row { grid-template-columns: 1fr; }
-      .copy-row { flex-direction: column; }
-      .copy-row .btn { width: 100%; }
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       GRAPHIC TEMPLATES — full-resolution masters (hidden off-screen)
-       html2canvas screenshots these when the download button is clicked.
-       ══════════════════════════════════════════════════════════════ */
-
-    .graphic-master-stage { position: fixed; top: 0; left: -99999px; pointer-events: none; z-index: -1; }
-
-    /* Common typography inside graphics */
-    .g { font-family: 'Inter', sans-serif; color: #ffffff; overflow: hidden; }
-    .g-photo { position: absolute; background-position: center top; background-size: cover; background-repeat: no-repeat; background-color: #061125; }
-    .g-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,18,48,0) 65%, rgba(0,18,48,0.55) 100%); }
-    .g-content { position: absolute; background: linear-gradient(140deg, #001536 0%, #002448 55%, #001230 100%); }
-    .g-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: #ffffff; padding: 7px 14px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
-    .g-tag .dot { width: 7px; height: 7px; border-radius: 50%; background: #ffffff; box-shadow: 0 0 0 3px rgba(255,255,255,0.25); }
-    .g-topic { font-weight: 800; letter-spacing: -0.02em; color: #ffffff; }
-    .g-rule { display: block; height: 3px; background: var(--blue); }
-    .g-name { font-weight: 800; color: #ffffff; letter-spacing: -0.01em; }
-    .g-role { color: rgba(255,255,255,0.68); font-weight: 500; }
-    .g-when { color: var(--blue); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
-    .g-when strong { color: #ffffff; font-weight: 700; }
-    .g-url-block { display: flex; align-items: center; gap: 16px; padding: 14px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); border-radius: 8px; }
-    .g-url-text { flex: 1; min-width: 0; }
-    .g-url-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
-    .g-url-value { color: #ffffff; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .g-qr { background: #ffffff; border-radius: 6px; padding: 6px; display: block; }
-    .g-brand { position: absolute; display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.85); font-weight: 700; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
-    .g-brand::before { content: ''; display: block; width: 22px; height: 22px; background: url('../images/logo1.png') center/contain no-repeat; filter: brightness(0) invert(1); }
-
-    /* ── SQUARE 1080×1080 ── */
-    .g-square { position: relative; width: 1080px; height: 1080px; background: #001230; }
-    .g-square .g-photo   { top: 0; left: 0; width: 540px;  height: 1080px; }
-    .g-square .g-content { top: 0; left: 540px; width: 540px; height: 1080px; padding: 72px 60px 60px; }
-    .g-square .g-topic   { font-size: 46px; line-height: 1.1; margin-top: 32px; }
-    .g-square .g-rule    { width: 64px; margin: 30px 0 30px; }
-    .g-square .g-name    { font-size: 32px; line-height: 1.15; margin-bottom: 8px; }
-    .g-square .g-role    { font-size: 16px; line-height: 1.4; }
-    .g-square .g-when    { font-size: 13px; margin-top: 32px; display: flex; flex-direction: column; gap: 6px; }
-    .g-square .g-when strong { display: block; font-size: 14px; letter-spacing: 0.02em; text-transform: none; }
-    .g-square .g-url-block { margin-top: 32px; }
-    .g-square .g-url-value { font-size: 14px; }
-    .g-square .g-qr img { width: 80px; height: 80px; display: block; }
-    .g-square .g-brand { bottom: 40px; right: 60px; font-size: 12px; }
-
-    /* ── LANDSCAPE 1600×900 ── */
-    .g-land { position: relative; width: 1600px; height: 900px; background: #001230; }
-    .g-land .g-photo   { top: 0; left: 0; width: 640px; height: 900px; }
-    .g-land .g-content { top: 0; left: 640px; width: 960px; height: 900px; padding: 80px 80px 60px; }
-    .g-land .g-topic   { font-size: 60px; line-height: 1.05; margin-top: 32px; max-width: 720px; }
-    .g-land .g-rule    { width: 72px; margin: 34px 0 34px; }
-    .g-land .g-name    { font-size: 36px; line-height: 1.15; margin-bottom: 8px; }
-    .g-land .g-role    { font-size: 18px; line-height: 1.4; }
-    .g-land .g-when    { font-size: 14px; margin-top: 32px; display: flex; align-items: center; gap: 18px; }
-    .g-land .g-when strong { font-size: 15px; letter-spacing: 0.02em; text-transform: none; }
-    .g-land .g-url-block { margin-top: 40px; max-width: 660px; }
-    .g-land .g-url-value { font-size: 17px; }
-    .g-land .g-qr img { width: 96px; height: 96px; display: block; }
-    .g-land .g-brand { bottom: 50px; right: 80px; font-size: 13px; }
-
-    /* ── PORTRAIT 1080×1350 ── */
-    .g-port { position: relative; width: 1080px; height: 1350px; background: #001230; }
-    .g-port .g-photo   { top: 0; left: 0; width: 1080px; height: 720px; }
-    .g-port .g-photo::after { background: linear-gradient(180deg, rgba(0,18,48,0) 55%, rgba(0,18,48,0.9) 88%, #001230 100%); }
-    .g-port .g-content { top: 700px; left: 0; width: 1080px; height: 650px; padding: 40px 72px 60px; background: linear-gradient(180deg, transparent 0%, #001230 12%, #001230 100%); }
-    .g-port .g-topic   { font-size: 52px; line-height: 1.1; margin-top: 30px; }
-    .g-port .g-rule    { width: 64px; margin: 30px 0 30px; }
-    .g-port .g-name    { font-size: 36px; line-height: 1.15; margin-bottom: 8px; }
-    .g-port .g-role    { font-size: 17px; line-height: 1.4; }
-    .g-port .g-when    { font-size: 13.5px; margin-top: 30px; display: flex; align-items: center; gap: 20px; }
-    .g-port .g-when strong { font-size: 15px; letter-spacing: 0.02em; text-transform: none; }
-    .g-port .g-url-block { margin-top: 30px; }
-    .g-port .g-url-value { font-size: 15px; }
-    .g-port .g-qr img { width: 84px; height: 84px; display: block; }
-    .g-port .g-brand { bottom: 30px; right: 72px; font-size: 12px; }
-  </style>
+  .c-land{width:1200px;height:628px}
+  .c-land .k-speak{left:60px;top:38px;width:640px;font-size:20px}
+  .c-land .k-logo{left:200px;top:66px;width:360px;height:66px}
+  .c-land .k-expert{left:60px;top:142px;width:640px;font-size:28px}
+  .c-land .t-name{left:60px;top:190px;width:640px}
+  .c-land .t-creds{left:60px;top:240px;width:640px}
+  .c-land .k-div{left:200px;top:280px;width:360px}
+  .c-land .t-title{left:60px;top:298px;width:640px}
+  .c-land .t-sub{left:60px;top:342px;width:640px}
+  .c-land .k-date{left:60px;top:384px;width:640px;height:78px;gap:2px}
+  .c-land .k-date .l1{font-size:26px}
+  .c-land .k-date .l2{font-size:18px}
+  .c-land .k-reg{left:60px;top:484px;width:460px;height:86px;font-size:22px}
+  .c-land .k-scan{left:60px;top:578px;width:460px;font-size:16px;text-align:center}
+  .c-land .qrbox{left:560px;top:468px;width:130px;height:130px}
+  .c-land .photo{left:750px;top:60px;width:390px;height:508px}
+</style>
 </head>
 <body>
 
-  <!-- Loader while data fetches -->
-  <div class="loader-screen" id="loader">
-    <div class="spinner"></div>
-    <div style="font-size:13px;color:var(--muted);">Loading your panelist kit…</div>
+<div class="topbar">
+  <div class="logo"><b>Thriving Dentist</b><span>Panelist Studio</span></div>
+  <div class="top-right">
+    <div class="pill hidden" id="top-event"></div>
+    <button class="link-btn hidden" id="signout">Sign out</button>
   </div>
+</div>
 
-  <!-- Error state -->
-  <div class="error-screen" id="error-screen" style="display:none;">
-    <h2>Kit not found</h2>
-    <p id="error-msg">This kit link is invalid or has expired. Please check the URL, or contact marketing at Thriving Dentist.</p>
-    <a href="https://www.reg.thrivingdentist.com/" class="btn primary">Visit the events page</a>
-  </div>
+<div class="steps hidden" id="steps">
+  <div class="step" data-step="1"><div class="n">1</div><span>Webinar</span></div>
+  <div class="step" data-step="2"><div class="n">2</div><span>Panelist</span></div>
+  <div class="step" data-step="3"><div class="n">3</div><span>Profile</span></div>
+  <div class="step" data-step="4"><div class="n">4</div><span>Banners &amp; Email</span></div>
+</div>
 
-  <!-- Main app (revealed after data loads) -->
-  <div id="app" style="display:none;">
+<main class="wrap">
 
-    <nav class="nav">
-      <div class="nav-brand">
-        <img src="../images/logo.png" alt="Thriving Dentist" />
-        <span class="nav-tag">Panelist Kit</span>
+  <!-- ═══ GATE ═══ -->
+  <section id="gate" class="card-ui" style="max-width:480px;margin:40px auto">
+    <h1>Panelist Studio</h1>
+    <p class="sub">Enter the studio access key to continue.</p>
+    <div id="gate-err" class="banner err hidden"></div>
+    <form id="gate-form">
+      <div class="field"><label for="gate-key">Access key</label><input type="password" id="gate-key" autocomplete="current-password" required></div>
+      <button class="btn btn-primary" type="submit" id="gate-btn">Enter</button>
+    </form>
+  </section>
+
+  <!-- ═══ STEP 1 · WEBINAR ═══ -->
+  <section id="step1" class="card-ui hidden">
+    <h2>Which webinar?</h2>
+    <p class="sub">Only active events from the Events tab are listed.</p>
+    <div id="s1-err" class="banner err hidden"></div>
+    <div class="row">
+      <div class="grow"><select id="event-select"><option value="">Loading events…</option></select></div>
+      <button class="btn btn-primary" id="load-panelists" disabled>Load panelists from Zoom →</button>
+    </div>
+    <div class="kv" style="margin-top:18px" id="event-meta"></div>
+  </section>
+
+  <!-- ═══ STEP 2 · PANELIST ═══ -->
+  <section id="step2" class="card-ui hidden">
+    <div class="row" style="justify-content:space-between">
+      <div><h2>Pick the panelist</h2><p class="sub">Pulled live from Zoom. Click a card to continue.</p></div>
+      <button class="btn btn-ghost btn-sm" id="refresh-panelists">↻ Refresh from Zoom</button>
+    </div>
+    <div id="s2-banner" class="banner hidden"></div>
+    <div class="plist" id="plist"></div>
+  </section>
+
+  <!-- ═══ STEP 3 · PROFILE ═══ -->
+  <section id="step3" class="card-ui hidden">
+    <h2 id="s3-title">Panelist profile</h2>
+    <p class="sub">These details go on the banners, caption and email. Zoom name and panelist link are pulled automatically.</p>
+    <div id="s3-err" class="banner err hidden"></div>
+    <div class="kv">
+      <b>Zoom name</b><span id="p-zoom-name"></span>
+      <b>Zoom email</b><span><span id="p-email"></span> <small style="color:var(--muted)">(reference only — never emailed)</small></span>
+      <b>Panelist link</b><span id="p-join"></span>
+    </div>
+    <form id="profile-form">
+      <div class="grid3">
+        <div class="field"><label for="f-display">Name on banner</label><input type="text" id="f-display" required placeholder="Dr. Emily Letran"></div>
+        <div class="field"><label for="f-creds">Credentials <small>(DDS, MBA…)</small></label><input type="text" id="f-creds" placeholder="DDS"></div>
+        <div class="field"><label for="f-title">Title / role</label><input type="text" id="f-title" placeholder="Founder &amp; CEO"></div>
       </div>
-      <div class="nav-right">Signed in as <strong id="nav-name">—</strong></div>
-    </nav>
-
-    <!-- ── HERO ─────────────────────────────────────────────────── -->
-    <section class="hero">
-      <div class="hero-inner">
-        <img class="hero-avatar" id="hero-avatar" alt="" />
-        <div>
-          <div class="hero-eyebrow">Welcome</div>
-          <h1 class="hero-title">Hi <span id="hero-first-name">there</span>, <em>you're on the panel.</em></h1>
-          <div class="hero-meta">
-            <strong id="hero-topic">—</strong>
-            <span class="dot">·</span>
-            <span id="hero-when">—</span>
-          </div>
+      <div class="grid3">
+        <div class="field"><label for="f-company">Practice / company</label><input type="text" id="f-company" placeholder="Exceptional Dentistry"></div>
+        <div class="field"><label for="f-linkedin">LinkedIn URL <small>(optional)</small></label><input type="url" id="f-linkedin" placeholder="https://linkedin.com/in/…"></div>
+        <div class="field"><label for="f-website">Website <small>(optional)</small></label><input type="url" id="f-website" placeholder="https://"></div>
+      </div>
+      <div class="field">
+        <label>Headshot <small>(JPG/PNG · any size · 800 × 800 or larger looks best)</small></label>
+        <div class="hs-wrap">
+          <div class="hs-preview" id="hs-preview">No photo yet</div>
+          <div><input type="file" id="f-headshot" accept="image/*"><div class="hint">Any image is accepted and resized automatically. Leave empty to keep the existing photo. Links and email still work without a photo — banners wait.</div></div>
         </div>
       </div>
-    </section>
+      <div class="field">
+        <label for="f-bio">Short bio <small>(60–100 words)</small></label>
+        <textarea id="f-bio" maxlength="900"></textarea>
+        <div class="counter"><span id="bio-count">0</span> / 900</div>
+      </div>
+      <div class="row">
+        <button class="btn btn-gold" type="submit" id="save-btn">Save &amp; build the pack →</button>
+        <button class="btn btn-ghost" type="button" id="skip-btn" style="display:none">Skip to the pack (already saved)</button>
+      </div>
+    </form>
+  </section>
 
-    <!-- ── QUICK STATS ──────────────────────────────────────────── -->
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-icon">🎥</div>
-        <div class="stat-body">
-          <div class="stat-label">Zoom Panelist Link</div>
-          <div class="stat-value" id="stat-zoom">Being generated…</div>
-          <a href="#zoom-section" class="stat-jump">Open ↓</a>
+  <!-- ═══ STEP 4 · PACK ═══ -->
+  <section id="step4" class="hidden">
+    <div class="card-ui" style="margin-bottom:18px">
+      <div class="row" style="justify-content:space-between">
+        <div><h2 id="s4-title">Panelist pack</h2><p class="sub" style="margin:0" id="s4-sub"></p></div>
+        <div class="row">
+          <button class="btn btn-ghost btn-sm" id="regen-btn">↻ Regenerate</button>
+          <button class="btn btn-ghost btn-sm" id="drive-btn">☁ Save banners to Drive</button>
+          <button class="btn btn-primary btn-sm" id="zip-btn">⬇ Download all (.zip)</button>
+          <button class="btn btn-ghost btn-sm" id="sent-btn">✓ Mark as sent manually</button>
         </div>
       </div>
-      <div class="stat">
-        <div class="stat-icon">🔗</div>
-        <div class="stat-body">
-          <div class="stat-label">Your Registration Link</div>
-          <div class="stat-value" id="stat-track">Ready to share</div>
-          <a href="#track-section" class="stat-jump">Copy ↓</a>
-        </div>
-      </div>
-      <div class="stat">
-        <div class="stat-icon">📸</div>
-        <div class="stat-body">
-          <div class="stat-label">Social Kit</div>
-          <div class="stat-value">3 sized graphics + captions</div>
-          <a href="#kit-section" class="stat-jump">View ↓</a>
-        </div>
+      <div id="s4-banner" class="banner hidden" style="margin-top:14px"></div>
+      <h3 style="margin-top:16px">Tracker</h3>
+      <div class="kv" style="margin:0">
+        <b>Registration link</b><span><code id="k-track"></code> <button class="btn btn-ghost btn-sm" data-copy-id="k-track">Copy</button></span>
+        <b>Panelist join link</b><span><code id="k-join"></code> <button class="btn btn-ghost btn-sm" data-copy-id="k-join">Copy</button></span>
+        <b>QR check</b><span id="k-qr"></span>
+        <b>Banner folder</b><span id="k-drive"></span>
+        <b>Status</b><span id="k-status"></span>
+        <b>Sent</b><span id="k-sent"></span>
       </div>
     </div>
 
-    <!-- ── ZOOM SECTION ─────────────────────────────────────────── -->
-    <section class="section" id="zoom-section">
-      <div class="section-head">
-        <div class="section-tag">Step 1</div>
-        <h2>Your Zoom panelist join link</h2>
-        <p>Use this the day of the event. Save it in your calendar and open a few minutes before we go live.</p>
-      </div>
-      <div class="card">
-        <div class="copy-row">
-          <input type="text" id="zoom-input" readonly value="Being generated — refresh this page in a minute if it still shows as pending." />
-          <button type="button" class="btn primary" id="zoom-copy" disabled>Copy</button>
+    <div class="assets">
+      <div>
+        <div id="no-photo" class="banner warn hidden">Banners are on hold — no headshot yet. The links and email below are ready to use; add the headshot in Step 3 and click Regenerate.</div>
+        <div class="designs" id="designs">
+          <div class="design" data-key="por"><div class="ph"><span class="spin">Rendering…</span></div><div class="meta"><div><b>Portrait (template)</b><small>1080 × 1350</small></div><button class="btn btn-ghost btn-sm" data-dl="por">Download</button></div></div>
+          <div class="design" data-key="sq"><div class="ph"><span class="spin">Rendering…</span></div><div class="meta"><div><b>Square</b><small>1080 × 1080</small></div><button class="btn btn-ghost btn-sm" data-dl="sq">Download</button></div></div>
+          <div class="design" data-key="land"><div class="ph"><span class="spin">Rendering…</span></div><div class="meta"><div><b>Landscape</b><small>1200 × 628</small></div><button class="btn btn-ghost btn-sm" data-dl="land">Download</button></div></div>
         </div>
-        <div id="zoom-pending" class="status-pending" style="display:none;">
-          <strong>Zoom link is being generated.</strong>
-          Once marketing adds you to the webinar, this section fills in automatically. Reload the page after 1–2 minutes.
-        </div>
-        <p class="note">🔒 <strong>Don't share this link publicly.</strong> This is your personal panelist access — for you only.</p>
       </div>
-    </section>
-
-    <!-- ── TRACKING SECTION ─────────────────────────────────────── -->
-    <section class="section" id="track-section">
-      <div class="section-head">
-        <div class="section-tag">Step 2</div>
-        <h2>Your personal registration link</h2>
-        <p>Share this — every registration through it is attributed to you.</p>
-      </div>
-      <div class="card">
-        <div class="copy-row">
-          <input type="text" id="track-input" readonly />
-          <button type="button" class="btn primary" id="track-copy">Copy Link</button>
-        </div>
-        <p class="note">💡 <strong>Use this link everywhere</strong> — in your social captions, email signature, DMs to colleagues. When people register through it, marketing knows they came from you.</p>
-      </div>
-    </section>
-
-    <!-- ── SOCIAL GRAPHICS ──────────────────────────────────────── -->
-    <section class="section" id="kit-section">
-      <div class="section-head">
-        <div class="section-tag">Step 3</div>
-        <h2>Ready-to-post social graphics</h2>
-        <p>Three sizes, all pre-designed with your details. Click Download and post them anywhere.</p>
-      </div>
-      <div class="graphics-row">
-        <div class="graphic-card">
-          <div class="graphic-card-head">
-            <div class="graphic-card-name">LinkedIn / IG feed</div>
-            <div class="graphic-card-dims">1080 × 1080</div>
+      <div>
+        <div class="card-ui" style="margin-bottom:18px">
+          <h3>Captions</h3>
+          <div class="tabs" id="cap-tabs">
+            <button class="tab active" data-cap="linkedin">LinkedIn</button>
+            <button class="tab" data-cap="instagram">Instagram</button>
+            <button class="tab" data-cap="facebook">Facebook</button>
+            <button class="tab" data-cap="x">X</button>
           </div>
-          <div class="preview-wrap square"><div class="preview-inner" id="preview-square"></div></div>
-          <button type="button" class="btn primary" data-download="square">Download PNG</button>
+          <div class="copybar"><span class="hint" id="cap-hint">Pairs with the landscape banner.</span><button class="btn btn-ghost btn-sm" data-copy-id="cap-box">Copy caption</button></div>
+          <div class="copybox" id="cap-box"></div>
         </div>
-        <div class="graphic-card">
-          <div class="graphic-card-head">
-            <div class="graphic-card-name">X / LinkedIn wide</div>
-            <div class="graphic-card-dims">1600 × 900</div>
+        <div class="card-ui">
+          <h3>Welcome email (draft)</h3>
+          <div class="note">Sends only to the fixed studio address below (set in Apps Script). Panelist email addresses are never used — the backend refuses them.</div>
+          <div class="kv" style="margin-bottom:10px">
+            <b>To</b><span><code id="em-to"></code></span>
+            <b>Bcc</b><span><code id="em-bcc"></code></span>
+            <b>Subject</b><span><span id="em-subject"></span> <button class="btn btn-ghost btn-sm" data-copy-id="em-subject">Copy</button></span>
           </div>
-          <div class="preview-wrap landscape"><div class="preview-inner" id="preview-land"></div></div>
-          <button type="button" class="btn primary" data-download="land">Download PNG</button>
+          <div class="copybar"><span class="hint">Send attaches the 3 banners + QR automatically.</span><span class="row" style="gap:6px"><button class="btn btn-ghost btn-sm" data-copy-id="em-body">Copy email</button><button class="btn btn-gold btn-sm" id="send-btn">✉ Send email</button></span></div>
+          <div class="copybox emailbox" id="em-body"></div>
         </div>
-        <div class="graphic-card">
-          <div class="graphic-card-head">
-            <div class="graphic-card-name">Instagram portrait</div>
-            <div class="graphic-card-dims">1080 × 1350</div>
-          </div>
-          <div class="preview-wrap portrait"><div class="preview-inner" id="preview-port"></div></div>
-          <button type="button" class="btn primary" data-download="port">Download PNG</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── CAPTIONS ─────────────────────────────────────────────── -->
-    <section class="section">
-      <div class="section-head">
-        <div class="section-tag">Step 4</div>
-        <h2>Ready-to-post captions</h2>
-        <p>Tap the platform you're posting to, copy the caption, paste it with the graphic.</p>
-      </div>
-      <div class="card">
-        <div class="caption-tabs">
-          <button type="button" class="caption-tab active" data-tab="linkedin">LinkedIn</button>
-          <button type="button" class="caption-tab" data-tab="twitter">X (Twitter)</button>
-          <button type="button" class="caption-tab" data-tab="instagram">Instagram</button>
-        </div>
-        <div class="caption-body" id="caption-body">—</div>
-        <div class="caption-actions">
-          <button type="button" class="btn" id="caption-copy">Copy Caption</button>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <img src="../images/logo.png" alt="Thriving Dentist" />
-      <p>Thanks for joining the Thriving Dentist Expert Panel. Questions? <a href="mailto:marketing@thrivingdentist.com" style="color:var(--ink);">marketing@thrivingdentist.com</a></p>
-    </footer>
-
-  </div>
-
-  <!-- ── GRAPHIC MASTERS (hidden, full-resolution) ──────────────── -->
-  <div class="graphic-master-stage" id="graphic-stage">
-
-    <!-- SQUARE 1080×1080 -->
-    <div class="g g-square" id="master-square">
-      <div class="g-photo" data-slot="photo"></div>
-      <div class="g-content">
-        <span class="g-tag"><span class="dot"></span>ON THE PANEL</span>
-        <div class="g-topic" data-slot="topic">—</div>
-        <span class="g-rule"></span>
-        <div class="g-name" data-slot="name">—</div>
-        <div class="g-role" data-slot="role">—</div>
-        <div class="g-when">
-          <span data-slot="when-day">—</span>
-          <strong data-slot="when-time">—</strong>
-        </div>
-        <div class="g-url-block">
-          <div class="g-url-text">
-            <div class="g-url-label">Register</div>
-            <div class="g-url-value" data-slot="url">—</div>
-          </div>
-          <div class="g-qr" data-slot="qr"></div>
-        </div>
-        <div class="g-brand">Thriving Dentist</div>
       </div>
     </div>
+  </section>
+</main>
 
-    <!-- LANDSCAPE 1600×900 -->
-    <div class="g g-land" id="master-land">
-      <div class="g-photo" data-slot="photo"></div>
-      <div class="g-content">
-        <span class="g-tag"><span class="dot"></span>ON THE PANEL</span>
-        <div class="g-topic" data-slot="topic">—</div>
-        <span class="g-rule"></span>
-        <div class="g-name" data-slot="name">—</div>
-        <div class="g-role" data-slot="role">—</div>
-        <div class="g-when">
-          <span data-slot="when-day">—</span>
-          <strong data-slot="when-time">—</strong>
-        </div>
-        <div class="g-url-block">
-          <div class="g-url-text">
-            <div class="g-url-label">Register — complimentary</div>
-            <div class="g-url-value" data-slot="url">—</div>
-          </div>
-          <div class="g-qr" data-slot="qr"></div>
-        </div>
-        <div class="g-brand">Thriving Dentist</div>
-      </div>
-    </div>
+<div class="toast" id="toast"></div>
+<div id="render-veil" class="hidden"><div><b>Building banners…</b><span id="veil-sub">Please wait</span></div></div>
 
-    <!-- PORTRAIT 1080×1350 -->
-    <div class="g g-port" id="master-port">
-      <div class="g-photo" data-slot="photo"></div>
-      <div class="g-content">
-        <span class="g-tag"><span class="dot"></span>I'M ON THE PANEL</span>
-        <div class="g-topic" data-slot="topic">—</div>
-        <span class="g-rule"></span>
-        <div class="g-name" data-slot="name">—</div>
-        <div class="g-role" data-slot="role">—</div>
-        <div class="g-when">
-          <span data-slot="when-day">—</span>
-          <strong data-slot="when-time">—</strong>
-        </div>
-        <div class="g-url-block">
-          <div class="g-url-text">
-            <div class="g-url-label">Register — complimentary</div>
-            <div class="g-url-value" data-slot="url">—</div>
-          </div>
-          <div class="g-qr" data-slot="qr"></div>
-        </div>
-        <div class="g-brand">Thriving Dentist</div>
-      </div>
-    </div>
+<!-- ═══ BANNER TEMPLATES ═══ -->
+<div id="d-por" class="cardz c-por">
+  <img class="tpl" id="tpl-img" alt="">
+  <div class="patch" style="left:70px;top:436px;width:490px;height:122px"></div>
+  <div class="patch" style="left:70px;top:612px;width:490px;height:124px"></div>
+  <div class="patch date" style="left:222px;top:948px;width:395px;height:58px"></div>
+  <div class="photo" data-photo></div>
+  <div class="t-name" data-f="name"></div>
+  <div class="t-creds" data-f="creds"></div>
+  <div class="t-title" data-f="topic"></div>
+  <div class="t-sub" data-f="subtitle"></div>
+  <div class="t-date"><span data-f="dateshort"></span><i class="dot"></i><span data-f="timeet"></span></div>
+  <div class="qrbox"><canvas data-qr width="128" height="128"></canvas></div>
+</div>
 
-  </div>
+<div id="d-sq" class="cardz kit c-sq">
+  <div class="bg"></div><div class="frame"></div><div class="frame2"></div>
+  <div class="k-speak">I'm speaking at</div>
+  <div class="k-logo"><img data-logo alt=""></div>
+  <div class="k-expert">Expert Panels</div>
+  <div class="t-name" data-f="name"></div>
+  <div class="t-creds" data-f="creds"></div>
+  <div class="k-div"></div>
+  <div class="t-title" data-f="topic"></div>
+  <div class="t-sub" data-f="subtitle"></div>
+  <div class="k-date"><div class="l1"><span data-f="dateshort"></span><i class="dot"></i><span data-f="timeet"></span></div><div class="l2">Live Zoom Panel + Q&amp;A</div></div>
+  <div class="k-reg">Register for your<br>complimentary seat</div>
+  <div class="k-join">Join TODAY!</div>
+  <div class="photo" data-photo></div>
+  <div class="k-scan">Scan to register —<br>it's complimentary</div>
+  <div class="qrbox"><canvas data-qr width="126" height="126"></canvas></div>
+</div>
 
-  <script>
-    // ══════════════════════════════════════════════════════════════
-    // CONFIG — set the Apps Script web-app URL here
-    // ══════════════════════════════════════════════════════════════
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby28znCDoxKLdMBXpDwRjP--3HbJpXMivLVMWkxl9wXpAcOXoFhr7cZJm94krp8S0QK/exec';
+<div id="d-land" class="cardz kit c-land">
+  <div class="bg"></div><div class="frame"></div><div class="frame2"></div>
+  <div class="k-speak">I'm speaking at</div>
+  <div class="k-logo"><img data-logo alt=""></div>
+  <div class="k-expert">Expert Panels</div>
+  <div class="t-name" data-f="name"></div>
+  <div class="t-creds" data-f="creds"></div>
+  <div class="k-div"></div>
+  <div class="t-title" data-f="topic"></div>
+  <div class="t-sub" data-f="subtitle"></div>
+  <div class="k-date"><div class="l1"><span data-f="dateshort"></span><i class="dot"></i><span data-f="timeet"></span></div><div class="l2">Live Zoom Panel + Q&amp;A</div></div>
+  <div class="k-reg">Register for your<br>complimentary seat</div>
+  <div class="k-scan">Scan the QR or use your registration link</div>
+  <div class="qrbox"><canvas data-qr width="110" height="110"></canvas></div>
+  <div class="photo" data-photo></div>
+</div>
 
-    // ══════════════════════════════════════════════════════════════
-    // Boot
-    // ══════════════════════════════════════════════════════════════
-    const params = new URLSearchParams(window.location.search);
-    const panelistId = params.get('p');
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   CONFIG
+   ═══════════════════════════════════════════════════════════════ */
+const API = 'https://script.google.com/macros/s/AKfycby28znCDoxKLdMBXpDwRjP--3HbJpXMivLVMWkxl9wXpAcOXoFhr7cZJm94krp8S0QK/exec';
+const KEY_STORE = 'td_studio_key';
 
-    if (!panelistId) {
-      showError('No panelist ID in URL.');
+// Display only — the real recipients are fixed in Apps Script CONFIG (KIT_RECIPIENT_EMAIL / KIT_BCC_EMAIL).
+// The page never sends a recipient. Panelist email addresses are never used.
+const KIT_RECIPIENT = 'achini@ekwa.com';
+const KIT_BCC = 'rushdhaakbar82@gmail.com';
+
+const TEMPLATE_SRC = 'template-portrait.png';   // the Canva "Join TODAY!" template, same folder as this page
+const MIN_HEADSHOT = 800;                        // SOP guideline only — smaller photos are accepted with a note
+
+const $ = id => document.getElementById(id);
+const state = { key:null, events:[], event:null, panelists:[], panelist:null, profile:null, renders:{}, qr:null, qrVerified:null, cap:'linkedin' };
+
+/* ═══════════════════════════════════════════════════════════════
+   API
+   ═══════════════════════════════════════════════════════════════ */
+async function api(action, params = {}, body = null) {
+  let res, text;
+  try {
+    if (body) {
+      res = await fetch(API, { method:'POST', body: JSON.stringify(Object.assign({ action, k: state.key }, body)) });
     } else {
-      loadKit();
+      const qs = new URLSearchParams(Object.assign({ action, k: state.key }, params));
+      res = await fetch(API + '?' + qs.toString());
     }
+    text = await res.text();
+  } catch (err) {
+    throw new Error('Network error reaching Apps Script: ' + err.message);
+  }
+  let data;
+  try { data = JSON.parse(text); }
+  catch (err) {
+    throw new Error('Apps Script did not return JSON. Check the deployment is "Anyone" and the API URL is the latest /exec.');
+  }
+  if (!data.ok) throw new Error(data.error || 'Unknown error');
+  return data;
+}
 
-    async function loadKit() {
-      try {
-        const url = `${APPS_SCRIPT_URL}?action=kit&p=${encodeURIComponent(panelistId)}`;
-        const res = await fetch(url, { method: 'GET' });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
-        if (data.error) throw new Error(data.error);
-        renderKit(data);
-      } catch (err) {
-        console.error(err);
-        showError('Could not load your kit. Please check the link or contact marketing.');
+/* ═══════════════════════════════════════════════════════════════
+   UI helpers
+   ═══════════════════════════════════════════════════════════════ */
+let toastT;
+function toast(msg, type = '') {
+  const t = $('toast'); t.textContent = msg; t.className = 'toast show ' + type;
+  clearTimeout(toastT); toastT = setTimeout(() => t.className = 'toast', 3400);
+}
+function showBanner(id, msg, type) {
+  const el = $(id);
+  if (!msg) { el.classList.add('hidden'); return; }
+  el.className = 'banner ' + type; el.textContent = msg;
+}
+function busy(btn, on, label) {
+  btn.disabled = on;
+  if (on) { btn.dataset.label = btn.textContent; btn.textContent = label || 'Working…'; }
+  else if (btn.dataset.label) { btn.textContent = btn.dataset.label; }
+}
+function initials(name) {
+  return String(name || '').replace(/^(dr|mr|mrs|ms)\.?\s+/i, '').split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('') || 'TD';
+}
+function firstName(name) {
+  return String(name || '').replace(/^(dr|mr|mrs|ms)\.?\s+/i, '').split(/[\s,]+/)[0] || 'there';
+}
+function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c])); }
+function dateShort(iso, fallback) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
+  if (!m) return String(fallback || '').replace(/,\s*\d{4}$/, '');
+  const M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${M[+m[2] - 1]} ${+m[3]}`;
+}
+function timeET(t) { const s = String(t || '').replace(/\s*E[SD]?T\s*$/i, '').trim(); return s ? s + ' ET' : ''; }
+/* Guard: Google Sheets sometimes turns "September 15, 2026" / "7:00 PM" into Date cells; if a raw
+   "Tue Sep 15 2026 00:00:00 GMT+0530 (...)" string ever reaches the page, normalise it here. */
+const RAW_DATE = /\d{2}:\d{2}:\d{2}\s*GMT|^\w{3} \w{3} \d{1,2} \d{4}/;
+function cleanEvent(ev) {
+  const fmt = (s, opts) => { const d = new Date(String(s).replace(/\s*\(.*\)\s*$/, '')); return isNaN(d) ? String(s) : d.toLocaleString('en-US', opts); };
+  if (RAW_DATE.test(ev.date_display || '')) ev.date_display = fmt(ev.date_display, { month: 'long', day: 'numeric', year: 'numeric' });
+  if (RAW_DATE.test(ev.day_display || ''))  ev.day_display  = fmt(ev.day_display,  { weekday: 'long' });
+  if (RAW_DATE.test(ev.time_display || '')) {
+    const m = /(\d{2}):(\d{2}):\d{2}/.exec(ev.time_display);
+    if (m) { const h = +m[1]; ev.time_display = `${h % 12 || 12}:${m[2]} ${h < 12 ? 'AM' : 'PM'} EST`; }
+  }
+  return ev;
+}
+function subtitleOf(ev) {
+  const t = String(ev.event_title || ''), p = String(ev.panel_topic || '');
+  if (!p || t === p) return '';
+  const s = t.startsWith(p) ? t.slice(p.length) : t;
+  return s.replace(/^[\s:·—–-]+/, '').trim();
+}
+function fit(el, max, min) {
+  let s = max; el.style.fontSize = s + 'px';
+  while (s > min && el.scrollWidth > el.clientWidth) { s -= 1; el.style.fontSize = s + 'px'; }
+}
+
+function go(step) {
+  ['step1','step2','step3','step4'].forEach((id, i) => $(id).classList.toggle('hidden', i + 1 !== step));
+  document.querySelectorAll('.step').forEach(el => {
+    const n = +el.dataset.step;
+    el.classList.toggle('active', n === step);
+    el.classList.toggle('done', n < step);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+document.querySelectorAll('.step').forEach(el => el.addEventListener('click', () => {
+  if (el.classList.contains('done')) go(+el.dataset.step);
+}));
+
+/* ═══════════════════════════════════════════════════════════════
+   TEMPLATE (portrait PNG + logo crop for the other sizes)
+   ═══════════════════════════════════════════════════════════════ */
+const tplImg = $('tpl-img');
+let logoReady = false;
+function ensureTemplate() {
+  return new Promise((resolve, reject) => {
+    const done = () => {
+      if (!tplImg.naturalWidth) return reject(new Error(TEMPLATE_SRC + ' could not be loaded (must sit next to this page)'));
+      if (!logoReady) {
+        const c = document.createElement('canvas'); c.width = 710; c.height = 140;
+        c.getContext('2d').drawImage(tplImg, 185, 122, 710, 140, 0, 0, 710, 140);
+        const url = c.toDataURL('image/png');
+        document.querySelectorAll('[data-logo]').forEach(i => i.src = url);
+        logoReady = true;
+      }
+      resolve();
+    };
+    if (tplImg.complete && tplImg.naturalWidth) return done();
+    tplImg.onload = done; tplImg.onerror = () => reject(new Error(TEMPLATE_SRC + ' not found next to the page'));
+    if (!tplImg.src) tplImg.src = TEMPLATE_SRC;
+  });
+}
+tplImg.src = TEMPLATE_SRC;
+
+/* ═══════════════════════════════════════════════════════════════
+   GATE
+   ═══════════════════════════════════════════════════════════════ */
+async function enter(key) {
+  state.key = key;
+  await api('ping');
+  try { localStorage.setItem(KEY_STORE, key); } catch (e) {}
+  $('gate').classList.add('hidden');
+  $('steps').classList.remove('hidden');
+  $('signout').classList.remove('hidden');
+  go(1);
+  loadEvents();
+}
+$('gate-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = $('gate-btn'); busy(btn, true, 'Checking…');
+  showBanner('gate-err', '');
+  try { await enter($('gate-key').value.trim()); }
+  catch (err) { state.key = null; showBanner('gate-err', err.message === 'unauthorized' ? 'Wrong access key.' : err.message, 'err'); }
+  busy(btn, false);
+});
+$('signout').addEventListener('click', () => { try { localStorage.removeItem(KEY_STORE); } catch (e) {} location.reload(); });
+
+(async () => {
+  let saved = null;
+  try { saved = localStorage.getItem(KEY_STORE); } catch (e) {}
+  if (saved) { try { await enter(saved); } catch (e) { state.key = null; } }
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   STEP 1 · EVENTS
+   ═══════════════════════════════════════════════════════════════ */
+async function loadEvents() {
+  const sel = $('event-select');
+  showBanner('s1-err', '');
+  try {
+    const data = await api('events');
+    state.events = data.events.map(cleanEvent);
+    sel.innerHTML = '<option value="">Select a webinar…</option>' + state.events.map(ev =>
+      `<option value="${esc(ev.event_key)}">${esc(ev.date_display)} — ${esc(ev.panel_topic || ev.event_title)}</option>`).join('');
+    if (!state.events.length) showBanner('s1-err', 'No active events. Add a row to the Events tab and set active = TRUE.', 'warn');
+  } catch (err) {
+    sel.innerHTML = '<option value="">Could not load events</option>';
+    showBanner('s1-err', err.message, 'err');
+  }
+}
+$('event-select').addEventListener('change', () => {
+  const ev = state.events.find(e => e.event_key === $('event-select').value) || null;
+  state.event = ev;
+  $('load-panelists').disabled = !ev;
+  $('event-meta').innerHTML = ev ? `
+    <b>Event</b><span>${esc(ev.event_title)}</span>
+    <b>When</b><span>${esc([ev.day_display, ev.date_display, ev.time_display].filter(Boolean).join(' · '))}</span>
+    <b>Webinar ID</b><span><code>${esc(ev.webinar_id || '— missing —')}</code> · ${esc(ev.zoom_account)} account</span>
+    <b>Reg page</b><span><a href="${esc(ev.reg_url)}" target="_blank" rel="noopener">${esc(ev.reg_url)}</a></span>` : '';
+  $('top-event').textContent = ev ? `${ev.date_display} · ${ev.panel_topic || ev.event_title}` : '';
+  $('top-event').classList.toggle('hidden', !ev);
+});
+$('load-panelists').addEventListener('click', () => loadPanelists());
+$('refresh-panelists').addEventListener('click', () => loadPanelists());
+
+/* ═══════════════════════════════════════════════════════════════
+   STEP 2 · PANELISTS
+   ═══════════════════════════════════════════════════════════════ */
+async function loadPanelists() {
+  if (!state.event) return;
+  const btn = $('load-panelists'); busy(btn, true, 'Pulling from Zoom…');
+  showBanner('s2-banner', '');
+  $('plist').innerHTML = '';
+  try {
+    const data = await api('panelists', { event_key: state.event.event_key });
+    state.event = cleanEvent(data.event);
+    state.panelists = data.panelists;
+    go(2);
+    if (data.zoom_error) showBanner('s2-banner', 'Zoom could not be reached: ' + data.zoom_error + ' — showing saved profiles only.', 'err');
+    else if (!data.panelists.length) showBanner('s2-banner', 'Zoom returned no panelists for webinar ' + state.event.webinar_id + '. Add them in Zoom first, then refresh.', 'warn');
+    renderPanelists();
+  } catch (err) {
+    showBanner('s1-err', err.message, 'err');
+  }
+  busy(btn, false);
+}
+function renderPanelists() {
+  $('plist').innerHTML = state.panelists.map((p, i) => {
+    const tag = !p.in_zoom ? '<span class="tag gone">Not in Zoom anymore</span>'
+      : p.status === 'sent' ? '<span class="tag sent">Pack sent</span>'
+      : p.saved ? '<span class="tag ready">Profile saved</span>'
+      : '<span class="tag need">Needs profile</span>';
+    return `<div class="pcard" data-i="${i}">
+      <div class="avatar">${esc(initials(p.display_name || p.name))}</div>
+      <div><div class="nm">${esc(p.display_name || p.name || '(no name)')}</div><div class="em">${esc(p.email)}</div>${tag}</div>
+    </div>`;
+  }).join('');
+  document.querySelectorAll('.pcard').forEach(el => el.addEventListener('click', () => selectPanelist(+el.dataset.i)));
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STEP 3 · PROFILE
+   ═══════════════════════════════════════════════════════════════ */
+let pendingHeadshot = null;   // { base64, mime, filename }
+
+async function selectPanelist(i) {
+  const p = state.panelists[i];
+  state.panelist = p; state.profile = null; pendingHeadshot = null; state.renders = {}; state.qr = null; state.qrVerified = null;
+  $('s3-title').textContent = p.display_name || p.name || p.email;
+  $('p-zoom-name').textContent = p.name || '—';
+  $('p-email').textContent = p.email;
+  $('p-join').textContent = p.join_url ? p.join_url : '— Zoom did not return a link —';
+  showBanner('s3-err', '');
+  $('f-headshot').value = '';
+  setHeadshotPreview('');
+  fill({ display_name: p.name });
+  $('skip-btn').style.display = 'none';
+  go(3);
+
+  if (p.saved) {
+    try {
+      const data = await api('profile', { event_key: state.event.event_key, email: p.email });
+      if (data.profile) {
+        state.profile = data.profile;
+        fill(data.profile);
+        setHeadshotPreview(data.profile.headshot_data_uri);
+        $('skip-btn').style.display = '';
+      }
+    } catch (err) { showBanner('s3-err', 'Could not load saved profile: ' + err.message, 'err'); }
+  }
+}
+function fill(pr) {
+  $('f-display').value = pr.display_name || '';
+  $('f-creds').value = pr.credentials || '';
+  $('f-title').value = pr.title || '';
+  $('f-company').value = pr.company || '';
+  $('f-linkedin').value = pr.linkedin || '';
+  $('f-website').value = pr.website || '';
+  $('f-bio').value = pr.bio || '';
+  $('bio-count').textContent = $('f-bio').value.length;
+}
+$('f-bio').addEventListener('input', () => $('bio-count').textContent = $('f-bio').value.length);
+
+function setHeadshotPreview(src) {
+  const box = $('hs-preview');
+  box.innerHTML = src ? `<img src="${src}" alt="">` : 'No photo yet';
+}
+$('f-headshot').addEventListener('change', async e => {
+  const file = e.target.files[0]; if (!file) return;
+  showBanner('s3-err', '');
+  try {
+    pendingHeadshot = await resizeImage(file, 1400);
+    setHeadshotPreview('data:' + pendingHeadshot.mime + ';base64,' + pendingHeadshot.base64);
+    if (pendingHeadshot.small) showBanner('s3-err', `Photo accepted (${pendingHeadshot.width} × ${pendingHeadshot.height} px). It is smaller than ${MIN_HEADSHOT} × ${MIN_HEADSHOT}, so it may look a little soft on the portrait banner — fine to continue.`, 'info');
+  } catch (err) {
+    pendingHeadshot = null; e.target.value = '';
+    showBanner('s3-err', 'Could not read that image: ' + err.message, 'err');
+  }
+});
+function resizeImage(file, max) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      const small = img.width < MIN_HEADSHOT || img.height < MIN_HEADSHOT;
+      const s = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement('canvas');
+      c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(url);
+      const isPng = file.type === 'image/png';
+      const dataUrl = isPng ? c.toDataURL('image/png') : c.toDataURL('image/jpeg', 0.92);
+      resolve({ base64: dataUrl.split(',')[1], mime: isPng ? 'image/png' : 'image/jpeg', filename: file.name, width: img.width, height: img.height, small });
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('unsupported file')); };
+    img.src = url;
+  });
+}
+
+$('profile-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = $('save-btn'); busy(btn, true, 'Saving…');
+  showBanner('s3-err', '');
+  const p = state.panelist;
+  try {
+    const data = await api('save', {}, {
+      event_key: state.event.event_key,
+      email: p.email, zoom_panelist_id: p.zoom_panelist_id, name: p.name, join_url: p.join_url,
+      display_name: $('f-display').value.trim(), credentials: $('f-creds').value.trim(),
+      title: $('f-title').value.trim(), company: $('f-company').value.trim(),
+      bio: $('f-bio').value.trim(), linkedin: $('f-linkedin').value.trim(), website: $('f-website').value.trim(),
+      headshot: pendingHeadshot,
+    });
+    state.profile = data.profile; state.event = cleanEvent(data.event); pendingHeadshot = null;
+    p.saved = true; p.display_name = data.profile.display_name; p.status = data.profile.status; p.panelist_key = data.profile.panelist_key;
+    toast('Profile saved', 'ok');
+    openPack();
+  } catch (err) { showBanner('s3-err', err.message, 'err'); }
+  busy(btn, false);
+});
+$('skip-btn').addEventListener('click', () => { if (state.profile) openPack(); });
+
+/* ═══════════════════════════════════════════════════════════════
+   STEP 4 · PACK
+   ═══════════════════════════════════════════════════════════════ */
+function ctx() {
+  const ev = state.event, pr = state.profile;
+  const topic = ev.panel_topic || ev.event_title;
+  const when = [ev.day_display, ev.date_display].filter(Boolean).join(', ') + (ev.time_display ? ' at ' + ev.time_display : '');
+  return {
+    ev, pr, topic, when,
+    subtitle: subtitleOf(ev),
+    dateshort: dateShort(ev.event_date, ev.date_display),
+    timeet: timeET(ev.time_display),
+    name: pr.display_name,
+    creds: [pr.credentials, pr.title].filter(Boolean).join(' • ') || pr.company || '',
+    first: firstName(pr.display_name),
+    track: pr.tracking_url,
+    join: pr.zoom_join_url || state.panelist.join_url || '',
+    drive: pr.banner_folder_url || '',
+  };
+}
+
+async function openPack() {
+  const c = ctx();
+  $('s4-title').textContent = c.name;
+  $('s4-sub').textContent = `${c.topic} · ${c.when}`;
+  $('k-track').textContent = c.track;
+  $('k-join').textContent = c.join || '— not available —';
+  $('k-qr').innerHTML = '<span class="tag wait">Pending</span>';
+  renderTracker();
+  showBanner('s4-banner', '');
+  fillTemplates(c);
+  renderCaption();
+  renderEmail();
+  go(4);
+  await renderAll();
+}
+function renderTracker() {
+  const c = ctx();
+  $('k-drive').innerHTML = c.drive ? `<a href="${esc(c.drive)}" target="_blank" rel="noopener">${esc(c.drive)}</a>` : '<span class="tag wait">Not saved to Drive yet</span>';
+  $('k-status').innerHTML = c.pr.status === 'sent' ? '<span class="tag sent">Pack sent</span>' : '<span class="tag ready">Ready to send</span>';
+  $('k-sent').textContent = c.pr.sent_at ? new Date(c.pr.sent_at).toLocaleString() + ' → ' + KIT_RECIPIENT : '—';
+}
+
+function fillTemplates(c) {
+  document.querySelectorAll('.cardz').forEach(card => {
+    card.querySelectorAll('[data-f]').forEach(el => {
+      const f = el.dataset.f;
+      el.textContent = { topic: c.topic, subtitle: c.subtitle, name: c.name, creds: c.creds, dateshort: c.dateshort, timeet: c.timeet }[f] || '';
+    });
+    card.querySelectorAll('.t-sub').forEach(el => el.style.display = c.subtitle ? '' : 'none');
+    card.querySelectorAll('.t-creds').forEach(el => el.style.display = c.creds ? '' : 'none');
+    const ph = card.querySelector('[data-photo]');
+    ph.innerHTML = c.pr.headshot_data_uri ? `<img src="${c.pr.headshot_data_uri}" alt="">` : `<div class="init">${esc(initials(c.name))}</div>`;
+    const qc = card.querySelector('[data-qr]');
+    try { new QRious({ element: qc, value: c.track, size: qc.width, level: 'M', foreground: '#0a1a3f', background: '#ffffff' }); } catch (e) {}
+  });
+  // Stand-alone QR PNG (512 px) for the Drive folder / zip
+  try {
+    const qcanvas = document.createElement('canvas');
+    new QRious({ element: qcanvas, value: c.track, size: 512, level: 'M', foreground: '#0a1a3f', background: '#ffffff' });
+    state.qr = qcanvas;
+  } catch (e) { state.qr = null; }
+}
+
+const FIT = {
+  por:  { '.t-name': [52, 30], '.t-creds': [28, 18], '.t-title': [46, 28], '.t-sub': [27, 18], '.t-date': [34, 22] },
+  sq:   { '.t-name': [50, 30], '.t-creds': [26, 18], '.t-title': [42, 26], '.t-sub': [26, 17], '.k-date .l1': [32, 22] },
+  land: { '.t-name': [40, 26], '.t-creds': [20, 15], '.t-title': [32, 22], '.t-sub': [20, 14], '.k-date .l1': [26, 18] },
+};
+async function renderCard(key) {
+  const el = $('d-' + key);
+  const imgs = [...el.querySelectorAll('img')];
+  el.classList.add('capturing');
+  try {
+    await document.fonts.ready;
+    await Promise.all(imgs.map(i => (i.complete || !i.src) ? Promise.resolve() : new Promise(r => { i.onload = i.onerror = r; })));
+    Object.entries(FIT[key]).forEach(([sel, [max, min]]) => el.querySelectorAll(sel).forEach(t => fit(t, max, min)));
+    const w = el.offsetWidth, h = el.offsetHeight;
+    return await html2canvas(el, {
+      scale: 1, useCORS: true, backgroundColor: '#000d1e', logging: false,
+      width: w, height: h, windowWidth: w, windowHeight: h, scrollX: 0, scrollY: 0,
+    });
+  } finally { el.classList.remove('capturing'); }
+}
+
+/** SOP step 6 — decode the QR on the rendered portrait banner and confirm it is the tracking link. */
+function verifyQr(canvas) {
+  if (typeof jsQR !== 'function') return { ok: null, msg: 'QR library not loaded — could not verify' };
+  try {
+    const d = canvas.getContext('2d').getImageData(852, 1075, 154, 144);
+    const code = jsQR(d.data, d.width, d.height);
+    if (!code) return { ok: false, msg: 'QR could not be read from the banner' };
+    if (code.data !== ctx().track) return { ok: false, msg: 'QR decodes to ' + code.data + ' — expected ' + ctx().track };
+    return { ok: true, msg: 'QR verified — decodes to the tracking link' };
+  } catch (e) { return { ok: null, msg: 'Could not verify QR: ' + e.message }; }
+}
+
+async function renderAll() {
+  const c = ctx();
+  state.renders = {}; state.qrVerified = null;
+  const hasPhoto = !!c.pr.headshot_data_uri;
+  $('no-photo').classList.toggle('hidden', hasPhoto);
+  document.querySelectorAll('.design .ph').forEach(ph => ph.innerHTML = `<span class="spin">${hasPhoto ? 'Rendering…' : 'Waiting for headshot'}</span>`);
+  if (!hasPhoto) { $('k-qr').innerHTML = '<span class="tag wait">Banner pending</span>'; return; }
+
+  const veil = $('render-veil'); veil.classList.remove('hidden');
+  const keys = ['por', 'sq', 'land'];
+  const labels = { por: 'Portrait 1080 × 1350', sq: 'Square 1080 × 1080', land: 'Landscape 1200 × 628' };
+  try {
+    await ensureTemplate();
+    for (const k of keys) {
+      $('veil-sub').textContent = labels[k];
+      const canvas = await renderCard(k);
+      state.renders[k] = canvas;
+      const ph = document.querySelector(`.design[data-key="${k}"] .ph`);
+      ph.innerHTML = ''; const img = new Image(); img.src = canvas.toDataURL('image/png'); ph.appendChild(img);
+      if (k === 'por') {
+        const v = verifyQr(canvas); state.qrVerified = v.ok;
+        $('k-qr').innerHTML = v.ok === true ? `<span class="tag ok">Verified</span> <small>${esc(v.msg)}</small>`
+          : v.ok === false ? `<span class="tag bad">FAILED</span> <small>${esc(v.msg)}</small>`
+          : `<span class="tag wait">Unverified</span> <small>${esc(v.msg)}</small>`;
+        if (v.ok === false) showBanner('s4-banner', 'STOP — ' + v.msg + '. Do not send this banner.', 'err');
       }
     }
+    toast('Banners ready', 'ok');
+  } catch (err) {
+    showBanner('s4-banner', 'Banner render failed: ' + err.message, 'err');
+  } finally { veil.classList.add('hidden'); }
+}
+$('regen-btn').addEventListener('click', async () => {
+  // Re-pull the profile so a headshot added in Step 3 is picked up
+  try {
+    const data = await api('profile', { event_key: state.event.event_key, email: state.panelist.email });
+    if (data.profile) state.profile = data.profile;
+  } catch (e) {}
+  fillTemplates(ctx()); renderEmail(); renderCaption(); renderTracker(); renderAll();
+});
 
-    function showError(msg) {
-      document.getElementById('loader').classList.add('hidden');
-      document.getElementById('error-screen').style.display = 'block';
-      if (msg) document.getElementById('error-msg').textContent = msg;
+function fileBase() {
+  const c = ctx();
+  return `TD_${c.ev.event_folder}_${c.name.replace(/[^a-z0-9]+/gi, '-').replace(/^-+|-+$/g, '')}`;
+}
+const dlNames = { por: 'portrait-1080x1350', sq: 'square-1080x1080', land: 'landscape-1200x628' };
+function canvasBlob(canvas) { return new Promise(r => canvas.toBlob(r, 'image/png')); }
+function saveBlob(blob, name) {
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 800);
+}
+function guardQr() {
+  if (state.qrVerified === false) { toast('QR check failed — fix before sharing', 'err'); return false; }
+  return true;
+}
+document.querySelectorAll('[data-dl]').forEach(btn => btn.addEventListener('click', async () => {
+  const k = btn.dataset.dl, canvas = state.renders[k];
+  if (!canvas) return toast('Banner not rendered yet', 'err');
+  if (!guardQr()) return;
+  saveBlob(await canvasBlob(canvas), `${fileBase()}_${dlNames[k]}.png`);
+}));
+$('zip-btn').addEventListener('click', async () => {
+  const keys = Object.keys(state.renders);
+  if (keys.length < 3) return toast('Banners not rendered yet', 'err');
+  if (!guardQr()) return;
+  const btn = $('zip-btn'); busy(btn, true, 'Zipping…');
+  try {
+    const zip = new JSZip(), c = ctx(), cap = captions();
+    for (const k of keys) zip.file(`${fileBase()}_${dlNames[k]}.png`, await canvasBlob(state.renders[k]));
+    if (state.qr) zip.file(`${fileBase()}_qr.png`, await canvasBlob(state.qr));
+    zip.file('captions.txt', ['LINKEDIN', cap.linkedin, '', 'INSTAGRAM', cap.instagram, '', 'FACEBOOK', cap.facebook, '', 'X', cap.x].join('\n'));
+    zip.file('email.txt', 'To: ' + KIT_RECIPIENT + '\nBcc: ' + KIT_BCC + '\nSubject: ' + emailSubject(c) + '\n\n' + emailBody(c));
+    saveBlob(await zip.generateAsync({ type: 'blob' }), fileBase() + '_pack.zip');
+  } catch (err) { toast('Zip failed: ' + err.message, 'err'); }
+  busy(btn, false);
+});
+
+/* Save banners + QR to Drive (event folder / panelist subfolder) and put the link in the email */
+$('drive-btn').addEventListener('click', async () => {
+  const keys = Object.keys(state.renders);
+  if (keys.length < 3) return toast('Banners not rendered yet', 'err');
+  if (!guardQr()) return;
+  const btn = $('drive-btn'); busy(btn, true, 'Uploading…');
+  try {
+    const files = [];
+    for (const k of keys) files.push({ name: `${fileBase()}_${dlNames[k]}.png`, mime: 'image/png', base64: state.renders[k].toDataURL('image/png').split(',')[1] });
+    if (state.qr) files.push({ name: `${fileBase()}_qr.png`, mime: 'image/png', base64: state.qr.toDataURL('image/png').split(',')[1] });
+    const data = await api('assets', {}, { panelist_key: state.profile.panelist_key, files });
+    state.profile.banner_folder_url = data.banner_folder_url; state.profile.assets_ready_at = data.assets_ready_at;
+    renderTracker(); renderEmail();
+    toast('Saved to Drive', 'ok');
+  } catch (err) { toast('Drive save failed: ' + err.message, 'err'); }
+  busy(btn, false);
+});
+
+/* Captions */
+function captions() {
+  const c = ctx();
+  const tags = '#ThrivingDentist #DentalLeadership #DentalPractice';
+  return {
+    linkedin:
+`I'm speaking at the Thriving Dentist Expert Panel — "${c.topic}" — on ${c.when}.
+
+It's a live, candid conversation with practice owners and industry leaders on what's actually working right now, and I'd love to see you there.
+
+Registration is complimentary and the replay goes to every registrant:
+${c.track}
+
+${tags}`,
+    instagram:
+`I'm on the panel! 🎙
+
+Thriving Dentist Expert Panel — "${c.topic}"
+📅 ${c.when}
+
+Complimentary registration + replay for everyone. Link in bio, or:
+${c.track}
+
+${tags} #Dentistry #DentalPanel`,
+    facebook:
+`Excited to be a panelist on the Thriving Dentist Expert Panel — "${c.topic}" — ${c.when}.
+
+Free to attend, replay sent to all registrants. Save your seat here:
+${c.track}`,
+    x:
+`Joining the @ThrivingDentist Expert Panel — "${c.topic}"
+${c.when}
+
+Register free: ${c.track}`,
+  };
+}
+const capHints = { linkedin: 'Pairs with the landscape banner.', instagram: 'Pairs with the portrait or square banner.', facebook: 'Pairs with the landscape banner.', x: 'Pairs with the landscape banner.' };
+function renderCaption() {
+  $('cap-box').textContent = captions()[state.cap];
+  $('cap-hint').textContent = capHints[state.cap];
+  document.querySelectorAll('#cap-tabs .tab').forEach(t => t.classList.toggle('active', t.dataset.cap === state.cap));
+}
+document.querySelectorAll('#cap-tabs .tab').forEach(t => t.addEventListener('click', () => { state.cap = t.dataset.cap; renderCaption(); }));
+
+/* Welcome email — SOP step 9: join link, registration link, banners, one ready-to-post caption */
+function emailSubject(c) { return `You're confirmed — Thriving Dentist Expert Panel, ${c.ev.date_display}`; }
+function emailBody(c) {
+  const cap = captions();
+  const banners = c.pr.headshot_data_uri
+    ? (c.drive ? `Your banner set (portrait, square, landscape) and QR code are here:\n${c.drive}` : `Your banner set (portrait, square, landscape) and QR code are attached.`)
+    : `Your personalised banners will follow as soon as we have your headshot (minimum 800 × 800 px) — please reply with one when you can.`;
+  return `Hi ${c.first},
+
+Thank you for confirming as a panelist for the Thriving Dentist Expert Panel — "${c.topic}" — on ${c.when}.
+
+1) YOUR PERSONAL ZOOM PANELIST LINK (please don't share this with anyone)
+${c.join || '(will follow separately)'}
+Join about 10 minutes early for a quick audio/video check.
+
+2) YOUR REGISTRATION LINK TO SHARE
+${c.track}
+Use this link (it's also the QR on your banner) whenever you invite your network — registrations through it are credited to you.
+
+3) YOUR BANNERS
+${banners}
+
+4) A CAPTION YOU CAN POST AS-IS
+${cap.linkedin}
+
+Could you reply to confirm you've received everything? Looking forward to the panel.
+
+Achini
+Thriving Dentist Expert Panels`;
+}
+function renderEmail() {
+  const c = ctx();
+  $('em-to').textContent = KIT_RECIPIENT;
+  $('em-bcc').textContent = KIT_BCC;
+  $('em-subject').textContent = emailSubject(c);
+  $('em-body').textContent = emailBody(c);
+}
+
+/* Copy buttons */
+document.querySelectorAll('[data-copy-id]').forEach(btn => btn.addEventListener('click', async () => {
+  const text = $(btn.dataset.copyId).textContent;
+  try { await navigator.clipboard.writeText(text); toast('Copied', 'ok'); }
+  catch (e) { toast('Copy failed — select and copy manually', 'err'); }
+}));
+
+/* Send the welcome email — recipient is fixed server-side; banners + QR attached if rendered */
+$('send-btn').addEventListener('click', async () => {
+  if (state.qrVerified === false) return toast('QR check failed — fix before sending', 'err');
+  const c = ctx();
+  const hasBanners = Object.keys(state.renders).length === 3;
+  const msg = `Send the welcome email for ${c.name}?\nTo: ${KIT_RECIPIENT}\nBcc: ${KIT_BCC}\n\n` +
+    (hasBanners ? 'Attachments: 3 banners + QR.' : 'No banners rendered yet — the email will say they follow later.');
+  if (!window.confirm(msg)) return;
+  const btn = $('send-btn'); busy(btn, true, 'Sending…');
+  try {
+    const files = [];
+    if (hasBanners) {
+      for (const k of Object.keys(state.renders)) files.push({ name: `${fileBase()}_${dlNames[k]}.png`, mime: 'image/png', base64: state.renders[k].toDataURL('image/png').split(',')[1] });
+      if (state.qr) files.push({ name: `${fileBase()}_qr.png`, mime: 'image/png', base64: state.qr.toDataURL('image/png').split(',')[1] });
     }
+    const data = await api('send', {}, { panelist_key: state.profile.panelist_key, subject: emailSubject(c), body: emailBody(c), files });
+    state.profile.status = 'sent'; state.profile.sent_at = data.sent_at; state.panelist.status = 'sent';
+    renderTracker();
+    toast(`Sent to ${data.sent_to}${data.bcc ? ' (bcc ' + data.bcc + ')' : ''} · ${data.attachments} attachments`, 'ok');
+  } catch (err) { toast('Send failed: ' + err.message, 'err'); }
+  busy(btn, false);
+});
 
-    // ══════════════════════════════════════════════════════════════
-    // Render everything from the kit data
-    // ══════════════════════════════════════════════════════════════
-    let KIT = null;
-
-    function renderKit(data) {
-      KIT = data;
-
-      const displayName = data.display_name || `${data.first_name} ${data.last_name}`.trim();
-      const roleLine = [data.title, data.company].filter(Boolean).join(' · ');
-      const topic = data.event?.panel_topic || data.event?.event_title || 'Thriving Dentist Expert Panel';
-      const whenLine = [data.event?.day_display, data.event?.date_display, data.event?.time_display].filter(Boolean).join(' · ');
-      const whenDay = [data.event?.day_display, data.event?.date_display].filter(Boolean).join(' · ');
-      const whenTime = data.event?.time_display || '';
-      const shortUrl = displayUrl(data.tracking_url);
-
-      // NAV + HERO
-      document.getElementById('nav-name').textContent = displayName;
-      document.title = `${data.first_name}'s Panelist Kit · Thriving Dentist`;
-      const heroAvatar = document.getElementById('hero-avatar');
-      if (data.headshot_data_uri) {
-        heroAvatar.src = data.headshot_data_uri;
-      } else {
-        // Placeholder gradient with initials
-        const initials = (data.first_name?.[0] || '') + (data.last_name?.[0] || '');
-        heroAvatar.outerHTML = `<div class="hero-avatar-placeholder">${initials || 'TD'}</div>`;
-      }
-      document.getElementById('hero-first-name').textContent = data.first_name || 'there';
-      document.getElementById('hero-topic').textContent = topic;
-      document.getElementById('hero-when').textContent = whenLine;
-
-      // ZOOM
-      const zoomInput = document.getElementById('zoom-input');
-      const zoomBtn = document.getElementById('zoom-copy');
-      const zoomStat = document.getElementById('stat-zoom');
-      const zoomPending = document.getElementById('zoom-pending');
-      if (data.zoom_join_url) {
-        zoomInput.value = data.zoom_join_url;
-        zoomBtn.disabled = false;
-        zoomStat.textContent = 'Ready';
-        zoomPending.style.display = 'none';
-      } else {
-        zoomInput.value = 'Being generated — check back in 1–2 minutes.';
-        zoomBtn.disabled = true;
-        zoomStat.textContent = 'Being generated…';
-        zoomPending.style.display = 'block';
-      }
-
-      // TRACKING URL
-      document.getElementById('track-input').value = data.tracking_url;
-
-      // CAPTIONS
-      renderCaption('linkedin');
-
-      // GRAPHICS — fill masters + scale previews
-      fillMaster('square', { topic, name: displayName, role: roleLine, whenDay, whenTime, url: shortUrl, tracking: data.tracking_url, photo: data.headshot_data_uri });
-      fillMaster('land',   { topic, name: displayName, role: roleLine, whenDay, whenTime, url: shortUrl, tracking: data.tracking_url, photo: data.headshot_data_uri });
-      fillMaster('port',   { topic, name: displayName, role: roleLine, whenDay, whenTime, url: shortUrl, tracking: data.tracking_url, photo: data.headshot_data_uri });
-
-      buildPreviews();
-
-      // Show
-      document.getElementById('loader').classList.add('hidden');
-      document.getElementById('app').style.display = 'block';
-
-      wireInteractions();
-    }
-
-    // ══════════════════════════════════════════════════════════════
-    // Graphic master population
-    // ══════════════════════════════════════════════════════════════
-    function fillMaster(key, v) {
-      const el = document.getElementById('master-' + key);
-      el.querySelector('[data-slot="topic"]').textContent = v.topic;
-      el.querySelector('[data-slot="name"]').textContent = v.name;
-      el.querySelector('[data-slot="role"]').textContent = v.role;
-      el.querySelector('[data-slot="when-day"]').textContent = v.whenDay;
-      el.querySelector('[data-slot="when-time"]').textContent = v.whenTime;
-      el.querySelector('[data-slot="url"]').textContent = v.url;
-      const photoEl = el.querySelector('[data-slot="photo"]');
-      if (v.photo) photoEl.style.backgroundImage = `url("${v.photo}")`;
-
-      // QR code — generated to a canvas, then swapped for an <img> so html2canvas captures cleanly
-      const qrSlot = el.querySelector('[data-slot="qr"]');
-      qrSlot.innerHTML = '';
-      const qrCanvas = document.createElement('canvas');
-      new QRious({
-        element: qrCanvas,
-        value: v.tracking,
-        size: key === 'land' ? 192 : (key === 'port' ? 168 : 160),
-        background: '#ffffff',
-        foreground: '#001536',
-        level: 'M',
-      });
-      const qrImg = document.createElement('img');
-      qrImg.src = qrCanvas.toDataURL('image/png');
-      qrSlot.appendChild(qrImg);
-    }
-
-    // ══════════════════════════════════════════════════════════════
-    // Preview scaling — clone each master into the preview container
-    // ══════════════════════════════════════════════════════════════
-    function buildPreviews() {
-      buildOne('preview-square', 'master-square', 1080, 1080);
-      buildOne('preview-land',   'master-land',   1600, 900);
-      buildOne('preview-port',   'master-port',   1080, 1350);
-      window.addEventListener('resize', buildPreviews);
-    }
-    function buildOne(previewId, masterId, w, h) {
-      const preview = document.getElementById(previewId);
-      const master = document.getElementById(masterId);
-      const wrap = preview.parentElement;
-      const targetW = wrap.clientWidth;
-      const scale = targetW / w;
-      // Clone once, then just adjust scale on resize
-      if (!preview.dataset.built) {
-        const clone = master.cloneNode(true);
-        clone.style.position = 'static';
-        preview.appendChild(clone);
-        preview.dataset.built = '1';
-      }
-      preview.style.width = w + 'px';
-      preview.style.height = h + 'px';
-      preview.style.transform = `scale(${scale})`;
-      // Force the parent wrap to size accordingly (aspect-ratio already handles the frame)
-    }
-
-    // ══════════════════════════════════════════════════════════════
-    // Download — screenshot the master element at full resolution
-    // ══════════════════════════════════════════════════════════════
-    async function downloadGraphic(key) {
-      const btn = document.querySelector(`[data-download="${key}"]`);
-      const original = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'Generating…';
-      try {
-        const el = document.getElementById('master-' + key);
-        // Bring it on-screen at absolute position for html2canvas
-        const stage = document.getElementById('graphic-stage');
-        stage.style.left = '0';
-        stage.style.top = '0';
-        stage.style.zIndex = '-999';  // still off view but reachable
-
-        const canvas = await html2canvas(el, {
-          scale: 2,
-          backgroundColor: null,
-          useCORS: true,
-          logging: false,
-          width: el.offsetWidth,
-          height: el.offsetHeight,
-        });
-
-        stage.style.left = '-99999px';
-
-        const link = document.createElement('a');
-        const cleanName = ((KIT?.first_name || 'panelist') + '-' + (KIT?.last_name || '')).toLowerCase().replace(/[^a-z0-9]+/g, '-');
-        const sizeLabel = key === 'square' ? '1080' : (key === 'land' ? 'wide' : 'portrait');
-        link.download = `td-${cleanName}-${sizeLabel}.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-
-        btn.textContent = '✓ Downloaded';
-        setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 1600);
-      } catch (err) {
-        console.error(err);
-        btn.textContent = 'Error — try again';
-        setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 2000);
-      }
-    }
-
-    // ══════════════════════════════════════════════════════════════
-    // Captions + copy interactions
-    // ══════════════════════════════════════════════════════════════
-    function renderCaption(which) {
-      const captions = KIT?.captions || {};
-      document.getElementById('caption-body').textContent = captions[which] || '(no caption)';
-      document.querySelectorAll('.caption-tab').forEach(t => {
-        t.classList.toggle('active', t.dataset.tab === which);
-      });
-    }
-
-    function wireInteractions() {
-      // Copy buttons for input fields
-      bindCopy('zoom-copy', () => document.getElementById('zoom-input').value);
-      bindCopy('track-copy', () => document.getElementById('track-input').value);
-      bindCopy('caption-copy', () => document.getElementById('caption-body').textContent);
-
-      // Caption tab switching
-      document.querySelectorAll('.caption-tab').forEach(t => {
-        t.addEventListener('click', () => renderCaption(t.dataset.tab));
-      });
-
-      // Download buttons
-      document.querySelectorAll('[data-download]').forEach(b => {
-        b.addEventListener('click', () => downloadGraphic(b.dataset.download));
-      });
-    }
-
-    function bindCopy(btnId, getText) {
-      const btn = document.getElementById(btnId);
-      if (!btn) return;
-      btn.addEventListener('click', async () => {
-        const text = getText();
-        if (!text) return;
-        try {
-          await navigator.clipboard.writeText(text);
-        } catch (err) {
-          const ta = document.createElement('textarea');
-          ta.value = text;
-          document.body.appendChild(ta); ta.select();
-          document.execCommand('copy'); ta.remove();
-        }
-        const original = btn.textContent;
-        btn.classList.add('copied');
-        btn.textContent = 'Copied ✓';
-        setTimeout(() => { btn.classList.remove('copied'); btn.textContent = original; }, 1600);
-      });
-    }
-
-    function displayUrl(url) {
-      if (!url) return '';
-      try {
-        const u = new URL(url);
-        return u.host + u.pathname + (u.search ? u.search : '');
-      } catch (err) {
-        return url;
-      }
-    }
-  </script>
-
+/* Mark as sent (manual send outside the Studio) */
+$('sent-btn').addEventListener('click', async () => {
+  const btn = $('sent-btn'); busy(btn, true, 'Saving…');
+  try {
+    await api('status', {}, { panelist_key: state.profile.panelist_key, status: 'sent' });
+    state.profile.status = 'sent'; state.panelist.status = 'sent';
+    renderTracker();
+    toast('Marked as sent', 'ok');
+  } catch (err) { toast(err.message, 'err'); }
+  busy(btn, false);
+});
+</script>
 </body>
 </html>
