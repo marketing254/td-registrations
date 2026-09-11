@@ -42,7 +42,19 @@
   .step.done .n{background:var(--ok);color:#fff}
   .step.active{border-color:var(--gold);color:var(--navy);box-shadow:0 0 0 3px rgba(212,175,55,.18)}
   .step.active .n{background:var(--navy);color:var(--gold-lite)}
+  .step.done:hover{border-color:var(--navy)}
   @media (max-width:760px){.step span{display:none}.step{justify-content:center}}
+
+  /* BREADCRUMB */
+  .crumbs{max-width:1180px;margin:12px auto 0;padding:0 24px;display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);flex-wrap:wrap;min-height:22px}
+  .crumbs a{color:var(--navy);font-weight:600;text-decoration:none;cursor:pointer;padding:3px 8px;border-radius:6px;border:1px solid transparent}
+  .crumbs a:hover{background:#fff;border-color:var(--line)}
+  .crumbs .sep{color:#b8c0d0}
+  .crumbs .cur{color:var(--muted);padding:3px 8px}
+  .crumbs .cur b{color:var(--navy);font-weight:700}
+  .back-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .btn-back{background:#fff;border:1px solid var(--line);color:var(--navy);padding:8px 14px;font-size:.82rem}
+  .btn-back:hover{border-color:var(--navy)}
 
   /* LAYOUT */
   .wrap{max-width:1180px;margin:20px auto 60px;padding:0 24px}
@@ -108,8 +120,7 @@
   /* ASSETS */
   .assets{display:grid;grid-template-columns:1.15fr 1fr;gap:22px;align-items:start}
   @media (max-width:980px){.assets{grid-template-columns:1fr}}
-  .designs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
-  @media (max-width:760px){.designs{grid-template-columns:1fr}}
+  .designs{display:grid;grid-template-columns:1fr;gap:14px;align-items:start;max-width:380px}
   .design{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
   .design .ph{background:#0a1a3f;display:grid;place-items:center;min-height:160px;position:relative}
   .design .ph img{width:100%;display:block}
@@ -123,8 +134,10 @@
   .tab.active{background:var(--navy);color:var(--gold-lite);border-color:var(--navy)}
   .copybox{background:#f8f9fc;border:1px solid var(--line);border-radius:10px;padding:14px;font-size:.88rem;white-space:pre-wrap;word-break:break-word;max-height:300px;overflow:auto}
   .copybar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:10px}
-  .emailbox{max-height:520px}
-  .kv{display:grid;grid-template-columns:130px minmax(0,1fr);gap:6px 12px;font-size:.85rem;margin:0 0 14px}
+  .emailbox{max-height:none;background:#fff;padding:0}
+  .emailbox .email-preview{border:1px solid var(--line);border-radius:10px;padding:18px 20px;background:#fff;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#1f2937}
+  .emailbox .email-preview a{color:#1e50a8}
+  .kv{display:grid;grid-template-columns:150px minmax(0,1fr);gap:6px 12px;font-size:.85rem;margin:0 0 14px}
   .kv b{color:var(--muted);font-weight:600}
   .kv span{min-width:0;overflow-wrap:anywhere;word-break:break-word}
   .kv code{background:#f0f2f8;padding:2px 6px;border-radius:6px;font-size:.8rem;word-break:break-all}
@@ -165,63 +178,6 @@
   .c-por .t-date{position:absolute;left:222px;top:952px;width:395px;text-align:center;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden}
   .c-por .qrbox{left:852px;top:1075px;width:154px;height:144px}
 
-  /* Square + landscape — same visual language, HTML-drawn */
-  .kit .bg{position:absolute;inset:0;background:
-    radial-gradient(60% 50% at 82% 8%, #12336a 0%, rgba(18,51,106,0) 60%),
-    radial-gradient(55% 60% at 8% 95%, #0c2a5c 0%, rgba(12,42,92,0) 60%),
-    radial-gradient(40% 30% at 50% 50%, rgba(255,255,255,.03) 0%, rgba(255,255,255,0) 70%),
-    linear-gradient(160deg,#04173a 0%,#000d1e 55%,#02112a 100%)}
-  .kit .frame{position:absolute;inset:22px;border:2px solid #cfa64c;border-radius:8px}
-  .kit .frame2{position:absolute;inset:32px;border:1px solid rgba(207,166,76,.5);border-radius:6px}
-  .kit .k-speak{position:absolute;color:#e2c46b;letter-spacing:.38em;text-transform:uppercase;font-weight:700;text-align:center;font-family:'Inter',sans-serif}
-  .kit .k-logo{position:absolute;background:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;padding:8px 16px}
-  .kit .k-logo img{max-width:100%;max-height:100%;display:block}
-  .kit .k-expert{position:absolute;color:#e2c46b;font-weight:700;letter-spacing:.08em;text-align:center;text-transform:uppercase}
-  .kit .k-div{position:absolute;height:2px;background:linear-gradient(90deg,transparent,#cfa64c 20%,#cfa64c 80%,transparent)}
-  .kit .k-div::after{content:'';position:absolute;left:50%;top:-5px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#e2c46b}
-  .kit .k-date{position:absolute;border:3px solid #cfa64c;border-radius:14px;background:rgba(0,10,28,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#fff}
-  .kit .k-date .l1{font-weight:700;white-space:nowrap}
-  .kit .k-date .l2{font-weight:400}
-  .kit .k-reg{position:absolute;background:linear-gradient(180deg,#f6df85 0%,#d9b555 55%,#c39a3e 100%);color:#0a1a3f;border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;text-transform:uppercase;line-height:1.15;box-shadow:0 8px 24px rgba(0,0,0,.45)}
-  .kit .k-join{position:absolute;text-align:center;color:#fff;font-style:italic}
-  .kit .k-scan{position:absolute;color:#e2c46b;font-style:italic;text-align:right;line-height:1.25}
-  .kit .photo{border:5px solid #d4af37;border-radius:18px;box-shadow:0 24px 50px rgba(0,0,0,.5)}
-  .kit .qrbox{border-radius:10px}
-
-  .c-sq{width:1080px;height:1080px}
-  .c-sq .k-speak{left:0;right:0;top:52px;font-size:26px}
-  .c-sq .k-logo{left:270px;top:92px;width:540px;height:100px}
-  .c-sq .k-expert{left:0;right:0;top:206px;font-size:40px}
-  .c-sq .t-name{left:70px;top:290px;width:480px}
-  .c-sq .t-creds{left:70px;top:352px;width:480px}
-  .c-sq .k-div{left:120px;top:404px;width:380px}
-  .c-sq .t-title{left:70px;top:428px;width:480px}
-  .c-sq .t-sub{left:70px;top:488px;width:480px}
-  .c-sq .k-date{left:70px;top:548px;width:480px;height:104px}
-  .c-sq .k-date .l1{font-size:32px}
-  .c-sq .k-date .l2{font-size:22px}
-  .c-sq .k-reg{left:70px;top:676px;width:480px;height:104px;font-size:28px}
-  .c-sq .k-join{left:70px;top:806px;width:480px;font-size:28px}
-  .c-sq .photo{left:600px;top:280px;width:410px;height:510px}
-  .c-sq .k-scan{left:600px;top:872px;width:240px;font-size:22px}
-  .c-sq .qrbox{left:860px;top:822px;width:150px;height:150px}
-
-  .c-land{width:1200px;height:628px}
-  .c-land .k-speak{left:60px;top:38px;width:640px;font-size:20px}
-  .c-land .k-logo{left:200px;top:66px;width:360px;height:66px}
-  .c-land .k-expert{left:60px;top:142px;width:640px;font-size:28px}
-  .c-land .t-name{left:60px;top:190px;width:640px}
-  .c-land .t-creds{left:60px;top:240px;width:640px}
-  .c-land .k-div{left:200px;top:280px;width:360px}
-  .c-land .t-title{left:60px;top:298px;width:640px}
-  .c-land .t-sub{left:60px;top:342px;width:640px}
-  .c-land .k-date{left:60px;top:384px;width:640px;height:78px;gap:2px}
-  .c-land .k-date .l1{font-size:26px}
-  .c-land .k-date .l2{font-size:18px}
-  .c-land .k-reg{left:60px;top:484px;width:460px;height:86px;font-size:22px}
-  .c-land .k-scan{left:60px;top:578px;width:460px;font-size:16px;text-align:center}
-  .c-land .qrbox{left:560px;top:468px;width:130px;height:130px}
-  .c-land .photo{left:750px;top:60px;width:390px;height:508px}
 </style>
 </head>
 <body>
@@ -240,6 +196,7 @@
   <div class="step" data-step="3"><div class="n">3</div><span>Profile</span></div>
   <div class="step" data-step="4"><div class="n">4</div><span>Banners &amp; Email</span></div>
 </div>
+<nav class="crumbs hidden" id="crumbs" aria-label="Where you are"></nav>
 
 <main class="wrap">
 
@@ -268,18 +225,24 @@
 
   <!-- ═══ STEP 2 · PANELIST ═══ -->
   <section id="step2" class="card-ui hidden">
-    <div class="row" style="justify-content:space-between">
-      <div><h2>Pick the panelist</h2><p class="sub">Pulled live from Zoom. Click a card to continue.</p></div>
+    <div class="back-row">
+      <button class="btn btn-back" type="button" data-go="1">← All webinars</button>
       <button class="btn btn-ghost btn-sm" id="refresh-panelists">↻ Refresh from Zoom</button>
     </div>
+    <h2>Pick the panelist</h2>
+    <p class="sub" id="s2-sub">Pulled live from Zoom. Click a card to open or edit that panelist's pack.</p>
     <div id="s2-banner" class="banner hidden"></div>
     <div class="plist" id="plist"></div>
   </section>
 
   <!-- ═══ STEP 3 · PROFILE ═══ -->
   <section id="step3" class="card-ui hidden">
+    <div class="back-row">
+      <button class="btn btn-back" type="button" data-go="2">← Back to panelists</button>
+      <button class="btn btn-back" type="button" data-go="1">All webinars</button>
+    </div>
     <h2 id="s3-title">Panelist profile</h2>
-    <p class="sub">These details go on the banners, caption and email. Zoom name and panelist link are pulled automatically.</p>
+    <p class="sub">Name, title and company are pre-filled from the panelist's Zoom name tag when Zoom has them — edit anything that's wrong. The headshot is the one thing Zoom can't provide.</p>
     <div id="s3-err" class="banner err hidden"></div>
     <div class="kv">
       <b>Zoom name</b><span id="p-zoom-name"></span>
@@ -298,16 +261,16 @@
         <div class="field"><label for="f-website">Website <small>(optional)</small></label><input type="url" id="f-website" placeholder="https://"></div>
       </div>
       <div class="field">
+        <label for="f-track">Registration tracking link — SM <small>(pulled from the main sheet's "Event Tracking Links" tab, row "&lt;Name&gt; SM" · edit only if wrong)</small></label>
+        <input type="url" id="f-track" required placeholder="https://www.reg.thrivingdentist.com/October-06?s=…">
+        <div class="hint">This link goes into the QR code, the captions and the email. If it's empty, add the panelist's SM / Email / Text rows to the tracking sheet first, then click ↻ Refresh in Step 2.</div>
+      </div>
+      <div class="field">
         <label>Headshot <small>(JPG/PNG · any size · 800 × 800 or larger looks best)</small></label>
         <div class="hs-wrap">
           <div class="hs-preview" id="hs-preview">No photo yet</div>
-          <div><input type="file" id="f-headshot" accept="image/*"><div class="hint">Any image is accepted and resized automatically. Leave empty to keep the existing photo. Links and email still work without a photo — banners wait.</div></div>
+          <div><input type="file" id="f-headshot" accept="image/*"><div class="hint">Any image is accepted and resized automatically. Leave empty to keep the existing photo. Links and email still work without a photo — the banner waits.</div></div>
         </div>
-      </div>
-      <div class="field">
-        <label for="f-bio">Short bio <small>(60–100 words)</small></label>
-        <textarea id="f-bio" maxlength="900"></textarea>
-        <div class="counter"><span id="bio-count">0</span> / 900</div>
       </div>
       <div class="row">
         <button class="btn btn-gold" type="submit" id="save-btn">Save &amp; build the pack →</button>
@@ -319,19 +282,28 @@
   <!-- ═══ STEP 4 · PACK ═══ -->
   <section id="step4" class="hidden">
     <div class="card-ui" style="margin-bottom:18px">
+      <div class="back-row">
+        <div class="row" style="gap:8px">
+          <button class="btn btn-back" type="button" data-go="3">← Edit profile</button>
+          <button class="btn btn-back" type="button" data-go="2">Panelists</button>
+          <button class="btn btn-back" type="button" data-go="1">All webinars</button>
+        </div>
+      </div>
       <div class="row" style="justify-content:space-between">
         <div><h2 id="s4-title">Panelist pack</h2><p class="sub" style="margin:0" id="s4-sub"></p></div>
         <div class="row">
           <button class="btn btn-ghost btn-sm" id="regen-btn">↻ Regenerate</button>
-          <button class="btn btn-ghost btn-sm" id="drive-btn">☁ Save banners to Drive</button>
-          <button class="btn btn-primary btn-sm" id="zip-btn">⬇ Download all (.zip)</button>
+          <button class="btn btn-ghost btn-sm" id="drive-btn">☁ Save banner to Drive</button>
+          <button class="btn btn-primary btn-sm" id="zip-btn">⬇ Download pack (.zip)</button>
           <button class="btn btn-ghost btn-sm" id="sent-btn">✓ Mark as sent manually</button>
         </div>
       </div>
       <div id="s4-banner" class="banner hidden" style="margin-top:14px"></div>
       <h3 style="margin-top:16px">Tracker</h3>
       <div class="kv" style="margin:0">
-        <b>Registration link</b><span><code id="k-track"></code> <button class="btn btn-ghost btn-sm" data-copy-id="k-track">Copy</button></span>
+        <b>Registration link (SM)</b><span><code id="k-track"></code> <button class="btn btn-ghost btn-sm" data-copy-id="k-track">Copy</button></span>
+        <b>Email link</b><span><code id="k-track-email"></code></span>
+        <b>Text link</b><span><code id="k-track-text"></code></span>
         <b>Panelist join link</b><span><code id="k-join"></code> <button class="btn btn-ghost btn-sm" data-copy-id="k-join">Copy</button></span>
         <b>QR check</b><span id="k-qr"></span>
         <b>Banner folder</b><span id="k-drive"></span>
@@ -342,11 +314,9 @@
 
     <div class="assets">
       <div>
-        <div id="no-photo" class="banner warn hidden">Banners are on hold — no headshot yet. The links and email below are ready to use; add the headshot in Step 3 and click Regenerate.</div>
+        <div id="no-photo" class="banner warn hidden">Banner is on hold — no headshot yet. The links and email below are ready to use; add the headshot in Step 3 and click Regenerate.</div>
         <div class="designs" id="designs">
-          <div class="design" data-key="por"><div class="ph"><span class="spin">Rendering…</span></div><div class="meta"><div><b>Portrait (template)</b><small>1080 × 1350</small></div><button class="btn btn-ghost btn-sm" data-dl="por">Download</button></div></div>
-          <div class="design" data-key="sq"><div class="ph"><span class="spin">Rendering…</span></div><div class="meta"><div><b>Square</b><small>1080 × 1080</small></div><button class="btn btn-ghost btn-sm" data-dl="sq">Download</button></div></div>
-          <div class="design" data-key="land"><div class="ph"><span class="spin">Rendering…</span></div><div class="meta"><div><b>Landscape</b><small>1200 × 628</small></div><button class="btn btn-ghost btn-sm" data-dl="land">Download</button></div></div>
+          <div class="design" data-key="por"><div class="ph"><span class="spin">Rendering…</span></div><div class="meta"><div><b>Banner (Canva template)</b><small>1080 × 1350</small></div><button class="btn btn-ghost btn-sm" data-dl="por">Download</button></div></div>
         </div>
       </div>
       <div>
@@ -358,7 +328,7 @@
             <button class="tab" data-cap="facebook">Facebook</button>
             <button class="tab" data-cap="x">X</button>
           </div>
-          <div class="copybar"><span class="hint" id="cap-hint">Pairs with the landscape banner.</span><button class="btn btn-ghost btn-sm" data-copy-id="cap-box">Copy caption</button></div>
+          <div class="copybar"><span class="hint" id="cap-hint">Pairs with the banner.</span><button class="btn btn-ghost btn-sm" data-copy-id="cap-box">Copy caption</button></div>
           <div class="copybox" id="cap-box"></div>
         </div>
         <div class="card-ui">
@@ -369,8 +339,8 @@
             <b>Bcc</b><span><code id="em-bcc"></code></span>
             <b>Subject</b><span><span id="em-subject"></span> <button class="btn btn-ghost btn-sm" data-copy-id="em-subject">Copy</button></span>
           </div>
-          <div class="copybar"><span class="hint">Send attaches the 3 banners + QR automatically.</span><span class="row" style="gap:6px"><button class="btn btn-ghost btn-sm" data-copy-id="em-body">Copy email</button><button class="btn btn-gold btn-sm" id="send-btn">✉ Send email</button></span></div>
-          <div class="copybox emailbox" id="em-body"></div>
+          <div class="copybar"><span class="hint">Send attaches the banner + QR. Copy pastes the formatted email (links included) into Gmail.</span><span class="row" style="gap:6px"><button class="btn btn-ghost btn-sm" id="copy-email-btn">Copy email</button><button class="btn btn-gold btn-sm" id="send-btn">✉ Send email</button></span></div>
+          <div class="emailbox" id="em-body"></div>
         </div>
       </div>
     </div>
@@ -395,40 +365,7 @@
   <div class="qrbox"><canvas data-qr width="128" height="128"></canvas></div>
 </div>
 
-<div id="d-sq" class="cardz kit c-sq">
-  <div class="bg"></div><div class="frame"></div><div class="frame2"></div>
-  <div class="k-speak">I'm speaking at</div>
-  <div class="k-logo"><img data-logo alt=""></div>
-  <div class="k-expert">Expert Panels</div>
-  <div class="t-name" data-f="name"></div>
-  <div class="t-creds" data-f="creds"></div>
-  <div class="k-div"></div>
-  <div class="t-title" data-f="topic"></div>
-  <div class="t-sub" data-f="subtitle"></div>
-  <div class="k-date"><div class="l1"><span data-f="dateshort"></span><i class="dot"></i><span data-f="timeet"></span></div><div class="l2">Live Zoom Panel + Q&amp;A</div></div>
-  <div class="k-reg">Register for your<br>complimentary seat</div>
-  <div class="k-join">Join TODAY!</div>
-  <div class="photo" data-photo></div>
-  <div class="k-scan">Scan to register —<br>it's complimentary</div>
-  <div class="qrbox"><canvas data-qr width="126" height="126"></canvas></div>
-</div>
 
-<div id="d-land" class="cardz kit c-land">
-  <div class="bg"></div><div class="frame"></div><div class="frame2"></div>
-  <div class="k-speak">I'm speaking at</div>
-  <div class="k-logo"><img data-logo alt=""></div>
-  <div class="k-expert">Expert Panels</div>
-  <div class="t-name" data-f="name"></div>
-  <div class="t-creds" data-f="creds"></div>
-  <div class="k-div"></div>
-  <div class="t-title" data-f="topic"></div>
-  <div class="t-sub" data-f="subtitle"></div>
-  <div class="k-date"><div class="l1"><span data-f="dateshort"></span><i class="dot"></i><span data-f="timeet"></span></div><div class="l2">Live Zoom Panel + Q&amp;A</div></div>
-  <div class="k-reg">Register for your<br>complimentary seat</div>
-  <div class="k-scan">Scan the QR or use your registration link</div>
-  <div class="qrbox"><canvas data-qr width="110" height="110"></canvas></div>
-  <div class="photo" data-photo></div>
-</div>
 
 <script>
 /* ═══════════════════════════════════════════════════════════════
@@ -512,6 +449,14 @@ function cleanEvent(ev) {
   const fmt = (s, opts) => { const d = new Date(String(s).replace(/\s*\(.*\)\s*$/, '')); return isNaN(d) ? String(s) : d.toLocaleString('en-US', opts); };
   if (RAW_DATE.test(ev.date_display || '')) ev.date_display = fmt(ev.date_display, { month: 'long', day: 'numeric', year: 'numeric' });
   if (RAW_DATE.test(ev.day_display || ''))  ev.day_display  = fmt(ev.day_display,  { weekday: 'long' });
+  if (RAW_DATE.test(ev.event_folder || '') || /GMT|%20/.test(ev.reg_url || '')) {
+    const m = /^\w{3} (\w{3}) (\d{1,2}) (\d{4})/.exec(String(ev.event_folder));
+    if (m) {
+      const MON = { Jan:'January', Feb:'February', Mar:'March', Apr:'April', May:'May', Jun:'June', Jul:'July', Aug:'August', Sep:'Sept', Oct:'October', Nov:'November', Dec:'December' };
+      ev.event_folder = (MON[m[1]] || m[1]) + '-' + String(m[2]).padStart(2, '0');
+      ev.reg_url = 'https://www.reg.thrivingdentist.com/' + ev.event_folder + '/';
+    }
+  }
   if (RAW_DATE.test(ev.time_display || '')) {
     const m = /(\d{2}):(\d{2}):\d{2}/.exec(ev.time_display);
     if (m) { const h = +m[1]; ev.time_display = `${h % 12 || 12}:${m[2]} ${h < 12 ? 'AM' : 'PM'} EST`; }
@@ -529,35 +474,52 @@ function fit(el, max, min) {
   while (s > min && el.scrollWidth > el.clientWidth) { s -= 1; el.style.fontSize = s + 'px'; }
 }
 
+/* A step is reachable when the data for it exists, regardless of where you are now */
+function reachable(n) {
+  if (n === 1) return true;
+  if (n === 2) return !!(state.event && state.panelists.length);
+  if (n === 3) return !!state.panelist;
+  if (n === 4) return !!state.profile;
+  return false;
+}
 function go(step) {
+  if (!reachable(step)) return;
   ['step1','step2','step3','step4'].forEach((id, i) => $(id).classList.toggle('hidden', i + 1 !== step));
   document.querySelectorAll('.step').forEach(el => {
     const n = +el.dataset.step;
     el.classList.toggle('active', n === step);
-    el.classList.toggle('done', n < step);
+    el.classList.toggle('done', n !== step && reachable(n));
   });
+  if (step === 2 && state.panelists.length) renderPanelists();   // badges reflect what was just saved/sent
+  renderCrumbs(step);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-document.querySelectorAll('.step').forEach(el => el.addEventListener('click', () => {
-  if (el.classList.contains('done')) go(+el.dataset.step);
-}));
+function renderCrumbs(step) {
+  const nav = $('crumbs');
+  const evLabel = state.event ? `${state.event.date_display} — ${state.event.panel_topic || state.event.event_title}` : '';
+  const pLabel = state.panelist ? (state.profile && state.profile.display_name) || state.panelist.display_name || state.panelist.name || state.panelist.email : '';
+  const parts = [];
+  parts.push(step === 1 ? '<span class="cur"><b>All webinars</b></span>' : '<a data-go="1">All webinars</a>');
+  if (step >= 2 && evLabel) parts.push('<span class="sep">›</span>', step === 2 ? `<span class="cur"><b>${esc(evLabel)}</b> · panelists</span>` : `<a data-go="2">${esc(evLabel)}</a>`);
+  if (step >= 3 && pLabel) parts.push('<span class="sep">›</span>', step === 3 ? `<span class="cur"><b>${esc(pLabel)}</b> · profile</span>` : `<a data-go="3">${esc(pLabel)}</a>`);
+  if (step === 4) parts.push('<span class="sep">›</span>', '<span class="cur"><b>Banner &amp; email</b></span>');
+  nav.innerHTML = parts.join('');
+  nav.classList.toggle('hidden', !state.key);
+}
+document.querySelectorAll('.step').forEach(el => el.addEventListener('click', () => go(+el.dataset.step)));
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-go]'); if (!t) return;
+  e.preventDefault(); go(+t.dataset.go);
+});
 
 /* ═══════════════════════════════════════════════════════════════
    TEMPLATE (portrait PNG + logo crop for the other sizes)
    ═══════════════════════════════════════════════════════════════ */
 const tplImg = $('tpl-img');
-let logoReady = false;
 function ensureTemplate() {
   return new Promise((resolve, reject) => {
     const done = () => {
       if (!tplImg.naturalWidth) return reject(new Error(TEMPLATE_SRC + ' could not be loaded (must sit next to this page)'));
-      if (!logoReady) {
-        const c = document.createElement('canvas'); c.width = 710; c.height = 140;
-        c.getContext('2d').drawImage(tplImg, 185, 122, 710, 140, 0, 0, 710, 140);
-        const url = c.toDataURL('image/png');
-        document.querySelectorAll('[data-logo]').forEach(i => i.src = url);
-        logoReady = true;
-      }
       resolve();
     };
     if (tplImg.complete && tplImg.naturalWidth) return done();
@@ -615,7 +577,9 @@ async function loadEvents() {
 }
 $('event-select').addEventListener('change', () => {
   const ev = state.events.find(e => e.event_key === $('event-select').value) || null;
+  if (!state.event || !ev || ev.event_key !== state.event.event_key) { state.panelists = []; state.panelist = null; state.profile = null; state.renders = {}; }
   state.event = ev;
+  renderCrumbs(1);
   $('load-panelists').disabled = !ev;
   $('event-meta').innerHTML = ev ? `
     <b>Event</b><span>${esc(ev.event_title)}</span>
@@ -640,6 +604,8 @@ async function loadPanelists() {
     const data = await api('panelists', { event_key: state.event.event_key });
     state.event = cleanEvent(data.event);
     state.panelists = data.panelists;
+    state.panelist = null; state.profile = null; state.renders = {};
+    $('s2-sub').textContent = `${data.panelists.length} panelist${data.panelists.length === 1 ? '' : 's'} on the Zoom webinar. Click a card to open or edit that panelist's pack.`;
     go(2);
     if (data.zoom_error) showBanner('s2-banner', 'Zoom could not be reached: ' + data.zoom_error + ' — showing saved profiles only.', 'err');
     else if (!data.panelists.length) showBanner('s2-banner', 'Zoom returned no panelists for webinar ' + state.event.webinar_id + '. Add them in Zoom first, then refresh.', 'warn');
@@ -655,9 +621,10 @@ function renderPanelists() {
       : p.status === 'sent' ? '<span class="tag sent">Pack sent</span>'
       : p.saved ? '<span class="tag ready">Profile saved</span>'
       : '<span class="tag need">Needs profile</span>';
+    const trk = (p.tracking && p.tracking.sm) || p.saved ? '' : ' <span class="tag bad">No tracking link</span>';
     return `<div class="pcard" data-i="${i}">
       <div class="avatar">${esc(initials(p.display_name || p.name))}</div>
-      <div><div class="nm">${esc(p.display_name || p.name || '(no name)')}</div><div class="em">${esc(p.email)}</div>${tag}</div>
+      <div><div class="nm">${esc(p.display_name || p.name || '(no name)')}</div><div class="em">${esc(p.email)}</div>${tag}${trk}</div>
     </div>`;
   }).join('');
   document.querySelectorAll('.pcard').forEach(el => el.addEventListener('click', () => selectPanelist(+el.dataset.i)));
@@ -678,7 +645,9 @@ async function selectPanelist(i) {
   showBanner('s3-err', '');
   $('f-headshot').value = '';
   setHeadshotPreview('');
-  fill({ display_name: p.name });
+  fill(Object.assign({ display_name: p.display_hint || p.name }, splitTitleHint(p.title_hint)));
+  $('f-track').value = (p.tracking && p.tracking.sm) || '';
+  if (!$('f-track').value) showBanner('s3-err', `No "${p.name} SM" row found in the Event Tracking Links tab for this webinar. Add the SM / Email / Text rows there, then Refresh — or paste the link below.`, 'warn');
   $('skip-btn').style.display = 'none';
   go(3);
 
@@ -701,10 +670,15 @@ function fill(pr) {
   $('f-company').value = pr.company || '';
   $('f-linkedin').value = pr.linkedin || '';
   $('f-website').value = pr.website || '';
-  $('f-bio').value = pr.bio || '';
-  $('bio-count').textContent = $('f-bio').value.length;
+  if (pr.tracking_url) { $('f-track').value = pr.tracking_url; showBanner('s3-err', ''); }
 }
-$('f-bio').addEventListener('input', () => $('bio-count').textContent = $('f-bio').value.length);
+/* Zoom name-tag description is free text like "Founder & CEO, Acme Dental" → title + company */
+function splitTitleHint(hint) {
+  const h = String(hint || '').trim();
+  if (!h) return {};
+  const parts = h.split(/\s*(?:,|\||·|—|–| - | at )\s*/).filter(Boolean);
+  return parts.length > 1 ? { title: parts[0], company: parts.slice(1).join(', ') } : { title: h };
+}
 
 function setHeadshotPreview(src) {
   const box = $('hs-preview');
@@ -753,7 +727,8 @@ $('profile-form').addEventListener('submit', async e => {
       email: p.email, zoom_panelist_id: p.zoom_panelist_id, name: p.name, join_url: p.join_url,
       display_name: $('f-display').value.trim(), credentials: $('f-creds').value.trim(),
       title: $('f-title').value.trim(), company: $('f-company').value.trim(),
-      bio: $('f-bio').value.trim(), linkedin: $('f-linkedin').value.trim(), website: $('f-website').value.trim(),
+      linkedin: $('f-linkedin').value.trim(), website: $('f-website').value.trim(),
+      tracking_url: $('f-track').value.trim(),
       headshot: pendingHeadshot,
     });
     state.profile = data.profile; state.event = cleanEvent(data.event); pendingHeadshot = null;
@@ -775,6 +750,8 @@ function ctx() {
   return {
     ev, pr, topic, when,
     subtitle: subtitleOf(ev),
+    dateLine: [ev.day_display, ev.date_display].filter(Boolean).join(', '),
+    timeLine: ev.time_display || '',
     dateshort: dateShort(ev.event_date, ev.date_display),
     timeet: timeET(ev.time_display),
     name: pr.display_name,
@@ -806,6 +783,9 @@ function renderTracker() {
   $('k-drive').innerHTML = c.drive ? `<a href="${esc(c.drive)}" target="_blank" rel="noopener">${esc(c.drive)}</a>` : '<span class="tag wait">Not saved to Drive yet</span>';
   $('k-status').innerHTML = c.pr.status === 'sent' ? '<span class="tag sent">Pack sent</span>' : '<span class="tag ready">Ready to send</span>';
   $('k-sent').textContent = c.pr.sent_at ? new Date(c.pr.sent_at).toLocaleString() + ' → ' + KIT_RECIPIENT : '—';
+  const tl = c.pr.tracking_links || {};
+  $('k-track-email').textContent = tl.email || '—';
+  $('k-track-text').textContent = tl.text || '—';
 }
 
 function fillTemplates(c) {
@@ -830,10 +810,9 @@ function fillTemplates(c) {
 }
 
 const FIT = {
-  por:  { '.t-name': [52, 30], '.t-creds': [28, 18], '.t-title': [46, 28], '.t-sub': [27, 18], '.t-date': [34, 22] },
-  sq:   { '.t-name': [50, 30], '.t-creds': [26, 18], '.t-title': [42, 26], '.t-sub': [26, 17], '.k-date .l1': [32, 22] },
-  land: { '.t-name': [40, 26], '.t-creds': [20, 15], '.t-title': [32, 22], '.t-sub': [20, 14], '.k-date .l1': [26, 18] },
+  por: { '.t-name': [52, 30], '.t-creds': [28, 18], '.t-title': [46, 28], '.t-sub': [27, 18], '.t-date': [34, 22] },
 };
+const BANNER_KEYS = ['por'];
 async function renderCard(key) {
   const el = $('d-' + key);
   const imgs = [...el.querySelectorAll('img')];
@@ -871,8 +850,8 @@ async function renderAll() {
   if (!hasPhoto) { $('k-qr').innerHTML = '<span class="tag wait">Banner pending</span>'; return; }
 
   const veil = $('render-veil'); veil.classList.remove('hidden');
-  const keys = ['por', 'sq', 'land'];
-  const labels = { por: 'Portrait 1080 × 1350', sq: 'Square 1080 × 1080', land: 'Landscape 1200 × 628' };
+  const keys = BANNER_KEYS;
+  const labels = { por: 'Banner 1080 × 1350' };
   try {
     await ensureTemplate();
     for (const k of keys) {
@@ -889,7 +868,7 @@ async function renderAll() {
         if (v.ok === false) showBanner('s4-banner', 'STOP — ' + v.msg + '. Do not send this banner.', 'err');
       }
     }
-    toast('Banners ready', 'ok');
+    toast('Banner ready', 'ok');
   } catch (err) {
     showBanner('s4-banner', 'Banner render failed: ' + err.message, 'err');
   } finally { veil.classList.add('hidden'); }
@@ -907,7 +886,7 @@ function fileBase() {
   const c = ctx();
   return `TD_${c.ev.event_folder}_${c.name.replace(/[^a-z0-9]+/gi, '-').replace(/^-+|-+$/g, '')}`;
 }
-const dlNames = { por: 'portrait-1080x1350', sq: 'square-1080x1080', land: 'landscape-1200x628' };
+const dlNames = { por: 'banner-1080x1350' };
 function canvasBlob(canvas) { return new Promise(r => canvas.toBlob(r, 'image/png')); }
 function saveBlob(blob, name) {
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name;
@@ -925,7 +904,7 @@ document.querySelectorAll('[data-dl]').forEach(btn => btn.addEventListener('clic
 }));
 $('zip-btn').addEventListener('click', async () => {
   const keys = Object.keys(state.renders);
-  if (keys.length < 3) return toast('Banners not rendered yet', 'err');
+  if (keys.length < BANNER_KEYS.length) return toast('Banner not rendered yet', 'err');
   if (!guardQr()) return;
   const btn = $('zip-btn'); busy(btn, true, 'Zipping…');
   try {
@@ -934,6 +913,7 @@ $('zip-btn').addEventListener('click', async () => {
     if (state.qr) zip.file(`${fileBase()}_qr.png`, await canvasBlob(state.qr));
     zip.file('captions.txt', ['LINKEDIN', cap.linkedin, '', 'INSTAGRAM', cap.instagram, '', 'FACEBOOK', cap.facebook, '', 'X', cap.x].join('\n'));
     zip.file('email.txt', 'To: ' + KIT_RECIPIENT + '\nBcc: ' + KIT_BCC + '\nSubject: ' + emailSubject(c) + '\n\n' + emailBody(c));
+    zip.file('email.html', emailHtml(c));
     saveBlob(await zip.generateAsync({ type: 'blob' }), fileBase() + '_pack.zip');
   } catch (err) { toast('Zip failed: ' + err.message, 'err'); }
   busy(btn, false);
@@ -942,7 +922,7 @@ $('zip-btn').addEventListener('click', async () => {
 /* Save banners + QR to Drive (event folder / panelist subfolder) and put the link in the email */
 $('drive-btn').addEventListener('click', async () => {
   const keys = Object.keys(state.renders);
-  if (keys.length < 3) return toast('Banners not rendered yet', 'err');
+  if (keys.length < BANNER_KEYS.length) return toast('Banner not rendered yet', 'err');
   if (!guardQr()) return;
   const btn = $('drive-btn'); busy(btn, true, 'Uploading…');
   try {
@@ -967,7 +947,7 @@ function captions() {
 
 It's a live, candid conversation with practice owners and industry leaders on what's actually working right now, and I'd love to see you there.
 
-Registration is complimentary and the replay goes to every registrant:
+Registration is complimentary, and a full replay will be sent to every registrant:
 ${c.track}
 
 ${tags}`,
@@ -993,7 +973,7 @@ ${c.when}
 Register free: ${c.track}`,
   };
 }
-const capHints = { linkedin: 'Pairs with the landscape banner.', instagram: 'Pairs with the portrait or square banner.', facebook: 'Pairs with the landscape banner.', x: 'Pairs with the landscape banner.' };
+const capHints = { linkedin: 'Pairs with the banner.', instagram: 'Pairs with the banner (1080×1350 works for feed).', facebook: 'Pairs with the banner.', x: 'Pairs with the banner.' };
 function renderCaption() {
   $('cap-box').textContent = captions()[state.cap];
   $('cap-hint').textContent = capHints[state.cap];
@@ -1001,43 +981,111 @@ function renderCaption() {
 }
 document.querySelectorAll('#cap-tabs .tab').forEach(t => t.addEventListener('click', () => { state.cap = t.dataset.cap; renderCaption(); }));
 
-/* Welcome email — SOP step 9: join link, registration link, banners, one ready-to-post caption */
-function emailSubject(c) { return `You're confirmed — Thriving Dentist Expert Panel, ${c.ev.date_display}`; }
+/* Welcome email — SOP step 9: join link, registration link, banner, one ready-to-post caption.
+   emailHtml() is what gets sent/copied (formatted, hyperlinks); emailBody() is the plain-text fallback. */
+function emailSubject(c) { return `You are Confirmed - Welcome to the "${c.topic}" Expert Panel! 🎉`; }
+
+function bannerPara(c) {
+  if (!c.pr.headshot_data_uri) return { text: "Your personalized banner and QR code will follow as soon as we have your headshot — please reply with one when you can.", link: '' };
+  if (c.drive) return { text: "We've prepared your personalized banner along with your unique QR code to make sharing as easy as possible. You can download them here:", link: c.drive };
+  return { text: "We've attached your personalized banner along with your unique QR code to make sharing as easy as possible.", link: '' };
+}
+
 function emailBody(c) {
-  const cap = captions();
-  const banners = c.pr.headshot_data_uri
-    ? (c.drive ? `Your banner set (portrait, square, landscape) and QR code are here:\n${c.drive}` : `Your banner set (portrait, square, landscape) and QR code are attached.`)
-    : `Your personalised banners will follow as soon as we have your headshot (minimum 800 × 800 px) — please reply with one when you can.`;
+  const cap = captions(), b = bannerPara(c);
   return `Hi ${c.first},
 
-Thank you for confirming as a panelist for the Thriving Dentist Expert Panel — "${c.topic}" — on ${c.when}.
+Thank you so much for joining us as a panelist for the upcoming Thriving Dentist Expert Panel — "${c.topic}"! We are so excited to have you on board for what promises to be a great session.
 
-1) YOUR PERSONAL ZOOM PANELIST LINK (please don't share this with anyone)
-${c.join || '(will follow separately)'}
-Join about 10 minutes early for a quick audio/video check.
+Here are all the details and links you'll need to get ready:
 
-2) YOUR REGISTRATION LINK TO SHARE
-${c.track}
-Use this link (it's also the QR on your banner) whenever you invite your network — registrations through it are credited to you.
+🗓️ Event Details
+Date: ${c.dateLine}
+Time: ${c.timeLine}
 
-3) YOUR BANNERS
-${banners}
+1️⃣ Your Personal Zoom Panelist Link
+👉 ${c.join || '(will follow separately)'}
+(Please keep this link private as it is personalized for you.)
+Tip: Please join about 10 minutes early so we can do a quick audio and video check before going live!
 
-4) A CAPTION YOU CAN POST AS-IS
-${cap.linkedin}
+2️⃣ Your Personal Registration Link
+👉 ${c.track}
+Feel free to use this link whenever you invite your network or share details on social media — any registrations coming through this link (and the QR code on your custom banner) will be credited directly to you!
 
-Could you reply to confirm you've received everything? Looking forward to the panel.
+3️⃣ Your Promotional Banner
+${b.text}${b.link ? '\n' + b.link : ''}
 
+4️⃣ Sample Social Media Post / Caption
+Share this on your socials to bring in a live audience. Feel free to copy, paste, or tweak this text to post directly on your channels:
+
+"${cap.linkedin}"
+
+Could you please reply to this email to let us know you've received everything?
+
+The full promotion kit and panel discussion questions will be shared with you shortly, once all panelists are confirmed, to help you prepare.
+
+Looking forward to a wonderful panel discussion!
+
+Warmly,
 Achini
 Thriving Dentist Expert Panels`;
 }
+
+function emailHtml(c) {
+  const cap = captions(), b = bannerPara(c);
+  const h = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const P = (t, extra = '') => `<p style="margin:0 0 14px;${extra}">${t}</p>`;
+  const H = t => `<p style="margin:22px 0 8px;font-size:16px;font-weight:bold;color:#0a1a3f">${t}</p>`;
+  const A = (u, label) => `<a href="${h(u)}" style="color:#1e50a8;font-weight:bold;text-decoration:underline">${h(label)}</a>`;
+  const small = t => `<p style="margin:0 0 14px;font-size:13px;color:#6b7280">${t}</p>`;
+  return `<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#1f2937;max-width:640px">
+${P('Hi ' + h(c.first) + ',')}
+${P('Thank you so much for joining us as a panelist for the upcoming <b>Thriving Dentist Expert Panel — &quot;' + h(c.topic) + '&quot;</b>! We are so excited to have you on board for what promises to be a great session.')}
+${P("Here are all the details and links you'll need to get ready:")}
+${H('🗓️ Event Details')}
+<table cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;margin:0 0 6px"><tr>
+<td style="padding:12px 16px;border:1px solid #e5e7eb;border-left:4px solid #d4af37;background:#fafaf7">
+<div><b>Date:</b> ${h(c.dateLine)}</div>
+<div style="margin-top:2px"><b>Time:</b> ${h(c.timeLine)}</div>
+</td></tr></table>
+${H('1️⃣ Your Personal Zoom Panelist Link')}
+${c.join ? P('👉 ' + A(c.join, 'Join Zoom Panelist Link'), 'margin-bottom:6px') : P('👉 Your panelist link will follow separately.', 'margin-bottom:6px')}
+${small('(Please keep this link private as it is personalized for you.)<br><b>Tip:</b> Please join about 10 minutes early so we can do a quick audio and video check before going live!')}
+${H('2️⃣ Your Personal Registration Link')}
+${P('👉 ' + A(c.track, 'Shareable Registration Link'), 'margin-bottom:6px')}
+${small('Feel free to use this link whenever you invite your network or share details on social media — any registrations coming through this link (and the QR code on your custom banner) will be credited directly to you!')}
+${H('3️⃣ Your Promotional Banner')}
+${P(h(b.text) + (b.link ? '<br>👉 ' + A(b.link, 'Open banner folder') : ''))}
+${H('4️⃣ Sample Social Media Post / Caption')}
+${P('Share this on your socials to bring in a live audience. Feel free to copy, paste, or tweak this text to post directly on your channels:', 'margin-bottom:8px')}
+<div style="margin:0 0 16px;padding:12px 16px;background:#f3f4f6;border-left:3px solid #d4af37;white-space:pre-wrap;font-size:14px">“${h(cap.linkedin)}”</div>
+${P("Could you please reply to this email to let us know you've received everything?")}
+${P('The full promotion kit and panel discussion questions will be shared with you shortly, once all panelists are confirmed, to help you prepare.')}
+${P('Looking forward to a wonderful panel discussion!')}
+<p style="margin:0">Warmly,<br>Achini<br><span style="color:#6b7280">Thriving Dentist Expert Panels</span></p>
+</div>`;
+}
+
 function renderEmail() {
   const c = ctx();
   $('em-to').textContent = KIT_RECIPIENT;
   $('em-bcc').textContent = KIT_BCC;
   $('em-subject').textContent = emailSubject(c);
-  $('em-body').textContent = emailBody(c);
+  $('em-body').innerHTML = '<div class="email-preview">' + emailHtml(c) + '</div>';
 }
+
+/* Copy the formatted email so a paste into Gmail keeps the layout and hyperlinks; plain text as fallback */
+$('copy-email-btn').addEventListener('click', async () => {
+  const c = ctx(), html = emailHtml(c), text = emailBody(c);
+  try {
+    if (!window.ClipboardItem) throw new Error('no rich clipboard');
+    await navigator.clipboard.write([new ClipboardItem({ 'text/html': new Blob([html], { type: 'text/html' }), 'text/plain': new Blob([text], { type: 'text/plain' }) })]);
+    toast('Copied — paste into Gmail (formatting and links kept)', 'ok');
+  } catch (e) {
+    try { await navigator.clipboard.writeText(text); toast('Copied as plain text', 'ok'); }
+    catch (e2) { toast('Copy failed — select the email and copy manually', 'err'); }
+  }
+});
 
 /* Copy buttons */
 document.querySelectorAll('[data-copy-id]').forEach(btn => btn.addEventListener('click', async () => {
@@ -1050,9 +1098,9 @@ document.querySelectorAll('[data-copy-id]').forEach(btn => btn.addEventListener(
 $('send-btn').addEventListener('click', async () => {
   if (state.qrVerified === false) return toast('QR check failed — fix before sending', 'err');
   const c = ctx();
-  const hasBanners = Object.keys(state.renders).length === 3;
+  const hasBanners = Object.keys(state.renders).length === BANNER_KEYS.length;
   const msg = `Send the welcome email for ${c.name}?\nTo: ${KIT_RECIPIENT}\nBcc: ${KIT_BCC}\n\n` +
-    (hasBanners ? 'Attachments: 3 banners + QR.' : 'No banners rendered yet — the email will say they follow later.');
+    (hasBanners ? 'Attachments: banner + QR.' : 'No banner rendered yet — the email will say it follows later.');
   if (!window.confirm(msg)) return;
   const btn = $('send-btn'); busy(btn, true, 'Sending…');
   try {
@@ -1061,7 +1109,7 @@ $('send-btn').addEventListener('click', async () => {
       for (const k of Object.keys(state.renders)) files.push({ name: `${fileBase()}_${dlNames[k]}.png`, mime: 'image/png', base64: state.renders[k].toDataURL('image/png').split(',')[1] });
       if (state.qr) files.push({ name: `${fileBase()}_qr.png`, mime: 'image/png', base64: state.qr.toDataURL('image/png').split(',')[1] });
     }
-    const data = await api('send', {}, { panelist_key: state.profile.panelist_key, subject: emailSubject(c), body: emailBody(c), files });
+    const data = await api('send', {}, { panelist_key: state.profile.panelist_key, subject: emailSubject(c), body: emailBody(c), html: emailHtml(c), files });
     state.profile.status = 'sent'; state.profile.sent_at = data.sent_at; state.panelist.status = 'sent';
     renderTracker();
     toast(`Sent to ${data.sent_to}${data.bcc ? ' (bcc ' + data.bcc + ')' : ''} · ${data.attachments} attachments`, 'ok');

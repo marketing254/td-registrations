@@ -49,7 +49,7 @@
   .wrap{max-width:1200px;margin:0 auto;padding:0 26px}
   a{color:inherit}
   .goldtext{background:linear-gradient(100deg,#a9791a,#f3dd94 45%,#d4af37 70%,#a9791a);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:.98rem;letter-spacing:.02em;padding:15px 30px;border-radius:999px;border:none;cursor:pointer;background:var(--gold-grad);color:#2a1e05;box-shadow:0 12px 26px -10px rgba(169,121,26,.75),inset 0 1px 0 rgba(255,255,255,.5);text-decoration:none;font-family:inherit;transition:transform .25s ease,box-shadow .25s ease}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:.98rem;letter-spacing:.02em;padding:15px 30px;border-radius:999px;border:none;cursor:pointer;background:var(--gold-grad);color:#2a1e05;box-shadow:0 12px 26px -10px rgba(169,121,26,.75),inset 0 1px 0 rgba(255,255,255,.5);text-decoration:none;font-family:inherit;white-space:nowrap;transition:transform .25s ease,box-shadow .25s ease}
   .btn:hover{transform:translateY(-2px);box-shadow:0 18px 34px -10px rgba(169,121,26,.85)}
   .btn:disabled{opacity:.75;cursor:default;transform:none}
   .btn-ghost{background:transparent;color:#fff;border:1px solid var(--line-gold);box-shadow:none;padding:13px 26px}
@@ -279,6 +279,37 @@
     .shift{grid-template-columns:44px 1fr}
     .shift .arw{display:none}
     .share-copy-wrap{flex-direction:column}
+  }
+  @media (max-width:640px){
+    /* header: keep logo + button on one line, button never wraps */
+    .nav-in{padding:10px 16px;gap:10px}
+    .nav-logo{min-width:0}
+    .nav-logo img{height:24px;max-width:150px;object-fit:contain}
+    .nav-logo span{display:none}
+    .nav .btn{padding:9px 14px;font-size:.78rem;flex:none}
+    /* spacing */
+    .wrap{padding:0 18px}
+    section{padding:52px 0}
+    .hero{padding:28px 0 40px}
+    .eyebrow{font-size:.64rem;letter-spacing:.14em;padding:6px 12px;max-width:100%}
+    .hero .sub{font-size:1.05rem}
+    .hero-desc{font-size:.93rem}
+    .sponsor-bar{font-size:.84rem;padding:9px 14px;display:flex}
+    .sponsor-bar .sep{display:none}
+    .reg-inner{padding:20px 18px 22px}
+    .reg-ribbon{font-size:.72rem;padding:9px 14px}
+    .sec-head{margin-bottom:28px}
+    .sec-head h2{font-size:1.75rem}
+    .pan-body{padding:18px}
+    .gcard,.shift{padding:18px}
+    /* CTAs: full-width, centred, one line */
+    .final h2{font-size:1.65rem}
+    .final .btn{width:100%;max-width:360px}
+    .sticky-bar{padding:10px 14px}
+    .sticky-bar .sb-txt{min-width:0;flex:1}
+    .sticky-bar .btn{padding:11px 16px;font-size:.82rem;flex:none}
+    .share .btn,.share-btns .btn{min-width:0}
+    .ended-card{padding:30px 22px}
   }
 </style>
 </head>
