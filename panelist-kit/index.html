@@ -952,10 +952,10 @@ ${c.track}
 
 ${tags}`,
     instagram:
-`I'm on the panel! 🎙
+`I'm on the panel!
 
 Thriving Dentist Expert Panel — "${c.topic}"
-📅 ${c.when}
+${c.when}
 
 Complimentary registration + replay for everyone. Link in bio, or:
 ${c.track}
@@ -983,7 +983,7 @@ document.querySelectorAll('#cap-tabs .tab').forEach(t => t.addEventListener('cli
 
 /* Welcome email — SOP step 9: join link, registration link, banner, one ready-to-post caption.
    emailHtml() is what gets sent/copied (formatted, hyperlinks); emailBody() is the plain-text fallback. */
-function emailSubject(c) { return `You are Confirmed - Welcome to the "${c.topic}" Expert Panel! 🎉`; }
+function emailSubject(c) { return `You are Confirmed - Welcome to the "${c.topic}" Expert Panel!`; }
 
 function bannerPara(c) {
   if (!c.pr.headshot_data_uri) return { text: "Your personalized banner and QR code will follow as soon as we have your headshot — please reply with one when you can.", link: '' };
@@ -999,23 +999,23 @@ Thank you so much for joining us as a panelist for the upcoming Thriving Dentist
 
 Here are all the details and links you'll need to get ready:
 
-🗓️ Event Details
+EVENT DETAILS
 Date: ${c.dateLine}
 Time: ${c.timeLine}
 
-1️⃣ Your Personal Zoom Panelist Link
-👉 ${c.join || '(will follow separately)'}
+1. Your Personal Zoom Panelist Link
+${c.join || '(will follow separately)'}
 (Please keep this link private as it is personalized for you.)
 Tip: Please join about 10 minutes early so we can do a quick audio and video check before going live!
 
-2️⃣ Your Personal Registration Link
-👉 ${c.track}
+2. Your Personal Registration Link
+${c.track}
 Feel free to use this link whenever you invite your network or share details on social media — any registrations coming through this link (and the QR code on your custom banner) will be credited directly to you!
 
-3️⃣ Your Promotional Banner
+3. Your Promotional Banner
 ${b.text}${b.link ? '\n' + b.link : ''}
 
-4️⃣ Sample Social Media Post / Caption
+4. Sample Social Media Post / Caption
 Share this on your socials to bring in a live audience. Feel free to copy, paste, or tweak this text to post directly on your channels:
 
 "${cap.linkedin}"
@@ -1042,21 +1042,21 @@ function emailHtml(c) {
 ${P('Hi ' + h(c.first) + ',')}
 ${P('Thank you so much for joining us as a panelist for the upcoming <b>Thriving Dentist Expert Panel — &quot;' + h(c.topic) + '&quot;</b>! We are so excited to have you on board for what promises to be a great session.')}
 ${P("Here are all the details and links you'll need to get ready:")}
-${H('🗓️ Event Details')}
+${H('Event Details')}
 <table cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;margin:0 0 6px"><tr>
 <td style="padding:12px 16px;border:1px solid #e5e7eb;border-left:4px solid #d4af37;background:#fafaf7">
 <div><b>Date:</b> ${h(c.dateLine)}</div>
 <div style="margin-top:2px"><b>Time:</b> ${h(c.timeLine)}</div>
 </td></tr></table>
-${H('1️⃣ Your Personal Zoom Panelist Link')}
-${c.join ? P('👉 ' + A(c.join, 'Join Zoom Panelist Link'), 'margin-bottom:6px') : P('👉 Your panelist link will follow separately.', 'margin-bottom:6px')}
+${H('1. Your Personal Zoom Panelist Link')}
+${c.join ? P(A(c.join, 'Join Zoom Panelist Link'), 'margin-bottom:6px') : P('Your panelist link will follow separately.', 'margin-bottom:6px')}
 ${small('(Please keep this link private as it is personalized for you.)<br><b>Tip:</b> Please join about 10 minutes early so we can do a quick audio and video check before going live!')}
-${H('2️⃣ Your Personal Registration Link')}
-${P('👉 ' + A(c.track, 'Shareable Registration Link'), 'margin-bottom:6px')}
+${H('2. Your Personal Registration Link')}
+${P(A(c.track, 'Shareable Registration Link'), 'margin-bottom:6px')}
 ${small('Feel free to use this link whenever you invite your network or share details on social media — any registrations coming through this link (and the QR code on your custom banner) will be credited directly to you!')}
-${H('3️⃣ Your Promotional Banner')}
-${P(h(b.text) + (b.link ? '<br>👉 ' + A(b.link, 'Open banner folder') : ''))}
-${H('4️⃣ Sample Social Media Post / Caption')}
+${H('3. Your Promotional Banner')}
+${P(h(b.text) + (b.link ? '<br>' + A(b.link, 'Open banner folder') : ''))}
+${H('4. Sample Social Media Post / Caption')}
 ${P('Share this on your socials to bring in a live audience. Feel free to copy, paste, or tweak this text to post directly on your channels:', 'margin-bottom:8px')}
 <div style="margin:0 0 16px;padding:12px 16px;background:#f3f4f6;border-left:3px solid #d4af37;white-space:pre-wrap;font-size:14px">“${h(cap.linkedin)}”</div>
 ${P("Could you please reply to this email to let us know you've received everything?")}
