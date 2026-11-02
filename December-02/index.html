@@ -40,7 +40,7 @@
     --shadow-md:0 18px 40px -20px rgba(5,15,43,.4);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;font-size:14px}
   body{font-family:'Inter',system-ui,sans-serif;color:var(--text-dark);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
   .em{color:var(--blue-600);font-style:italic}
@@ -62,7 +62,7 @@
   .nav .btn{padding:11px 22px;font-size:.86rem}
 
   /* HERO (split) */
-  .hero{position:relative;overflow:hidden;background:radial-gradient(1200px 520px at 88% -10%,rgba(47,111,208,.35),transparent 60%),radial-gradient(900px 500px at 6% 0%,rgba(212,175,55,.10),transparent 55%),linear-gradient(160deg,var(--navy-950),var(--navy-900) 45%,var(--navy-800));color:#eaf0fb;padding:46px 0 54px}
+  .hero{position:relative;overflow:hidden;background:radial-gradient(1200px 520px at 88% -10%,rgba(47,111,208,.35),transparent 60%),radial-gradient(900px 500px at 6% 0%,rgba(212,175,55,.10),transparent 55%),linear-gradient(160deg,var(--navy-950),var(--navy-900) 45%,var(--navy-800));color:#eaf0fb;padding:38px 0 44px}
   .hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background:radial-gradient(600px 240px at 20% 18%,rgba(255,255,255,.10),transparent 60%),conic-gradient(from 210deg at 82% 10%,rgba(255,255,255,.10),transparent 30%);mix-blend-mode:screen}
   .flourish{position:absolute;width:340px;height:340px;pointer-events:none}
   .flourish.tl{top:-60px;left:-70px;background:radial-gradient(closest-side,rgba(212,175,55,.35),transparent);border-radius:50%}
@@ -70,7 +70,7 @@
   .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lite);border:1px solid var(--line-gold);border-radius:999px;padding:7px 16px;margin-bottom:20px;background:rgba(212,175,55,.06)}
   .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.18)}
-  .hero h1{font-size:clamp(2.4rem,4.6vw,4rem);line-height:1.03;font-weight:800;letter-spacing:-.01em;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+  .hero h1{font-size:clamp(2rem,3.4vw,2.9rem);line-height:1.03;font-weight:800;letter-spacing:-.01em;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35)}
   .hero .sub{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--gold-lite);margin-top:10px}
   .rule{display:flex;align-items:center;gap:14px;margin:20px 0 0;max-width:420px}
   .rule .ln{height:1px;flex:1;background:linear-gradient(90deg,var(--gold),transparent)}
@@ -105,7 +105,7 @@
   .reg-ribbon{display:flex;align-items:center;gap:8px;background:var(--gold-grad);color:#2a1e05;padding:10px 20px;font-size:.78rem;font-weight:700;letter-spacing:.02em}
   .reg-ribbon .star{font-size:.9rem}
   .reg-inner{padding:24px 26px 26px}
-  .reg-inner h2{color:#fff;font-size:1.6rem}
+  .reg-inner h2{color:#fff;font-size:1.4rem}
   .reg-sub{color:#c3cfe6;font-size:.86rem;margin-top:4px}
   .social-proof{display:flex;align-items:center;gap:10px;margin:14px 0 4px;font-size:.8rem;color:#cdd8ef}
   .avatars{display:flex}
@@ -145,22 +145,22 @@
   @media (prefers-reduced-motion:reduce){.gift-rail.show,.gift-rail::before,.gift-body .free-tag{animation:none}}
 
   /* SECTIONS */
-  section{padding:74px 0}
-  .sec-head{text-align:center;margin-bottom:42px}
+  section{padding:56px 0}
+  .sec-head{text-align:center;margin-bottom:28px}
   .sec-tag{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
-  .sec-head h2{font-size:clamp(2rem,4vw,3rem);margin-top:10px;color:var(--navy-900)}
+  .sec-head h2{font-size:clamp(1.5rem,2.6vw,2rem);margin-top:10px;color:var(--navy-900)}
   .sec-head p{color:var(--text-mute);margin-top:8px;max-width:640px;margin-left:auto;margin-right:auto}
 
   /* GIFT EDITORIAL SECTION */
   .gift-sec{background:linear-gradient(180deg,#fbfaf6,#f1eddf)}
   .gift-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:44px}
-  .gcard{background:#fff;border:1px solid rgba(20,35,63,.07);border-top:3px solid var(--gold);border-radius:16px;padding:26px;box-shadow:var(--shadow-md)}
+  .gcard{background:#fff;border:1px solid rgba(20,35,63,.07);border-top:3px solid var(--gold);border-radius:16px;padding:22px;box-shadow:var(--shadow-md)}
   .gcard .gi{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px;background:linear-gradient(135deg,#0a1a3f,#163a7a)}
   .gcard .gi svg{width:22px;height:22px;stroke:var(--gold-lite);fill:none;stroke-width:1.7}
-  .gcard h4{color:var(--navy-900);font-size:1.12rem;margin-bottom:6px}
-  .gcard p{color:var(--text-mute);font-size:.92rem}
+  .gcard h4{color:var(--navy-900);font-size:1.02rem;margin-bottom:6px}
+  .gcard p{color:var(--text-mute);font-size:.88rem}
   .claim{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:900px;margin:0 auto;background:#fff;border:1px solid rgba(20,35,63,.08);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-md)}
-  .step{padding:26px 24px;text-align:center;position:relative}
+  .step{padding:20px 18px;text-align:center;position:relative}
   .step:not(:last-child)::after{content:"";position:absolute;right:0;top:18%;height:64%;width:1px;background:linear-gradient(180deg,transparent,var(--line-gold),transparent)}
   .step .no{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;font-family:'Playfair Display',serif;font-weight:700;color:#2a1e05;background:var(--gold-grad)}
   .step h5{color:var(--navy-900);font-size:1rem;margin-bottom:4px}
@@ -169,26 +169,26 @@
 
   /* PANELISTS */
   .panelists{background:var(--paper)}
-  .pan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1180px;margin:0 auto}
+  .pan-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:880px;margin:0 auto}
   .pan{background:#fff;border-radius:22px;overflow:hidden;border:1px solid rgba(20,35,63,.08);box-shadow:var(--shadow-md);transition:transform .3s,box-shadow .3s}
   .pan:hover{transform:translateY(-5px);box-shadow:0 30px 60px -28px rgba(5,15,43,.4)}
-  .pan-photo{position:relative;aspect-ratio:1/.86;overflow:hidden;background:linear-gradient(160deg,#0a1a3f,#163a7a)}
+  .pan-photo{position:relative;aspect-ratio:1/.72;overflow:hidden;background:linear-gradient(160deg,#0a1a3f,#163a7a)}
   .pan-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
   .pan-photo::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 4px rgba(212,175,55,.55)}
-  .pan-num{position:absolute;top:14px;left:14px;background:var(--gold-grad);color:#2a1e05;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
-  .pan-body{padding:24px}
-  .pan-body h3{font-size:1.4rem;color:var(--navy-900)}
-  .pan-role{color:var(--gold-deep);font-weight:600;font-size:.9rem;margin:6px 0 12px}
-  .pan-body p{color:var(--text-mute);font-size:.93rem}
+  .pan-num{position:absolute;top:12px;left:12px;background:var(--gold-grad);color:#2a1e05;font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+  .pan-body{padding:20px 22px 22px}
+  .pan-body h3{font-size:1.1rem;color:var(--navy-900)}
+  .pan-role{color:var(--gold-deep);font-weight:600;font-size:.82rem;margin:5px 0 10px}
+  .pan-body p{color:var(--text-mute);font-size:.85rem;line-height:1.55}
 
   /* COVER */
   .cover{background:linear-gradient(180deg,#fbfaf6,#f1eddf)}
-  .shift{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:22px;background:#fff;border:1px solid rgba(20,35,63,.07);border-left:3px solid var(--gold);border-radius:16px;padding:22px 26px;margin-bottom:16px;box-shadow:var(--shadow-md);transition:transform .25s,border-color .25s}
+  .shift{display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:18px;background:#fff;border:1px solid rgba(20,35,63,.07);border-left:3px solid var(--gold);border-radius:14px;padding:16px 22px;margin-bottom:12px;max-width:980px;margin-left:auto;margin-right:auto;box-shadow:var(--shadow-md);transition:transform .25s,border-color .25s}
   .shift:hover{transform:translateX(6px);border-left-color:var(--blue-600)}
-  .shift .n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:transparent;-webkit-background-clip:text;background-clip:text;background:var(--gold-grad)}
-  .shift h4{font-size:1.12rem;color:var(--navy-900);margin-bottom:4px}
-  .shift p{color:var(--text-mute);font-size:.92rem}
-  .shift .arw{color:var(--gold-deep);font-size:1.4rem}
+  .shift .n{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+  .shift h4{font-size:1.02rem;color:var(--navy-900);margin-bottom:4px}
+  .shift p{color:var(--text-mute);font-size:.88rem}
+  .shift .arw{color:var(--gold-deep);font-size:1.2rem}
 
   /* ── I AM ATTENDING SHARE SECTION (revealed after registration) ── */
   .share{display:none;background:linear-gradient(160deg,#0a1a3f,#0f2451);border-top:1px solid var(--line-gold);border-bottom:1px solid var(--line-gold);color:#eaf0fb}
@@ -234,7 +234,7 @@
 
   /* FINAL CTA */
   .final{background:radial-gradient(900px 400px at 80% 0%,rgba(47,111,208,.3),transparent 60%),linear-gradient(160deg,var(--navy-950),var(--navy-800));color:#fff;text-align:center;position:relative;overflow:hidden}
-  .final h2{font-size:clamp(1.9rem,4vw,2.9rem);max-width:820px;margin:0 auto}
+  .final h2{font-size:clamp(1.5rem,2.6vw,2rem);max-width:820px;margin:0 auto}
   .final p{color:#c3cfe6;margin:18px auto 0;max-width:600px}
   .final .btn{margin-top:28px}
 
@@ -357,6 +357,10 @@
         </div>
       </div>
 
+      <div class="trust">
+        <span class="lbl">Panelists from</span>
+        <span class="orgs"><span>Keystone Advisors</span><span>Prosperident</span><span>Next Level Consultants</span><span>The Dental Practice Mechanics</span></span>
+      </div>
     </div>
 
     <!-- RIGHT: registration card (above the fold) -->
@@ -429,6 +433,50 @@
       <div class="step"><div class="no">3</div><h5>Get your session</h5><p>We'll email your strategy-session link to book.</p></div>
     </div>
     <p class="claim-note">Reserved for live attendees — a thank-you for spending the hour with us.</p>
+  </div>
+</section>
+
+<!-- PANELISTS -->
+<section class="panelists" id="panelists">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">Meet the Panelists</div>
+      <h2>Four Experts Who Know <span class="em">Where the Money Goes</span></h2>
+    </div>
+    <div class="pan-grid">
+      <article class="pan">
+        <div class="pan-photo"><span class="pan-num">Panelist 01</span><img src="Melissa Leavitt_TD_02.12.2026.jpg" alt="Melissa Leavitt" style="object-position:center 32%" /></div>
+        <div class="pan-body">
+          <h3>Melissa Leavitt</h3>
+          <div class="pan-role">Founder &amp; Fractional CFO for Dental &amp; Healthcare · Keystone Advisors</div>
+          <p>Melissa Leavitt is the Founder &amp; Fractional CFO of Keystone Advisors, where she provides CFO-level business advisory services to independently owned dental and healthcare practices across the Pacific Northwest, with remote clients as well. Her background is unique for the field: she started as a certified dental assistant before spending 15 years in corporate finance, giving her a rare combination of clinical-floor experience and financial expertise. That path shapes how she works with clients &mdash; she speaks the language of both the practice and the balance sheet. She's passionate about helping owners connect the operational and financial dots so they can make more confident decisions &mdash; all while taking care of their team and their patients.</p>
+        </div>
+      </article>
+      <article class="pan">
+        <div class="pan-photo"><span class="pan-num">Panelist 02</span><img src="Amber Weber-Gonzales_TD_02.12.2026.png" alt="Amber Weber-Gonzales, RDH" style="object-position:center 45%" /></div>
+        <div class="pan-body">
+          <h3>Amber Weber-Gonzales, RDH</h3>
+          <div class="pan-role">Senior Fraud Investigator &amp; Supervising Proactive Services Advisor · Prosperident</div>
+          <p>Amber Weber-Gonzales is a Senior Fraud Investigator and Supervising Proactive Services Advisor with Prosperident, the world's leading dental embezzlement investigation and financial safeguarding firm. With more than 20 years of experience in the dental industry as both a licensed dental hygienist and practice administrator, Amber combines clinical insight with forensic expertise to help practices protect their financial health. She specializes in embezzlement investigations, revenue integrity, internal controls, and proactive financial safeguarding, while also coaching dental teams on accountability, operational excellence, and practice growth. Amber is an international speaker who is passionate about helping dentists build stronger, more profitable, and more secure practices.</p>
+        </div>
+      </article>
+      <article class="pan">
+        <div class="pan-photo"><span class="pan-num">Panelist 03</span><img src="Michael Dinsio_TD_02.12.2026.jpg" alt="Michael Dinsio, MBA" /></div>
+        <div class="pan-body">
+          <h3>Michael Dinsio, MBA</h3>
+          <div class="pan-role">Founder &amp; Co-Owner, Dental Practice Consultant &amp; Business Strategist · Next Level Consultants</div>
+          <p>Michael Dinsio is an experienced and highly respected dental practice consultant who has helped hundreds, if not thousands, of doctors through a dental practice startup or the purchase of an existing practice. He started in the industry as a banker helping doctors secure financing, and over time discovered his true passion was consulting and helping dentists become business owners. Wanting to further their careers rather than simply arrange a loan, he left corporate banking to become a self-employed dental consultant. Michael gives you the information you need without the fluff, and will always give you the answer you're looking for or connect you with someone who can better serve you. His depth of understanding of the business of dentistry, combined with his experience in the wider business world, sets him apart. Having contributed to projects and deals nationwide, he brings valuable expertise across diverse markets to any venture.</p>
+        </div>
+      </article>
+      <article class="pan">
+        <div class="pan-photo" style="background:#ded4cc"><span class="pan-num">Panelist 04</span><img src="Rick Garofolo_TD_02.12.2026.png" alt="Rick Garofolo" style="object-fit:contain;object-position:center center" /></div>
+        <div class="pan-body">
+          <h3>Rick Garofolo</h3>
+          <div class="pan-role">CEO &amp; President · The Dental Practice Mechanics</div>
+          <p>Rick founded The Dental Practice Mechanics as the company's chief executive officer and president in 2001, after marrying a dentist and seeing the real need for business management education and hands-on help with practice growth. The Dental Practice Mechanics are set up differently from their competitors: Rick takes pride in a close-knit team that works together as full-time, in-house employees, with no overseas or work-from-home outsourcing. Over the years, Rick has contributed to the business of dentistry through proper accounting techniques, recall and follow-up system creation, proper treatment plan presentation, and more than 20 other systems. Knowing what is expected and required of you increases bottom-line profits, creates a safe environment for staff and patients, and helps dentists sleep well at night.</p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
