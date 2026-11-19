@@ -380,7 +380,8 @@
           <div class="field"><label>Last Name *</label><input type="text" name="last_name" placeholder="Doe" autocomplete="family-name" required></div>
           <div class="field"><label>Email *</label><input type="email" name="email" placeholder="you@gmail.com" autocomplete="email" required></div>
           <div class="field"><label>Mobile *</label><input type="tel" name="phone" placeholder="(555) 000-0000" autocomplete="tel" required></div>
-          <div class="field full"><label>Practice Name *</label><input type="text" name="practice_name" placeholder="Bright Smiles Dental" autocomplete="organization" required></div>
+          <div class="field"><label>Practice Name/Website *</label><input type="text" name="practice_name" placeholder="Bright Smiles Dental" autocomplete="organization" required></div>
+          <div class="field"><label>Job Title *</label><input type="text" name="job_title" placeholder="Dentist / Owner" autocomplete="organization-title" required></div>
           <div class="field full"><label>Questions for the panel (optional)</label><textarea name="questions" rows="2" placeholder="What would you like the panel to cover?"></textarea></div>
           <div class="field full"><button type="submit" class="btn" id="reg-btn">Register Free</button></div>
         </form>
@@ -582,6 +583,7 @@ Register here: https://www.reg.thrivingdentist.com/December-10/</textarea>
       email: form.email.value.trim(),
       phone: form.phone.value.trim(),
       practice_name: form.practice_name.value.trim(),
+      job_title: form.job_title.value.trim(),
       questions: form.questions.value.trim(),
       source_id: source_id,
       source_name: '',
